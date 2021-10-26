@@ -1,0 +1,32 @@
+spring:
+  application:
+    admin:
+      enabled: true
+    name: project
+
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/starterDB
+    username: postgres
+    password: YOUR_POSTGRES_PW_HERE
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: true
+    show-sql: true
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 1MB
+      max-request-size: 1MB
+  thymeleaf:
+    cache: false
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+
+
+  principal-attribute: preferred_username
+  
+asys:
+  security:
+    disabled: false      
