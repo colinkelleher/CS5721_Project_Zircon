@@ -11,7 +11,9 @@ public abstract class CalendarEvent {
         this.endDate = endDate;
     }
 
-    public abstract double getPay();
+    public abstract double getPay(double rate);
+
+    public abstract boolean isOvertime();
 
     public Date getStartDate() {
         return startDate;
