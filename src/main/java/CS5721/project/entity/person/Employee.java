@@ -1,4 +1,6 @@
-package CS5721.project.entity;
+package CS5721.project.entity.person;
+
+import CS5721.project.entity.person.Person;
 
 //@Entity
 //@Table(name = "employee")
