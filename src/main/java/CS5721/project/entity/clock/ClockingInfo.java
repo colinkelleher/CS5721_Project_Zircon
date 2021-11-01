@@ -1,7 +1,5 @@
 package CS5721.project.entity.clock;
 
-import CS5721.project.entity.wage.Wage;
-
 import java.time.LocalDateTime;
 
 public class ClockingInfo {
