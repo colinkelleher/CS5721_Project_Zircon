@@ -1,4 +1,4 @@
-package CS5721.project.entity;
+package CS5721.project.entity.calendar;
 
 import CS5721.project.entity.calendar.CalendarEvent;
 
