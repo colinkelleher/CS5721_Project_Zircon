@@ -23,11 +23,11 @@ public abstract class CalendarEvent {
         this.startDate = startDate;
     }
 
-    public LocalDateTime getEndData() {
+    public LocalDateTime getEndDate() {
         return endDate;
     }
 
-    public void setEndData(LocalDateTime endData) {
+    public void setEndDate(LocalDateTime endData) {
         this.endDate = endData;
     }
 
