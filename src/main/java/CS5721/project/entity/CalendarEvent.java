@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class CalendarEvent {
     private Date startDate;
-    private Date endData;
+    private Date endDate;
 
     enum EventType {
         SHIFT,
@@ -23,11 +23,11 @@ public class CalendarEvent {
     }
 
     public Date getEndData() {
-        return endData;
+        return endDate;
     }
 
     public void setEndData(Date endData) {
-        this.endData = endData;
+        this.endDate = endData;
     }
 
 }
