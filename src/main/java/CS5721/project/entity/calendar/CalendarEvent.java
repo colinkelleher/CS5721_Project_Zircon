@@ -1,11 +1,17 @@
-package CS5721.project.entity;
+package CS5721.project.entity.calendar;
 
 import java.util.Date;
 
-public class CalendarEvent {
+public abstract class CalendarEvent {
     private Date startDate;
     private Date endDate;
-    private EventType eventType;
+
+    public CalendarEvent(Date startDate, Date endDate) {
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
+
+    public abstract double getPay();
 
     public Date getStartDate() {
         return startDate;
