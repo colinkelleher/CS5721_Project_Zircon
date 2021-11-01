@@ -5,14 +5,7 @@ import java.util.Date;
 public class CalendarEvent {
     private Date startDate;
     private Date endDate;
-
-    enum EventType {
-        SHIFT,
-        OVERTIME,
-        HOLIDAYS,
-        ABSENCE,
-        TRAINING,
-    }
+    private EventType eventType;
 
     public Date getStartDate() {
         return startDate;
