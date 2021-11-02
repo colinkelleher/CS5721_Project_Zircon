@@ -1,5 +1,6 @@
 package CS5721.project.entity.person;
 
+import CS5721.project.entity.calendar.Calendar;
 import CS5721.project.entity.wage.Wage;
 
 //@Entity
@@ -14,6 +15,10 @@ public class Employee {
 	private String name;
 
 	private Wage wage;
+
+	private Calendar calendar;
+
+
 
 	public Long getId() {
 		return id;
@@ -32,8 +37,10 @@ public class Employee {
 	}
 
 	public double getWage() {
-		return wage.getWage();
+		return wage.getWage(this);
 	}
+
+	public Calendar getCalendar() { return calendar; }
 
 	// @Column(name = "employeeNum")
 	private int employeeNum;
