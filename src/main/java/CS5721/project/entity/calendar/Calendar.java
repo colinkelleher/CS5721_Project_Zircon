@@ -1,14 +1,13 @@
 package CS5721.project.entity.calendar;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Calendar {
     public Calendar() {
         this.events = new ArrayList<>();
     }
 
-    public List<CalendarEvent> getEvents() {
+    public ArrayList<CalendarEvent> getEvents() {
         return events;
     }
 
@@ -16,5 +15,5 @@ public class Calendar {
         events.add(event);
     }
 
-    private final List<CalendarEvent> events;
+    private final ArrayList<CalendarEvent> events;
 }
