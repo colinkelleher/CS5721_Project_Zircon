@@ -11,8 +11,8 @@ import CS5721.project.entity.wage.Wage;
 
 public class WeeklyMonthlyWageTest {
 
-	public static final LocalDateTime EVENT_START_DATE = LocalDateTime.of(2021, 11, 25, 18, 30);
-	public static final LocalDateTime EVENT_END_DATE = LocalDateTime.of(2021, 11, 25, 19, 30);
+	public static final LocalDateTime EVENT_START_DATE = LocalDateTime.of(2021, 10, 31, 18, 30);
+	public static final LocalDateTime EVENT_END_DATE = LocalDateTime.of(2021, 10, 31, 19, 30);
 
 	@Test
 	public void weeklyMonthlyWageTest() {
@@ -30,8 +30,8 @@ public class WeeklyMonthlyWageTest {
 		double employeeMonthly1Wage = employee1Wage.getMonthlyWage(employee1.getCalendar());
 		double employeeWeekly1Wage = employee1Wage.getWeeklyWage(employee1.getCalendar());
 
-		Assertions.assertEquals(26.20, employeeMonthly1Wage); // passing
-		Assertions.assertEquals(0, employeeWeekly1Wage); 	  // not passing ->need fix on getWeeklyWage()
+		Assertions.assertEquals(0, employeeMonthly1Wage); // passing
+		Assertions.assertEquals(26.20, employeeWeekly1Wage); 	  // not passing ->need fix on getWeeklyWage()
 
 	}
 
