@@ -8,6 +8,6 @@ public class Editor {
     private File file;
 
     public Editor() {
-        this.events = new EventManager("open", "save");
+        this.events = new EventManager("add_event", "clocking");
     }
 }
