@@ -26,9 +26,8 @@ public class WeeklyMonthlyWageTest {
 		calendar1.addEvent(event2);
 		calendar1.addEvent(event3);
 
-		Wage employee1Wage = employee1.getWage();
-		double employeeMonthly1Wage = employee1Wage.getMonthlyWage(employee1.getCalendar());
-		double employeeWeekly1Wage = employee1Wage.getWeeklyWage(employee1.getCalendar());
+		double employeeMonthly1Wage = employee1.getMonthlyWage();
+		double employeeWeekly1Wage = employee1.getWeeklyWage();
 
 		Assertions.assertEquals(0, employeeMonthly1Wage); // passing
 		Assertions.assertEquals(26.20, employeeWeekly1Wage); 	  // not passing ->need fix on getWeeklyWage()

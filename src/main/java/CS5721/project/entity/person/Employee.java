@@ -41,10 +41,6 @@ public class Employee {
 		return calendar;
 	}
 
-	public Wage getWage() {
-		return wage;
-	}
-
 	public void setWage(Wage wage) {
 		this.wage = wage;
 	}
@@ -53,4 +49,12 @@ public class Employee {
 		this.calendar = calendar;
 	}
 
+
+	public double getMonthlyWage() {
+		return wage.getMonthlyWage(this.calendar);
+	}
+
+	public double getWeeklyWage(){
+		return wage.getWeeklyWage(this.calendar);
+	}
 }
