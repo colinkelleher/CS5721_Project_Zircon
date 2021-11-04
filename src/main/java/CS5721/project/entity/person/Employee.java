@@ -3,13 +3,8 @@ package CS5721.project.entity.person;
 import CS5721.project.entity.calendar.Calendar;
 import CS5721.project.entity.wage.Wage;
 
-//@Entity
-//@Table(name = "employee")
 public class Employee {
 
-	// @Id
-	// @Column(name = "id", unique = true)
-	// @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	private String name;
@@ -18,7 +13,13 @@ public class Employee {
 
 	private Calendar calendar;
 
-
+	public Employee(Long id, String name, Wage wage, Calendar calendar) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.wage = wage;
+		this.calendar = calendar;
+	}
 
 	public Long getId() {
 		return id;
@@ -36,13 +37,20 @@ public class Employee {
 		this.name = name;
 	}
 
-	public double getWage() {
-		return wage.getWage(this);
+	public Calendar getCalendar() {
+		return calendar;
 	}
 
-	public Calendar getCalendar() { return calendar; }
+	public Wage getWage() {
+		return wage;
+	}
 
-	// @Column(name = "employeeNum")
-	private int employeeNum;
+	public void setWage(Wage wage) {
+		this.wage = wage;
+	}
+
+	public void setCalendar(Calendar calendar) {
+		this.calendar = calendar;
+	}
 
 }

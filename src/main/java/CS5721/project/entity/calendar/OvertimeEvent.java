@@ -15,7 +15,8 @@ public class OvertimeEvent extends CalendarEvent{
         LocalDateTime startDate = getStartDate();
         LocalDateTime endDate = getEndDate();
         Duration duration = Duration.between(startDate,endDate);
-        return duration.toHours() * RATES.OVERTIME_RATE.getValue();
+        double pay = duration.toHours() * RATES.OVERTIME_RATE.getValue();
+        return pay;
     }
 
     @Override
