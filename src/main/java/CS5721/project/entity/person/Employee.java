@@ -13,6 +13,13 @@ public class Employee {
 
 	private Calendar calendar;
 
+	public Employee(Long id, String name) {
+		this.id = id;
+		this.name = name;
+		this.wage = new Wage();
+		this.calendar = new Calendar();
+	}
+
 	public Employee(Long id, String name, Wage wage, Calendar calendar) {
 		super();
 		this.id = id;
