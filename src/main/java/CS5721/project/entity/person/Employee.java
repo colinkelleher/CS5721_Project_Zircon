@@ -69,6 +69,12 @@ public class Employee implements EventListener {
 		return wage.getWeeklyWage(this.calendar);
 	}
 
+
+	@Override
+	public void update(String eventType) {
+
+	}
+
 	@Override
 	public void update(String eventType, CalendarEvent event, Long employeeID) {
 		if (Objects.equals(this.id, employeeID)) {
