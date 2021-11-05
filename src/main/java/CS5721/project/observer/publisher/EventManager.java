@@ -3,7 +3,6 @@ package CS5721.project.observer.publisher;
 import CS5721.project.entity.calendar.CalendarEvent;
 import CS5721.project.observer.listeners.EventListener;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
