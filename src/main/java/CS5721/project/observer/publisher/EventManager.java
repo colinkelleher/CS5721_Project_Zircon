@@ -1,5 +1,6 @@
 package CS5721.project.observer.publisher;
 
+import CS5721.project.entity.calendar.CalendarEvent;
 import CS5721.project.observer.listeners.EventListener;
 
 import java.io.File;
@@ -26,10 +27,17 @@ public class EventManager {
         users.add(listener);
     }
 
-    public void notify(String eventType, File file) {
+    public void notify(String eventType, CalendarEvent event) {
         List<EventListener> users = listeners.get(eventType);
         for (EventListener listener: users) {
-            listener.update(eventType, file);
+            listener.update(eventType, event);
+        }
+    }
+
+    public void notify(String eventType, CalendarEvent event, Long id) {
+        List<EventListener> users = listeners.get(eventType);
+        for (EventListener listener: users) {
+            listener.update(eventType, event, id);
         }
     }
 }
