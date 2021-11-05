@@ -9,7 +9,7 @@ public class EventManagerTest {
 
     @Test
     public void eventManagerTest (){
-        EventManager eventManager = new EventManager("add_event","create_request");
+        EventManager eventManager = new EventManager("create_event","create_request");
 
     }
 
