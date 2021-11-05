@@ -27,13 +27,6 @@ public class EventManager {
         users.add(listener);
     }
 
-    public void notify(String eventType, CalendarEvent event) {
-        List<EventListener> users = listeners.get(eventType);
-        for (EventListener listener: users) {
-            listener.update(eventType, event);
-        }
-    }
-
     public void notify(String eventType, CalendarEvent event, Long id) {
         List<EventListener> users = listeners.get(eventType);
         for (EventListener listener: users) {
