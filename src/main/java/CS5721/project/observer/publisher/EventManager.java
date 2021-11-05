@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class EventManager {
+public abstract class EventManager {
     Map<String, List<EventListener>> listeners = new HashMap<>();
 
     public EventManager(String...operations) {
@@ -26,10 +26,5 @@ public class EventManager {
         users.add(listener);
     }
 
-    public void notify(String eventType, CalendarEvent event, Long id) {
-        List<EventListener> users = listeners.get(eventType);
-        for (EventListener listener: users) {
-            listener.update(eventType, event, id);
-        }
-    }
+    public abstract void notify(String eventType);
 }
