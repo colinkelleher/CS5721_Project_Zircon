@@ -1,8 +1,8 @@
-package CS5721.project.entity.calendar;
+package CS5721.project.observer;
 
 public enum EVENTS {
-    CREATE_REQUEST("createRequest"),
-    VALIDATE_REQUEST("validateRequest");
+    CREATE_REQUEST("create_request"),
+    VALIDATE_REQUEST("validate_request");
 
     private final String value;
 
