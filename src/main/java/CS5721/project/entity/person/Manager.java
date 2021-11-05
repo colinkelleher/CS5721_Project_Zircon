@@ -33,7 +33,7 @@ public class Manager extends Employee {
 		if (Objects.equals(eventType, "create_request")){
 			this.addRequest(event,employeeID);
 		}
-		else if (Objects.equals(this.getId(), employeeID)) {
+		else if (Objects.equals(eventType, "create_event") &&Objects.equals(this.getId(), employeeID)) {
 			this.getCalendar().addEvent(event);
 		}
 	}

@@ -77,7 +77,7 @@ public class Employee implements EventListener {
 
 	@Override
 	public void update(String eventType, CalendarEvent event, Long employeeID) {
-		if (Objects.equals(this.id, employeeID)) {
+		if (Objects.equals(eventType, "create_event") && Objects.equals(this.id, employeeID)) {
 			this.calendar.addEvent(event);
 		}
 	}
