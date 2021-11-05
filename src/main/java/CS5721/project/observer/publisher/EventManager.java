@@ -27,4 +27,6 @@ public abstract class EventManager {
     }
 
     public abstract void notify(String eventType);
+
+    public abstract void notifyEvent(String eventType, CalendarEvent event, Long id);
 }
