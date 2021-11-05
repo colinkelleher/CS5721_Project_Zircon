@@ -1,9 +1,13 @@
 package CS5721.project.entity.person;
 
 import CS5721.project.entity.calendar.Calendar;
+import CS5721.project.entity.calendar.CalendarEvent;
 import CS5721.project.entity.wage.Wage;
+import CS5721.project.observer.listeners.EventListener;
 
-public class Employee {
+import java.util.Objects;
+
+public class Employee implements EventListener {
 
 	private Long id;
 
@@ -63,5 +67,12 @@ public class Employee {
 
 	public double getWeeklyWage(){
 		return wage.getWeeklyWage(this.calendar);
+	}
+
+	@Override
+	public void update(String eventType, CalendarEvent event, Long employeeID) {
+		if (Objects.equals(this.id, employeeID)) {
+			this.calendar.addEvent(event);
+		}
 	}
 }
