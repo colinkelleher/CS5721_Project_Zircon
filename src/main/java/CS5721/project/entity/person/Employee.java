@@ -72,8 +72,8 @@ public class Employee implements EventListener {
 		return wage.getWeeklyWage(this.calendar);
 	}
 
-	public void createRequest(LocalDateTime startDate, LocalDateTime endDate){
-		this.calendar.createEvent(TypeOfEvent.TRAINING.getValue(), startDate, endDate);
+	public void createRequest(TypeOfEvent eventType, LocalDateTime startDate, LocalDateTime endDate){
+		this.calendar.createEvent(eventType.getValue(), startDate, endDate);
 	}
 
 	@Override

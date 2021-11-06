@@ -15,6 +15,8 @@ public abstract class CalendarEvent {
 
     public abstract boolean isOvertime();
 
+    public abstract boolean isTraining();
+
     public LocalDateTime getStartDate() {
         return startDate;
     }

@@ -16,4 +16,9 @@ public class TrainingEvent extends CalendarEvent{
     public boolean isOvertime() {
         return false;
     }
+
+    @Override
+    public boolean isTraining() {
+        return true;
+    }
 }

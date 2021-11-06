@@ -23,4 +23,9 @@ public class RegularEvent extends CalendarEvent {
 	public boolean isOvertime() {
 		return false;
 	}
+
+	@Override
+	public boolean isTraining() {
+		return false;
+	}
 }
