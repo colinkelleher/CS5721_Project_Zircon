@@ -2,9 +2,12 @@ package CS5721.project.entity.person;
 
 import CS5721.project.entity.calendar.Calendar;
 import CS5721.project.entity.calendar.CalendarEvent;
+import CS5721.project.entity.calendar.TypeOfEvent;
 import CS5721.project.entity.wage.Wage;
+import CS5721.project.observer.EVENTS;
 import CS5721.project.observer.listeners.EventListener;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Employee implements EventListener {
@@ -65,10 +68,13 @@ public class Employee implements EventListener {
 		return wage.getMonthlyWage(this.calendar);
 	}
 
-	public double getWeeklyWage(){
+	public double getWeeklyWage() {
 		return wage.getWeeklyWage(this.calendar);
 	}
 
+	public void createRequest(LocalDateTime startDate, LocalDateTime endDate){
+		this.calendar.createEvent(TypeOfEvent.TRAINING.getValue(), startDate, endDate);
+	}
 
 	@Override
 	public void update(String eventType) {

@@ -37,5 +37,4 @@ public class Manager extends Employee {
 			this.getCalendar().addEvent(event);
 		}
 	}
-
 }
