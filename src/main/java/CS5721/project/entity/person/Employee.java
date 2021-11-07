@@ -4,7 +4,6 @@ import CS5721.project.entity.calendar.Calendar;
 import CS5721.project.entity.calendar.CalendarEvent;
 import CS5721.project.entity.calendar.TypeOfEvent;
 import CS5721.project.entity.wage.Wage;
-import CS5721.project.observer.EVENTS;
 import CS5721.project.observer.listeners.EventListener;
 
 import java.time.LocalDateTime;

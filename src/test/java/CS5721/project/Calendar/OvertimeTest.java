@@ -23,7 +23,6 @@ public class OvertimeTest {
     public void overtimeTest(){
         new_employee.setCalendar(calendar1);
         calendar1.addEvent(overtimeEvent);
-        ArrayList<CalendarEvent> events = calendar1.getEvents();
         Assertions.assertTrue(overtimeEvent.isOvertime());
     }
     @Test

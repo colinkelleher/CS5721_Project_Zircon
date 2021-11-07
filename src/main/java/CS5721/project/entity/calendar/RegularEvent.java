@@ -15,8 +15,7 @@ public class RegularEvent extends CalendarEvent {
 		LocalDateTime startDate = getStartDate();
 		LocalDateTime endDate = getEndDate();
 		Duration duration = Duration.between(startDate, endDate);
-		double pay = duration.toHours() * RATES.REGULAR_RATE.getValue();
-		return pay;
+		return duration.toHours() * RATES.REGULAR_RATE.getValue();
 	}
 
 	@Override
