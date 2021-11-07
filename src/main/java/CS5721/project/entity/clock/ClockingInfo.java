@@ -15,14 +15,28 @@ public class ClockingInfo {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public void setClockingInTime(LocalDateTime clockingInTime) {
         this.clockingInTime = clockingInTime;
+    }
+
+    public LocalDateTime getClockingInTime() {
+        return clockingInTime;
     }
 
     public void setClockingOutTime(LocalDateTime clockingOutTime) {
         this.clockingOutTime = clockingOutTime;
     }
 
+    public LocalDateTime getClockingOutTime() {
+        return clockingOutTime;
+    }
+    public void setDepartment(String department) {
+        this.department = department;
+    }
     public String getDepartment() {
         return department;
     }
