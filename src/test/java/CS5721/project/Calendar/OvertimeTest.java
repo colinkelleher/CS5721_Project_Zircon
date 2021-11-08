@@ -5,22 +5,31 @@ import CS5721.project.entity.calendar.Calendar;
 import CS5721.project.entity.calendar.CalendarEvent;
 import CS5721.project.entity.calendar.OvertimeEvent;
 import CS5721.project.entity.person.Employee;
-import CS5721.project.entity.wage.Wage;
+import CS5721.project.observer.OPERATIONS;
+import CS5721.project.observer.publisher.EventSystem;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDateTime;
 
 public class OvertimeTest {
-    Employee new_employee = new Employee(122354L, "Test Employee", new Wage(), new Calendar());
+    public static final long ID = 122354L;
     public static final LocalDateTime EVENT_START_DATE = LocalDateTime.of(2021, 11, 5, 9, 0);
     public static final LocalDateTime EVENT_END_DATE = LocalDateTime.of(2021, 11, 5, 18, 30);
-    Calendar calendar1 = new_employee.getCalendar();
+
+    //First we create the eventSystem and we assign to it the different operations possible
+    OPERATIONS[] listeOperations = OPERATIONS.values();
+    EventSystem eventSystem = new EventSystem(listeOperations);
+
+    //Then we create our employee and pass as parameter the eventSystem, as well as an array of Operations we want
+    // the employee to subscribe to : here it is only the CREATE_EVENT
+    Employee new_employee = new Employee(ID, "Test Employee", eventSystem, new OPERATIONS[]{OPERATIONS.CREATE_EVENT});
     CalendarEvent overtimeEvent = new OvertimeEvent(EVENT_START_DATE, EVENT_END_DATE);
+
 
     @Test
     public void overtimeTest(){
-        new_employee.setCalendar(calendar1);
-        calendar1.addEvent(overtimeEvent);
+        // We create the event this way : the operation to create the event, and then the ID of the employee concerned
+        eventSystem.notifyEvent(OPERATIONS.CREATE_EVENT, overtimeEvent,ID);
         Assertions.assertTrue(overtimeEvent.isOvertime());
     }
     @Test
