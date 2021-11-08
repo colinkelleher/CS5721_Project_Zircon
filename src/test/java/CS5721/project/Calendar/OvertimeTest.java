@@ -8,9 +8,7 @@ import CS5721.project.entity.person.Employee;
 import CS5721.project.entity.wage.Wage;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 
 public class OvertimeTest {
     Employee new_employee = new Employee(122354L, "Test Employee", new Wage(), new Calendar());
@@ -34,7 +32,7 @@ public class OvertimeTest {
     public void overtimePayTest2 () {
         Assertions.assertEquals(144,overtimeEvent.getPay());
     }
-    
+
     @Test
     public void overtimeIsTrainingTest (){
         Assertions.assertFalse(overtimeEvent.isTraining());

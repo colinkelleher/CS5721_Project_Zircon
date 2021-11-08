@@ -11,7 +11,7 @@ import java.util.Objects;
 public class Manager extends Employee {
 
 	// Here we link an event to an employeeID
-	private Map<CalendarEvent,Long> requests;
+	private final Map<CalendarEvent,Long> requests;
 
 	public Manager(Long id, String name, Wage wage, Calendar calendar) {
 		super(id, name, wage, calendar);

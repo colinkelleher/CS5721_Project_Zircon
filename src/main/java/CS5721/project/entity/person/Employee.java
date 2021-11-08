@@ -58,9 +58,8 @@ public class Employee implements EventListener {
 		this.wage = wage;
 	}
 
-	public CalendarEvent setCalendar(Calendar calendar) {
+	public void setCalendar(Calendar calendar) {
 		this.calendar = calendar;
-		return null;
 	}
 
 
