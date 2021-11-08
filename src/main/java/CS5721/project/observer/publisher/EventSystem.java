@@ -1,28 +1,29 @@
 package CS5721.project.observer.publisher;
 
 import CS5721.project.entity.calendar.CalendarEvent;
+import CS5721.project.observer.OPERATIONS;
 import CS5721.project.observer.listeners.EventListener;
 
 import java.util.List;
 
 public class EventSystem extends EventManager{
 
-    public EventSystem(String... operations) {
+    public EventSystem(OPERATIONS[] operations) {
         super(operations);
     }
 
     @Override
-    public void notify(String eventType) {
-        List<EventListener> users = listeners.get(eventType);
+    public void notify(OPERATIONS operation) {
+        List<EventListener> users = listeners.get(operation);
         for (EventListener listener: users) {
-            listener.update(eventType);
+            listener.update(operation);
         }
     }
 
-    public void notifyEvent(String eventType, CalendarEvent event, Long id) {
-        List<EventListener> users = listeners.get(eventType);
+    public void notifyEvent(OPERATIONS operation, CalendarEvent event, Long id) {
+        List<EventListener> users = listeners.get(operation);
         for (EventListener listener: users) {
-            listener.update(eventType, event, id);
+            listener.update(operation, event, id);
         }
     }
 }

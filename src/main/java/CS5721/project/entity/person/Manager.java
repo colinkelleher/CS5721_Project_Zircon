@@ -3,6 +3,7 @@ package CS5721.project.entity.person;
 import CS5721.project.entity.calendar.Calendar;
 import CS5721.project.entity.calendar.CalendarEvent;
 import CS5721.project.entity.wage.Wage;
+import CS5721.project.observer.OPERATIONS;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,13 +28,13 @@ public class Manager extends Employee {
 	}
 
 	@Override
-	public void update(String eventType, CalendarEvent event, Long employeeID) {
+	public void update(OPERATIONS operation, CalendarEvent event, Long employeeID) {
 
 		//This check is needed because a Manager can receive a request for himself !
-		if (Objects.equals(eventType, "create_request")){
+		if (Objects.equals(operation, OPERATIONS.CREATE_REQUEST)){
 			this.addRequest(event,employeeID);
 		}
-		else if (Objects.equals(eventType, "create_event") &&Objects.equals(this.getId(), employeeID)) {
+		else if (Objects.equals(operation, OPERATIONS.CREATE_EVENT) && Objects.equals(this.getId(), employeeID)) {
 			this.getCalendar().addEvent(event);
 		}
 	}

@@ -4,7 +4,9 @@ import CS5721.project.entity.calendar.Calendar;
 import CS5721.project.entity.calendar.CalendarEvent;
 import CS5721.project.entity.calendar.TypeOfEvent;
 import CS5721.project.entity.wage.Wage;
+import CS5721.project.observer.OPERATIONS;
 import CS5721.project.observer.listeners.EventListener;
+import CS5721.project.observer.publisher.EventSystem;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -19,11 +21,15 @@ public class Employee implements EventListener {
 
 	private Calendar calendar;
 
-	public Employee(Long id, String name) {
+	public Employee(Long id, String name, EventSystem eventSystem, OPERATIONS[] operations) {
 		this.id = id;
 		this.name = name;
 		this.wage = new Wage();
 		this.calendar = new Calendar();
+		for (OPERATIONS operation : operations) {
+			eventSystem.subscribe(operation,this);
+		}
+
 	}
 
 	public Employee(Long id, String name, Wage wage, Calendar calendar) {
@@ -76,13 +82,13 @@ public class Employee implements EventListener {
 	}
 
 	@Override
-	public void update(String eventType) {
+	public void update(OPERATIONS operations) {
 
 	}
 
 	@Override
-	public void update(String eventType, CalendarEvent event, Long employeeID) {
-		if (Objects.equals(eventType, "create_event") && Objects.equals(this.id, employeeID)) {
+	public void update(OPERATIONS operation, CalendarEvent event, Long employeeID) {
+		if (Objects.equals(operation, OPERATIONS.CREATE_EVENT) && Objects.equals(this.id, employeeID)) {
 			this.calendar.addEvent(event);
 		}
 	}
