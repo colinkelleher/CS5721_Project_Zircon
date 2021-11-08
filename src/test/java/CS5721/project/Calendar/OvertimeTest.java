@@ -31,6 +31,11 @@ public class OvertimeTest {
     }
 
     @Test
+    public void overtimePayTest2 () {
+        Assertions.assertEquals(144,overtimeEvent.getPay());
+    }
+    
+    @Test
     public void overtimeIsTrainingTest (){
         Assertions.assertFalse(overtimeEvent.isTraining());
     }

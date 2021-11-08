@@ -30,4 +30,9 @@ public class TrainingTest {
         Assertions.assertEquals(0,trainingEvent.getPay());
     }
 
+    @Test
+    public void isTrainingOvertime(){
+        Assertions.assertFalse(trainingEvent.isOvertime());
+    }
+
 }
