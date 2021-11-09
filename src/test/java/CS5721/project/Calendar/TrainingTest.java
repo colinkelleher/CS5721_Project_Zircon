@@ -34,5 +34,4 @@ public class TrainingTest {
     public void isTrainingOvertime(){
         Assertions.assertFalse(trainingEvent.isOvertime());
     }
-
 }

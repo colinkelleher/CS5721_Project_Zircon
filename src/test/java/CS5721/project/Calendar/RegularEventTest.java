@@ -48,5 +48,4 @@ public class RegularEventTest {
     public void isRegularEventTraining(){
         Assertions.assertFalse(regularEvent.isTraining());
     }
-
 }

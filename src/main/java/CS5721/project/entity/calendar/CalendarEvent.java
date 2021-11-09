@@ -32,5 +32,4 @@ public abstract class CalendarEvent {
     public void setEndDate(LocalDateTime endData) {
         this.endDate = endData;
     }
-
 }

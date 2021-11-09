@@ -1,4 +1,4 @@
-package CS5721.project.controller.loging;
+package CS5721.project.controller.logingInOut;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
