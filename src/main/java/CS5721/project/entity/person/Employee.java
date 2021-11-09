@@ -1,5 +1,8 @@
 package CS5721.project.entity.person;
 
+import java.time.LocalDateTime;
+import java.util.Objects;
+
 import CS5721.project.entity.calendar.Calendar;
 import CS5721.project.entity.calendar.CalendarEvent;
 import CS5721.project.entity.calendar.TypeOfEvent;
@@ -7,9 +10,6 @@ import CS5721.project.entity.wage.Wage;
 import CS5721.project.observer.OPERATIONS;
 import CS5721.project.observer.listeners.EventListener;
 import CS5721.project.observer.publisher.EventSystem;
-
-import java.time.LocalDateTime;
-import java.util.Objects;
 
 public class Employee implements EventListener {
 
@@ -27,7 +27,7 @@ public class Employee implements EventListener {
 		this.wage = new Wage();
 		this.calendar = new Calendar();
 		for (OPERATIONS operation : operations) {
-			eventSystem.subscribe(operation,this);
+			eventSystem.subscribe(operation, this);
 		}
 
 	}
@@ -38,6 +38,11 @@ public class Employee implements EventListener {
 		this.name = name;
 		this.wage = wage;
 		this.calendar = calendar;
+	}
+
+	public Employee() {
+		this.wage = new Wage();
+		this.calendar = new Calendar();
 	}
 
 	public Long getId() {
@@ -68,7 +73,6 @@ public class Employee implements EventListener {
 		this.calendar = calendar;
 	}
 
-
 	public double getMonthlyWage() {
 		return wage.getMonthlyWage(this.calendar);
 	}
@@ -77,7 +81,7 @@ public class Employee implements EventListener {
 		return wage.getWeeklyWage(this.calendar);
 	}
 
-	public void createRequest(TypeOfEvent eventType, LocalDateTime startDate, LocalDateTime endDate){
+	public void createRequest(TypeOfEvent eventType, LocalDateTime startDate, LocalDateTime endDate) {
 		this.calendar.createEvent(eventType.getValue(), startDate, endDate);
 	}
 
