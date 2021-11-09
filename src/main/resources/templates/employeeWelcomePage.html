@@ -1,23 +1,84 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <head>
+	<title>Zircon Human Resources Management System</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<style>
+		h1,h2,footer{
+			text-align: center;
+		}
+		#title1 {
+			color: white;
+			background-color: black;
+			padding: 1em;
+		}
+
+		.grid-container {
+			display: grid;
+			grid-template-columns: 30% 30% 30%;
+			justify-content: center;
+			align-content: center;
+			align-items: center;
+			padding: 1em;
+			grid-column-gap: 2em;
+			grid-row-gap: 4em;
+
+		}
+
+		.grid-item {
+			width:  100%;
+			padding: 2em;
+			font-size: inherit;
+			text-align: center;
+			border-radius: 20%;
+			color: black;
+			text-underline-mode: None;
+		}
+
+		a {
+			color: black;
+			font-weight: bold;
+			text-decoration: none;
+			width: 100%;
+			padding: 2em;
+		}
+	</style>
 </head>
 
 <body>
-	<td><a th:href="@{/}" >log-out</a></td>
+	<h1 id="title1">Zircon Human Resources Management System</h1>
 	
-	<h2>Welcome Employee : <span  th:text="${employeeId}"> </span></h2>
-	 
-	 <h4><a th:href="@{${'?employeeId=' + employeeId +'/calendar'}}" >Consult personal Calendar</a></h4>
-	 
-	 <h4><a th:href="@{${'/delete/'}}" >Consult Wages</a></h4>
-	  
-	 <h4><a th:href="@{${'/delete/'}}">++++</a></h4>
+	<h1>Welcome <span  th:text="${employeeName}"></h1>
+	<div class="grid-container">
 
+		<button class="grid-item"><a th:href="@{${'?employeeId=' + employeeId +'/calendar'}}" >BUTTON 1</a></button>
+	 
+		<button class="grid-item"><a th:href="@{${'/delete/'}}" >BUTTON 2</a></button>
+	  
+		<button class="grid-item"><a th:href="@{${'/delete/'}}">BUTTON 3</a></button>
+
+		<button class="grid-item"><a th:href="@{${'/delete/'}}">BUTTON 4</a></button>
+
+		<button class="grid-item"><a th:href="@{${'/delete/'}}">BUTTON 5</a></button>
+
+		<button class="grid-item"><a th:href="@{${'/delete/'}}">BUTTON 6</a></button>
+
+		<button class="grid-item"><a th:href="@{${'/delete/'}}">BUTTON 7</a></button>
+
+		<button class="grid-item"><a th:href="@{${'/delete/'}}">BUTTON 8</a></button>
+
+		<button class="grid-item"><a th:href="@{/}" >LOG OUT</a></button>
+	</div>
 
 
 
 </body>
+
+<footer>
+	&copy;Team Zircon 2021
+</footer>
 
 </html>

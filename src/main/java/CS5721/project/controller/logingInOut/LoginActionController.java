@@ -14,7 +14,7 @@ public class LoginActionController {
 	@PostMapping(path = "/login")
 	public String login(@ModelAttribute Employee employee) {
 
-		return "redirect:" + "/menu?employeeId=" + employee.getId();
+		return "redirect:" + "/menu?employeeName=" + employee.getName() + "&employeeId=" + employee.getId();
 
 	}
 

@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class EmployeeWelcomePageScreenController {
 
 	@GetMapping(path = "/menu")
-	public String login(Model model, @RequestParam Long employeeId) {
+	public String login(Model model, @RequestParam String employeeName, @RequestParam Long employeeId) {
+		model.addAttribute("employeeName", employeeName);
 		model.addAttribute("employeeId", employeeId);
 		return "employeeWelcomePage.html";
 	}

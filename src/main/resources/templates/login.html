@@ -1,20 +1,63 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head> 
-    <title>Getting Started: Serving Web Content</title> 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <title>Zircon Human Resources Management System</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        h1,h2,footer,form{
+            text-align: center;
+        }
+
+        form{
+            align-items: center;
+            justify-content: center;
+            padding: 2em;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+        #title1 {
+            color: white;
+            background-color: black;
+            padding: 1em;
+        }
+        a {
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+            width: 100%;
+            padding: 2em;
+        }
+        input {
+            display: inline-block;
+        }
+        .form-item {
+            align-items: center;
+            justify-content: center;
+            padding: 1em;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
+<h1 id="title1">Zircon Human Resources Management System</h1>
 <form action="#" th:action="@{/login}" th:object="${employee}" method="post">
 
-    
-    <label>Name</label>
-    <input type="text" th:field="*{name}"> 
-    
-     <label>Employee id</label>
-    <input type="text" th:field="*{id}"> 
+    <div class="form-item">
+    <label for="name">Name</label>
+    <input type="text" id="name" th:field="*{name}" placeholder="Your name..">
+    </div>
+
+    <div class="form-item">
+        <label for="id">Employee ID</label>
+    <input type="text" id="id" th:field="*{id}" placeholder="Your Employee ID">
+    </div>
     
     <input type="submit" value="Log-in">   
 </form>
 </body>
+<footer>
+    &copy; Team Zircon 2021
+</footer>
 </html>
