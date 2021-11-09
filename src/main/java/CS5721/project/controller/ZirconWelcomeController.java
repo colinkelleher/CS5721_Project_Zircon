@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping(path = "")
-public class WelcomeController {
+public class ZirconWelcomeController {
 
 	@GetMapping
 	public String welcomePage() {
 
-		return "welcome.html";
+		return "index.html";
 	}
 
 }
