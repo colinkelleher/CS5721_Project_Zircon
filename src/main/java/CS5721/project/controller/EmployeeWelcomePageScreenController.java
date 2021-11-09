@@ -1,4 +1,4 @@
-package CS5721.project.controller.logingInOut;
+package CS5721.project.controller;
 
 import CS5721.project.entity.person.Employee;
 import org.springframework.stereotype.Controller;
