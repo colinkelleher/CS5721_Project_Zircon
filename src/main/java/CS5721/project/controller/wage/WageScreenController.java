@@ -26,7 +26,7 @@ public class WageScreenController {
 	}
 
 	@GetMapping(path = "/wage")
-	public String displayWage(Model model, @RequestParam String employeeName, @RequestParam Long employeeId) {
+	public String wage(Model model, @RequestParam String employeeName, @RequestParam Long employeeId) {
 
 		model.addAttribute("employeeName", employeeName);
 		model.addAttribute("employeeId", employeeId);
