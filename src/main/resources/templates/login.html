@@ -42,20 +42,24 @@
 </head>
 <body>
 <h1 id="title1">Zircon Human Resources Management System</h1>
+
+
 <form action="#" th:action="@{/login}" th:object="${employee}" method="post">
 
     <div class="form-item">
-    <label for="name">Name</label>
-    <input type="text" id="name" th:field="*{name}" placeholder="Your name..">
+        <label for="name">Name</label>
+        <input type="text" id="name" th:field="*{name}" placeholder="Your name..">
     </div>
 
     <div class="form-item">
         <label for="id">Employee ID</label>
-    <input type="text" id="id" th:field="*{id}" placeholder="Your Employee ID">
+        <input type="text" id="id" th:field="*{id}" placeholder="Your Employee ID">
     </div>
     
     <input type="submit" value="Log-in">   
 </form>
+
+
 </body>
 <footer>
     &copy; Team Zircon 2021

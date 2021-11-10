@@ -12,6 +12,6 @@ public class ClockingPageScreenController {
 
     @GetMapping(path = "/clocking")
     public String clocking(Model model) {
-        return "clocking.html";
+        return "clock.html";
     }
 }
