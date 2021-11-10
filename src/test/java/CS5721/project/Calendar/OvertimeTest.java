@@ -17,8 +17,7 @@ public class OvertimeTest {
     public static final LocalDateTime EVENT_END_DATE = LocalDateTime.of(2021, 11, 5, 18, 30);
 
     //First we create the eventSystem and we assign to it the different operations possible
-    OPERATIONS[] listeOperations = OPERATIONS.values();
-    EventSystem eventSystem = new EventSystem(listeOperations);
+    EventSystem eventSystem = new EventSystem(OPERATIONS.values());
 
     //Then we create our employee and pass as parameter the eventSystem, as well as an array of Operations we want
     // the employee to subscribe to : here it is only the CREATE_EVENT

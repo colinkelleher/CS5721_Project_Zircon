@@ -92,7 +92,7 @@ public class Employee implements EventListener {
 
 	@Override
 	public void update(OPERATIONS operation, CalendarEvent event, Long employeeID) {
-		if (Objects.equals(operation, OPERATIONS.CREATE_EVENT) && Objects.equals(this.id, employeeID)) {
+		if (Objects.equals(this.id, employeeID)) {
 			this.calendar.addEvent(event);
 		}
 	}

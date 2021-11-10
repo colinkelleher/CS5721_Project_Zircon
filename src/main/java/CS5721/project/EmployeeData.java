@@ -13,7 +13,7 @@ import CS5721.project.entity.person.Employee;
 
 public class EmployeeData {
 
-	private static Map<Long, Employee> employees = new HashMap<>();
+	private static final Map<Long, Employee> employees = new HashMap<>();
 
 	static {
 		Employee employee1 = new Employee();
