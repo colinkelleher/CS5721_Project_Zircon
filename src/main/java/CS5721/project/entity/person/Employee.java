@@ -6,10 +6,10 @@ import java.util.Objects;
 import CS5721.project.entity.calendar.Calendar;
 import CS5721.project.entity.calendar.CalendarEvent;
 import CS5721.project.entity.calendar.TypeOfEvent;
-import CS5721.project.entity.wage.Wage;
 import CS5721.project.observer.OPERATIONS;
 import CS5721.project.observer.listeners.EventListener;
 import CS5721.project.observer.publisher.EventSystem;
+import CS5721.project.service.wage.WageService;
 
 public class Employee implements EventListener {
 
@@ -17,14 +17,14 @@ public class Employee implements EventListener {
 
 	private String name;
 
-	private Wage wage;
+	private WageService wage;
 
 	private Calendar calendar;
 
 	public Employee(Long id, String name, EventSystem eventSystem, OPERATIONS[] operations) {
 		this.id = id;
 		this.name = name;
-		this.wage = new Wage();
+		this.wage = new WageService();
 		this.calendar = new Calendar();
 		for (OPERATIONS operation : operations) {
 			eventSystem.subscribe(operation, this);
@@ -32,7 +32,7 @@ public class Employee implements EventListener {
 
 	}
 
-	public Employee(Long id, String name, Wage wage, Calendar calendar) {
+	public Employee(Long id, String name, WageService wage, Calendar calendar) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -41,7 +41,7 @@ public class Employee implements EventListener {
 	}
 
 	public Employee() {
-		this.wage = new Wage();
+		this.wage = new WageService();
 		this.calendar = new Calendar();
 	}
 
@@ -65,7 +65,7 @@ public class Employee implements EventListener {
 		return calendar;
 	}
 
-	public void setWage(Wage wage) {
+	public void setWage(WageService wage) {
 		this.wage = wage;
 	}
 

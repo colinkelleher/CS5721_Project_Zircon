@@ -1,12 +1,8 @@
-package CS5721.project.entity.wage;
+package CS5721.project.service.wage;
 
 import CS5721.project.entity.calendar.Calendar;
 
-/**
- * @author Ewen
- *
- */
-public interface IWage {
+public interface IWageService {
 
 	public abstract double getMonthlyWage(Calendar calendar);
 	

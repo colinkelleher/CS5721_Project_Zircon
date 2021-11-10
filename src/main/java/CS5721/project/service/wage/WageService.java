@@ -1,14 +1,17 @@
-package CS5721.project.entity.wage;
+package CS5721.project.service.wage;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
 
+import org.springframework.stereotype.Service;
+
 import CS5721.project.entity.calendar.Calendar;
 import CS5721.project.entity.calendar.CalendarEvent;
 
-public class Wage implements IWage {
+@Service
+public class WageService implements IWageService {
 
 	public double getMonthlyWage(Calendar calendar) {
 

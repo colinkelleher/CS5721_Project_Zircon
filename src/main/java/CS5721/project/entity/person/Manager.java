@@ -2,8 +2,8 @@ package CS5721.project.entity.person;
 
 import CS5721.project.entity.calendar.Calendar;
 import CS5721.project.entity.calendar.CalendarEvent;
-import CS5721.project.entity.wage.Wage;
 import CS5721.project.observer.OPERATIONS;
+import CS5721.project.service.wage.WageService;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +14,7 @@ public class Manager extends Employee {
 	// Here we link an event to an employeeID
 	private final Map<CalendarEvent,Long> requests;
 
-	public Manager(Long id, String name, Wage wage, Calendar calendar) {
+	public Manager(Long id, String name, WageService wage, Calendar calendar) {
 		super(id, name, wage, calendar);
 		requests = new HashMap<>();
 	}
