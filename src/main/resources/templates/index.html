@@ -110,32 +110,27 @@
 		<p>OR</p>
 	</div>
 
-	<td><a th:href="@{${'/login'}}">Log-in</a></td>
-	<td><a th:href="@{${'/logout'}}">Log-out</a></td>
-
 	<div class="clockdiv">
 
 		<form action="#" th:action="@{/clocking}" th:object="${employee}" method="post">
 
 			<div class="form-item">
-				<label for="employeeId">Enter Employee ID</label>
-				<input type="text" id="employeeId" th:field="*{employeeId}" placeholder="Employee ID">
+				<label for="id">Enter Employee ID</label>
+				<input type="text" id="id" th:field="*{id}" placeholder="Employee ID">
 			</div>
 
-			<div class="form-item">
+			<!--<div class="form-item">
 				<label for="dept">Enter Department</label>
 				<input type="text" id="dept" th:field="*{dept}" placeholder="Department">
-			</div>
+			</div>-->
 
-			<input type="clockbutton" value="Clock">
+			<input type="submit" value="Clock">
 		</form>
 
 	</div>
 
-
-
-
-
+	<td><a th:href="@{${'/login'}}">Log-in</a></td>
+	<td><a th:href="@{${'/logout'}}">Log-out</a></td>
 
 </body>
 
