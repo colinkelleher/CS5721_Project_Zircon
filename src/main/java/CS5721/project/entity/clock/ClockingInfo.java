@@ -11,6 +11,17 @@ public class ClockingInfo {
 
     private LocalDateTime clockingOutTime;
 
+    public ClockingInfo(Long id, String department, LocalDateTime clockingInTime, LocalDateTime clockingOutTime) {
+        this.id = id;
+        this.department = department;
+        this.clockingInTime = clockingInTime;
+        this.clockingOutTime = clockingOutTime;
+    }
+
+    public ClockingInfo() {
+        super();
+    }
+
     public Long getId() {
         return id;
     }
