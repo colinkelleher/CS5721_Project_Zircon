@@ -10,11 +10,7 @@ public class EmployeeFinderService {
 
 	public Employee execute(Long employeeId) {
 
-		Employee employee = EmployeeData.getEmployeeDetails(employeeId);
-		if (employee == null) {
-			return null;
-		}
-		return employee;
+		return EmployeeData.getEmployeeDetails(employeeId);
 
 	}
 

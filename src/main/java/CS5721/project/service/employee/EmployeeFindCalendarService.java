@@ -20,11 +20,7 @@ public class EmployeeFindCalendarService {
 	public Calendar execute(Long employeeId) {
 
 		Employee employee = employeeFinderService.execute(employeeId);
-		Calendar calendar = employee.getCalendar();
-		if (calendar == null) {
-			return null;
-		}
-		return calendar;
+		return employee.getCalendar();
 
 	}
 
