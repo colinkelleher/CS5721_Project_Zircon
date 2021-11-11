@@ -1,0 +1,279 @@
+#container {
+  padding: 5px;
+  margin: 0px;
+  font-size : 12;
+}
+
+.natureCount {
+	font-size: 16px;
+}
+
+img {
+    vertical-align: middle;
+}
+
+.flag {
+  position: absolute;
+  right: 0px;
+  width: 128px;
+  padding: 10px;
+}
+
+.chart {
+  max-width: 1600px;
+}
+
+.chart-min { 
+  max-width: 48%;
+}
+
+.pie-chart {
+  max-width: 500px;
+}
+
+
+table {
+    border-collapse: collapse;
+    border-spacing: 5px;
+    border: 2px solid black;
+}
+
+table tr {
+		
+}
+
+table td, table th {
+	border: 1px solid black;
+	padding: 3px;
+	margin: 0px;
+}
+
+table td {
+  font-size : 14;
+}
+
+table th {
+  font-size : 14;
+  background-color:#C0C0C0;
+}
+
+td.number {
+	text-align: right;
+}
+
+td.undefined {
+	text-align: center;
+}
+
+.row-done {
+	background-color:#14892C;
+	color:white;
+}
+
+.row-ready {
+	background-color:#4A6785;
+	color:white;
+}
+
+.row-new {
+	background-color:#00BFFF;
+	color:white;
+}
+
+.row-unknown {
+	background-color:#00F5FF;
+	color:white;
+}
+
+.row-total {
+	background-color:black;
+	color:white;
+	font-weight:bold;
+	font-style:italic;
+}
+
+.row-total-min {
+	background-color:#CCCCCC;
+	color:white;
+	font-weight:bold;
+}
+
+.row-total-max {
+	background-color:#808080;
+	color:white;
+	font-weight:bold;
+}
+
+.issue-hidden {
+	line-height:0;
+	border: 0px;
+	padding: 0px;
+	border-spacing: 0px;
+	visibility: hidden;
+}
+
+.new {
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+.initiated {
+	background-color: #CCCCCC;
+	color: #000000;
+}
+
+.designed {
+	background-color: #00BFFF;
+	color: #000000;
+}
+
+.ready {
+	background-color: #4A6785;
+	color: #FFFFFF;
+}
+
+.active {
+	background-color: #F6C342;
+	color: #000000;
+}
+
+.technicalReview {
+	background-color: #FFA500;
+	color: #000000;
+}
+
+.technical_Review {
+	background-color: #FFA500;
+	color: #000000;
+}
+
+.quality_Review {
+	background-color: #A7B306;
+	color: #000000;
+}
+
+.qualityReview {
+	background-color: #A7B306;
+	color: #000000;
+}
+
+.completed {
+	background-color: #7FFF00;
+	color: #000000;
+}
+
+.done {
+	background-color: #14892C;
+	color: #FFFFFF;
+}
+
+a {
+	text-decoration: underline;
+}
+
+.reopened {
+	background-color: #FF0000;
+	color: #000000;
+}
+
+.waiting {
+	background-color: #DB7093;
+	color: #000000;
+}
+
+.cancelled {
+	background-color: #000000;
+	color: #FFFFFF;
+}
+
+.oldissue {
+	font-size : 12;
+}
+
+.lightgray {
+	background-color:#F0F0F0;
+}
+
+.kanbanStat {
+	color:#0000F0;
+}
+
+.castle-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.castle-tooltip .castle-tooltiptext {
+  visibility: hidden;
+  width: 960px;
+  background-color: #555;
+  color: #fff;
+  text-align: left;
+  padding: 5px 2px;
+  border-radius: 6px;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -480px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.castle-tooltip .castle-tooltiptextsmall {
+  width: 100px;
+  margin-left: -50px;
+}
+
+.castle-tooltip .castle-tooltiptextmiddle {
+  width: 300px;
+  margin-left: 0px;
+}
+
+/* Tooltip arrow */
+.castle-tooltip .castle-tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.castle--tooltip:hover .castle-tooltiptext {
+  visibility: visible;
+  opacity: 0.8;
+}
+
+.collapse-line {
+	padding:0px;
+}
+
+.div-card-header {
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+
+.copy {
+  color: #000000;
+}
+
+.without_border{
+	border: 0px solid black;
+}
+
+.big-border-left{
+	border-left: 2px solid black;
+}
+.big-border-right{
+	border-right: 2px solid black;
+}

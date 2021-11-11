@@ -54,9 +54,9 @@
 	<h1>Welcome <span  th:text="${employeeName}"></span></h1>
 	<div class="grid-container">
 
-		<button class="grid-item"><a th:href="@{${'?employeeId=' + employeeId +'/calendar'}}" >Calendar</a></button>
+		<button class="grid-item"><a th:href="@{${'/calendar?employeeId=' + employeeId }}" >Calendar</a></button>
 	 
-		<button class="grid-item"><a th:href="@{${'/wage?employeeName=' + employeeName + '&employeeId=' + employeeId }}" >Wage</a></button>
+		<button class="grid-item"><a th:href="@{${'/wage?employeeId=' + employeeId }}" >Wage</a></button>
 	  
 		<button class="grid-item"><a th:href="@{${'/delete/'}}">BUTTON 3</a></button>
 

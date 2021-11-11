@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+<link th:href="@{../css/style.css}" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" 
+	rel="stylesheet" 
+	integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" 
+	crossorigin="anonymous">
+</head>
+<body>
+	<button><a th:href="@{/}" >LOG OUT</a></button>
+	<h3>Personal Calendar : </h3>
+    <table>
+    <thead>
+        <tr>
+            <th> Type of event </th>
+            <th> start date </th>
+            <th> end date </th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr th:each="event : ${events}">
+            <td><span th:text="${event.getClass().getSimpleName()}">  </span></td>
+            <td><span th:text="${event.startDate}" > </span></td>
+            <td><span th:text="${event.endDate}">  </span></td>
+
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
