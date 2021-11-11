@@ -7,5 +7,7 @@ public interface EventListener {
 
     void update(OPERATIONS operation);
 
+    void update(OPERATIONS operation, long id);
+
     void update (OPERATIONS operation, CalendarEvent event, Long employeeID);
 }

@@ -63,19 +63,21 @@ public class Employee implements EventListener {
 		this.calendar = calendar;
 	}
 
-	public void createRequest(TypeOfEvent eventType, LocalDateTime startDate, LocalDateTime endDate) {
-		this.calendar.createEvent(eventType.getValue(), startDate, endDate);
-	}
-
 	@Override
 	public void update(OPERATIONS operations) {
 
 	}
 
 	@Override
-	public void update(OPERATIONS operation, CalendarEvent event, Long employeeID) {
-		if (Objects.equals(this.id, employeeID)) {
-			this.calendar.addEvent(event);
+	public void update(OPERATIONS operation, long id) {
+		if (operation.equals(OPERATIONS.VALIDATE_REQUEST)){
+			this.calendar.findEvent(id).setApproved(true);
 		}
+	}
+
+
+	@Override
+	public void update(OPERATIONS operation, CalendarEvent event, Long employeeID) {
+		if (Objects.equals(this.id, employeeID)) {this.calendar.addEvent(event);}
 	}
 }

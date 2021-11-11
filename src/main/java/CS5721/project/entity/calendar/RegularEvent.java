@@ -6,8 +6,9 @@ import java.time.LocalDateTime;
 import CS5721.project.entity.RATES;
 
 public class RegularEvent extends CalendarEvent {
-	public RegularEvent(LocalDateTime startDate, LocalDateTime endDate) {
-		super(startDate, endDate);
+	public RegularEvent(LocalDateTime startDate, LocalDateTime endDate, long id) {
+		super(startDate, endDate,id );
+		this.setApproved(true);
 	}
 
 	@Override

@@ -25,9 +25,9 @@ public class WeeklyMonthlyWageTest {
 
 		Employee employee1 = new Employee(1L, "employeeName1", new Calendar());
 		Calendar calendar1 = employee1.getCalendar();
-		CalendarEvent event1 = new OvertimeEvent(EVENT_START_DATE, EVENT_END_DATE);
-		CalendarEvent event2 = new RegularEvent(EVENT_START_DATE, EVENT_END_DATE);
-		CalendarEvent event3 = new TrainingEvent(EVENT_START_DATE, EVENT_END_DATE);
+		CalendarEvent event1 = new OvertimeEvent(EVENT_START_DATE, EVENT_END_DATE,1L );
+		CalendarEvent event2 = new RegularEvent(EVENT_START_DATE, EVENT_END_DATE, 2L );
+		CalendarEvent event3 = new TrainingEvent(EVENT_START_DATE, EVENT_END_DATE, 3L);
 		calendar1.addEvent(event1);
 		calendar1.addEvent(event2);
 		calendar1.addEvent(event3);

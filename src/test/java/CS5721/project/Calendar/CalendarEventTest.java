@@ -15,7 +15,7 @@ public class CalendarEventTest {
 	public static final LocalDateTime EVENT_START_DATE = LocalDateTime.of(2021, 11, 5, 9, 0);
 	public static final LocalDateTime EVENT_END_DATE = LocalDateTime.of(2021, 11, 5, 18, 30);
 	Calendar calendar1 = new_employee.getCalendar();
-	CalendarEvent overtimeEvent = new OvertimeEvent(EVENT_START_DATE, EVENT_END_DATE);
+	CalendarEvent overtimeEvent = new OvertimeEvent(EVENT_START_DATE, EVENT_END_DATE, 1L);
 
 	@Test
 	public void getStartDate() {

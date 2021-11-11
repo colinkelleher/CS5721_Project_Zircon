@@ -5,7 +5,6 @@ import CS5721.project.entity.calendar.RegularEvent;
 import CS5721.project.entity.person.Employee;
 import CS5721.project.observer.OPERATIONS;
 import CS5721.project.observer.publisher.EventSystem;
-import CS5721.project.service.wage.WageService;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -27,7 +26,7 @@ public class RegularEventTest {
             eventSystem,
             new OPERATIONS[]{OPERATIONS.CREATE_EVENT});
 
-    CalendarEvent regularEvent = new RegularEvent(EVENT_START_DATE,EVENT_END_DATE);
+    CalendarEvent regularEvent = new RegularEvent(EVENT_START_DATE,EVENT_END_DATE,1L );
 
     //Checks if the regular Event is assigned to colin_kelleher and checks the pay
     @Test

@@ -26,13 +26,16 @@ public class Manager extends Employee {
 		this.requests.put(request, employeeID);
 	}
 
+	public void deleteRequest(CalendarEvent request) { this.requests.remove(request); }
+
 	@Override
 	public void update(OPERATIONS operation, CalendarEvent event, Long employeeID) {
 
 		// This check is needed because a Manager can receive a request for himself !
 		if (Objects.equals(operation, OPERATIONS.CREATE_REQUEST)) {
 			this.addRequest(event, employeeID);
-		} else if (Objects.equals(operation, OPERATIONS.CREATE_EVENT) && Objects.equals(this.getId(), employeeID)) {
+		}
+		if (Objects.equals(operation, OPERATIONS.CREATE_EVENT) && Objects.equals(this.getId(), employeeID)) {
 			this.getCalendar().addEvent(event);
 		}
 	}

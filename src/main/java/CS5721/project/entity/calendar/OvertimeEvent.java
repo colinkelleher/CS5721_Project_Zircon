@@ -6,8 +6,9 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 
 public class OvertimeEvent extends CalendarEvent{
-    public OvertimeEvent(LocalDateTime startDate, LocalDateTime endDate) {
-        super(startDate, endDate);
+    public OvertimeEvent(LocalDateTime startDate, LocalDateTime endDate, long id) {
+        super(startDate, endDate, id);
+        this.setApproved(false);
     }
 
     @Override

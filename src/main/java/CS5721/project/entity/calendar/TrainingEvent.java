@@ -3,8 +3,9 @@ package CS5721.project.entity.calendar;
 import java.time.LocalDateTime;
 
 public class TrainingEvent extends CalendarEvent{
-    public TrainingEvent(LocalDateTime startDate, LocalDateTime endDate) {
-        super(startDate, endDate);
+    public TrainingEvent(LocalDateTime startDate, LocalDateTime endDate, long id) {
+        super(startDate, endDate, id);
+        this.setApproved(true);
     }
 
     @Override
