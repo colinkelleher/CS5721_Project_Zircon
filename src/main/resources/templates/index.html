@@ -2,13 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--<meta http-equiv="refresh" content="0; URL=new_url" />-->
 
 <head>
 	<title>Zircon Human Resources Management System - Clock</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<style>
-        h1,h2,footer{
+        h1,h2,footer,button{
             text-align: center;
         }
         #title1 {
@@ -29,13 +28,11 @@
             font-size: 200%;
         }
         form{
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+
             margin: 20em;
             margin-top: 1em;
         }
-        input {
+        input,button {
             display: block;
         }
 
@@ -77,15 +74,74 @@
         .clocktext {
             text-align: center;
         }
+		#log{
+			padding: 1em;
+			align-items: center;
+			justify-content: center;
+			position: absolute;
+		}
+		button{
+			padding: 1em;
+			border-radius: 4px;
+			border: none;
+			text-decoration: none;
+			background-color: #4CAF50;
+			color: white;
+			cursor: pointer;
+		}
+		a{
+			text-decoration: none;
+			color: white;
+		}
     </style>
 </head>
 
 <body onload="startTime()">
 
-<td><a th:href="@{${'/clock'}}">clock</a></td>
-<td><a th:href="@{${'/login'}}">Log-in</a></td>
-<td><a th:href="@{${'/logout'}}">Log-out</a></td>
+	<h1 id="title1">Zircon Human Resources Management System</h1>
 
+	<div id="date"></div>
+	<div id="clock"></div>
+
+	<script>
+    function startTime() {
+        const today = new Date();
+        let h = today.getHours();
+        let m = today.getMinutes();
+        let s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('date').innerHTML =  today.toDateString();
+        document.getElementById('clock').innerHTML =  h + ":" + m + ":" + s;
+        setTimeout(startTime, 1000);
+    }
+
+    function checkTime(i) {
+        if (i < 10) {i = "0" + i};
+        return i;
+    }
+	</script>
+
+	<div class ="clocktext">
+		<p>Present your finger for clocking</p>
+		<p>OR</p>
+	</div>
+
+	<div class="clockdiv">
+
+		<form action="#" th:action="@{/clocking}" th:object="${employee}" method="post">
+
+			<div class="form-item">
+				<label for="id">Enter Employee ID</label>
+				<input type="text" id="id" th:field="*{id}" placeholder="Employee ID">
+			</div>
+
+			<input type="submit" value="Clock">
+		</form>
+		<div id="log">
+		<button><a th:href="@{${'/login'}}">Log-in</a></button>
+		</div>
+	</div>
 </body>
 
 <footer>
