@@ -7,7 +7,7 @@
 	<title>Zircon Human Resources Management System - Clock</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<style>
-        h1,h2,footer{
+        h1,h2,footer,button{
             text-align: center;
         }
         #title1 {
@@ -28,13 +28,11 @@
             font-size: 200%;
         }
         form{
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+
             margin: 20em;
             margin-top: 1em;
         }
-        input {
+        input,button {
             display: block;
         }
 
@@ -76,6 +74,25 @@
         .clocktext {
             text-align: center;
         }
+		#log{
+			padding: 1em;
+			align-items: center;
+			justify-content: center;
+			position: absolute;
+		}
+		button{
+			padding: 1em;
+			border-radius: 4px;
+			border: none;
+			text-decoration: none;
+			background-color: #4CAF50;
+			color: white;
+			cursor: pointer;
+		}
+		a{
+			text-decoration: none;
+			color: white;
+		}
     </style>
 </head>
 
@@ -119,19 +136,12 @@
 				<input type="text" id="id" th:field="*{id}" placeholder="Employee ID">
 			</div>
 
-			<!--<div class="form-item">
-				<label for="dept">Enter Department</label>
-				<input type="text" id="dept" th:field="*{dept}" placeholder="Department">
-			</div>-->
-
 			<input type="submit" value="Clock">
 		</form>
-
+		<div id="log">
+		<button><a th:href="@{${'/login'}}">Log-in</a></button>
+		</div>
 	</div>
-
-<!--	<td><a th:href="@{${'/login'}}">Log-in</a></td>-->
-<!--	<td><a th:href="@{${'/logout'}}">Log-out</a></td>-->
-
 </body>
 
 <footer>
