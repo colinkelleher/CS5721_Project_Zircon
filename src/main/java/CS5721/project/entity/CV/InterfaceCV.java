@@ -2,8 +2,8 @@ package CS5721.project.entity.CV;
 
 public interface InterfaceCV {
 
-    int cost();
+    String printCV(String text);
 
-    void printCV(String text);
+    int number(int number);
 
 }

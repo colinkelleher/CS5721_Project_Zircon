@@ -9,12 +9,12 @@ public class CVDecorator implements InterfaceCV{
     }
 
     @Override
-    public void printCV(String text){
-        wrapper.printCV(text);
+    public String printCV(String text){
+        return text;
     }
 
     @Override
-    public int cost() {
-        return wrapper.cost();
+    public int number(int number) {
+        return number;
     }
 }

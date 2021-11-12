@@ -7,17 +7,18 @@ public class HeaderDecorator extends CVDecorator{
     }
 
     @Override
-    public void printCV(String text) {
-        super.printCV(text);
+    public String printCV(String text) {
+        return addHeader(text);
     }
 
-    private String addHeader(){
-        String header = "Here is a header.";
-        return header;
+    private String addHeader(String text){
+        String header = "Here is a header.\n";
+        String _text = text + header;
+        return _text;
     }
 
     @Override
-    public int cost() {
-        return super.cost()+2;
+    public int number(int number) {
+        return super.number(number)*2;
     }
 }

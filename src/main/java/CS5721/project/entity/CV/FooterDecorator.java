@@ -7,17 +7,18 @@ public class FooterDecorator extends CVDecorator{
     }
 
     @Override
-    public void printCV(String text) {
-        super.printCV(text);
+    public String printCV(String text) {
+        return addFooter(text);
     }
 
-    private String addFooter(){
-        String footer = "Here is a footer.";
-        return footer;
+    private String addFooter(String text){
+        String footer = "Here is a footer.\n";
+        String _text = text + footer;
+        return _text;
     }
 
     @Override
-    public int cost() {
-        return super.cost()+3;
+    public int number(int number) {
+        return super.number(number)+1;
     }
 }

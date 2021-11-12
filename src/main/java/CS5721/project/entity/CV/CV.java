@@ -6,11 +6,13 @@ public class CV implements InterfaceCV {
 
     }
 
-    public int cost(){
-        return 10;
+
+    public String printCV(String text){
+        return text;
     }
 
-    public void printCV(String text){
-        System.out.println(text);
+    @Override
+    public int number(int number) {
+        return number;
     }
 }
