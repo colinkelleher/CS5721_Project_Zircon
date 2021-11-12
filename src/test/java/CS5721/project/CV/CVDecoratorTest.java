@@ -11,8 +11,8 @@ public class CVDecoratorTest {
         String textCV = "";
         CVDecorator withHeader = new HeaderDecorator(
                                         new CV());
-        String test = withHeader.printCV(textCV);
-        Assertions.assertEquals("Here is a header.\n", test);
+        String result = withHeader.printCV(textCV);
+        Assertions.assertEquals("Here is a header.\n", result);
     }
 
     @Test
@@ -21,15 +21,23 @@ public class CVDecoratorTest {
         CVDecorator withHeaderFooter = new FooterDecorator(
                                             new HeaderDecorator(
                                                     new CV()));
-        String test = withHeaderFooter.printCV(textCV);
-        Assertions.assertEquals("Here is a header.\nHere is a footer.\n", test);
+        String result = withHeaderFooter.printCV(textCV);
+        Assertions.assertEquals("Here is a header.\nHere is a footer.\n", result);
     }
 
-    @Test // just here to test the order of the calls, will be deleted
+    @Test // just here to see the order of the calls, will be deleted
     public void testCVNumber(){
         int number = 0;
-        CVDecorator finalNumber = new HeaderDecorator(new FooterDecorator(new CV()));
-        int fnumber = finalNumber.number(5);
-        Assertions.assertEquals(12, fnumber);
+        CVDecorator complexNumber = new HeaderDecorator(new FooterDecorator(new CV()));
+        int result = complexNumber.number(5);
+        Assertions.assertEquals(12, result);
+    }
+
+    @Test
+    public void testCustomText(){
+        String textCV = "";
+        CVDecorator withCustomText = new CustomTextDecorator(new CV());
+        String result = withCustomText.printCV(textCV);
+        Assertions.assertEquals("Hi", result);
     }
 }
