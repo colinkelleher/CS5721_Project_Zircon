@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--<meta http-equiv="refresh" content="0; URL=new_url" />-->
 
 <head>
 	<title>Zircon Human Resources Management System - Clock</title>
@@ -81,56 +82,9 @@
 
 <body onload="startTime()">
 
-	<h1 id="title1">Zircon Human Resources Management System</h1>
-
-	<div id="date"></div>
-	<div id="clock"></div>
-
-	<script>
-    function startTime() {
-        const today = new Date();
-        let h = today.getHours();
-        let m = today.getMinutes();
-        let s = today.getSeconds();
-        m = checkTime(m);
-        s = checkTime(s);
-        document.getElementById('date').innerHTML =  today.toDateString();
-        document.getElementById('clock').innerHTML =  h + ":" + m + ":" + s;
-        setTimeout(startTime, 1000);
-    }
-
-    function checkTime(i) {
-        if (i < 10) {i = "0" + i};
-        return i;
-    }
-	</script>
-
-	<div class ="clocktext">
-		<p>Present your finger for clocking</p>
-		<p>OR</p>
-	</div>
-
-	<div class="clockdiv">
-
-		<form action="#" th:action="@{/clocking}" th:object="${employee}" method="post">
-
-			<div class="form-item">
-				<label for="id">Enter Employee ID</label>
-				<input type="text" id="id" th:field="*{id}" placeholder="Employee ID">
-			</div>
-
-			<!--<div class="form-item">
-				<label for="dept">Enter Department</label>
-				<input type="text" id="dept" th:field="*{dept}" placeholder="Department">
-			</div>-->
-
-			<input type="submit" value="Clock">
-		</form>
-
-	</div>
-
-<!--	<td><a th:href="@{${'/login'}}">Log-in</a></td>-->
-<!--	<td><a th:href="@{${'/logout'}}">Log-out</a></td>-->
+<td><a th:href="@{${'/clock'}}">clock</a></td>
+<td><a th:href="@{${'/login'}}">Log-in</a></td>
+<td><a th:href="@{${'/logout'}}">Log-out</a></td>
 
 </body>
 
