@@ -29,8 +29,8 @@ public class CVDecoratorTest {
     public void testCVNumber(){
         int number = 0;
         CVDecorator complexNumber = new HeaderDecorator(new FooterDecorator(new CV()));
-        int result = complexNumber.number(5);
-        Assertions.assertEquals(12, result);
+        int result = complexNumber.number();
+        Assertions.assertEquals(8, result);
     }
 
     @Test

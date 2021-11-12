@@ -12,7 +12,7 @@ public class CV implements InterfaceCV {
     }
 
     @Override
-    public int number(int number) {
-        return number;
+    public int number() {
+        return 5;
     }
 }

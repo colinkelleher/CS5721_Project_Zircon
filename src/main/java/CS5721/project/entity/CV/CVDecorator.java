@@ -10,11 +10,11 @@ public class CVDecorator implements InterfaceCV{
 
     @Override
     public String printCV(String text){
-        return text;
+        return wrapper.printCV(text);
     }
 
     @Override
-    public int number(int number) {
-        return number;
+    public int number() {
+        return wrapper.number();
     }
 }

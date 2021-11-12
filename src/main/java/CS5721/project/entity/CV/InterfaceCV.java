@@ -4,6 +4,6 @@ public interface InterfaceCV {
 
     String printCV(String text);
 
-    int number(int number);
+    int number();
 
 }

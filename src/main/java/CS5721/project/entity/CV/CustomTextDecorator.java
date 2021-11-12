@@ -16,7 +16,6 @@ public class CustomTextDecorator extends CVDecorator{
         Scanner sc= new Scanner(System.in);    //System.in is a standard input stream
         System.out.print("Enter text- ");
         String customText = sc.nextLine();
-        String _text = text + customText;
-        return _text;
+        return text + customText;
     }
 }
