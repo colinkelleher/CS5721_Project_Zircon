@@ -1,4 +1,6 @@
-package CS5721.project.entity.reminder;
+package CS5721.project.decorator;
+
+import CS5721.project.entity.reminder.ReminderInterface;
 
 public class ReminderDecorator implements ReminderInterface {
 

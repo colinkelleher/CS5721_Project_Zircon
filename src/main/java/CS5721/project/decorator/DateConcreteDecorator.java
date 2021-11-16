@@ -1,10 +1,12 @@
-package CS5721.project.entity.reminder;
+package CS5721.project.decorator;
+
+import CS5721.project.entity.reminder.ReminderInterface;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class DateDecorator extends ReminderDecorator{
-    public DateDecorator(ReminderInterface wrapper) {
+public class DateConcreteDecorator extends ReminderDecorator {
+    public DateConcreteDecorator(ReminderInterface wrapper) {
         super(wrapper);
     }
 

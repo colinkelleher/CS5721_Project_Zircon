@@ -1,8 +1,10 @@
-package CS5721.project.entity.reminder;
+package CS5721.project.decorator;
 
-public class DescriptionDecorator extends ReminderDecorator {
+import CS5721.project.entity.reminder.ReminderInterface;
 
-    public DescriptionDecorator(ReminderInterface wrapper){
+public class DescriptionConcreteDecorator extends ReminderDecorator {
+
+    public DescriptionConcreteDecorator(ReminderInterface wrapper){
         super(wrapper);
     }
 

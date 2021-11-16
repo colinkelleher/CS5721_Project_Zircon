@@ -1,6 +1,9 @@
 package CS5721.project.Reminder;
 
-import CS5721.project.entity.person.Employee;
+import CS5721.project.decorator.DateConcreteDecorator;
+import CS5721.project.decorator.DescriptionConcreteDecorator;
+import CS5721.project.decorator.LocationConcreteDecorator;
+import CS5721.project.decorator.ReminderDecorator;
 import CS5721.project.entity.reminder.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -19,7 +22,7 @@ public class ReminderDecoratorTest {
 
     @Test
     public void testReminderWithDate(){
-        ReminderDecorator withDescription = new DateDecorator(
+        ReminderDecorator withDescription = new DateConcreteDecorator(
                                         new Reminder());
         String result = withDescription.printReminder();
         Assertions.assertEquals("text\n"+date, result);
@@ -27,8 +30,8 @@ public class ReminderDecoratorTest {
 
     @Test
     public void testReminderWithLocationAndDescription(){
-        ReminderDecorator withLocationAndDescription = new LocationDecorator(
-                                            new DescriptionDecorator(
+        ReminderDecorator withLocationAndDescription = new LocationConcreteDecorator(
+                                            new DescriptionConcreteDecorator(
                                                     new Reminder()));
         String result = withLocationAndDescription.printReminder();
         Assertions.assertEquals("Here is a location.\ntext\nHere is a description.\n", result);
