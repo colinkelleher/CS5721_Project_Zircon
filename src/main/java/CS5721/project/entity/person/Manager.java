@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+import CS5721.project.entity.DEPARTMENT;
 import CS5721.project.entity.calendar.Calendar;
 import CS5721.project.entity.calendar.CalendarEvent;
 import CS5721.project.observer.OPERATIONS;
@@ -13,8 +14,8 @@ public class Manager extends Employee {
 	// Here we link an event to an employeeID
 	private final Map<CalendarEvent, Long> requests;
 
-	public Manager(Long id, String name, Calendar calendar) {
-		super(id, name, calendar);
+	public Manager(Long id, String name, DEPARTMENT department, Calendar calendar) {
+		super(id, name, department, calendar);
 		requests = new HashMap<>();
 	}
 
@@ -26,7 +27,9 @@ public class Manager extends Employee {
 		this.requests.put(request, employeeID);
 	}
 
-	public void deleteRequest(CalendarEvent request) { this.requests.remove(request); }
+	public void deleteRequest(CalendarEvent request) {
+		this.requests.remove(request);
+	}
 
 	@Override
 	public void update(OPERATIONS operation, CalendarEvent event, Long employeeID) {

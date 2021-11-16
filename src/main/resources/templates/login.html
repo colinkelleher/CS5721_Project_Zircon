@@ -77,7 +77,7 @@
 
 	<form class="form-item" th:action="@{/login}" method="post">
 		<label for="id">Employee ID</label>
-		<input type="number" th:name="employeeId"/> 
+		<input type="number" th:name="employeeId" required="true"/> 
 		<input type="submit" value="Log in"/> 
 	</form>
     
