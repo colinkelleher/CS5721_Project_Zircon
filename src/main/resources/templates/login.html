@@ -75,20 +75,12 @@
 
 <h2>Log In to your Account</h2>
 
-<form action="#" th:action="@{/login}" th:object="${employee}" method="post">
-
-    <div class="form-item">
-        <label for="name">Name</label>
-        <input type="text" id="name" th:field="*{name}" placeholder="Your name..">
-    </div>
-
-    <div class="form-item">
-        <label for="id">Employee ID</label>
-        <input type="text" id="id" th:field="*{id}" placeholder="Your Employee ID">
-    </div>
+	<form class="form-item" th:action="@{/login}" method="post">
+		<label for="id">Employee ID</label>
+		<input type="number" th:name="employeeId"/> 
+		<input type="submit" value="Log in"/> 
+	</form>
     
-    <input type="submit" value="Log-in">
-</form>
 
 <button><a th:href="@{${'/'}}">Click here to access Clocking Screen</a></button>
 
