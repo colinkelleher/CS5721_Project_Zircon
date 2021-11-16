@@ -15,6 +15,8 @@ public class ReminderDecoratorTest {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
     String date = _date.format(formatter);
 
+
+
     @Test
     public void testReminderWithDate(){
         ReminderDecorator withDescription = new DateDecorator(
@@ -32,9 +34,13 @@ public class ReminderDecoratorTest {
         Assertions.assertEquals("Here is a location.\ntext\nHere is a description.\n", result);
     }
 
+    /*
     @Test
     public void testEmployeeReminder(){
         Employee newEmployee = new Employee();
+
+        Assertions.assertEquals( , );
     }
+    */
 
 }
