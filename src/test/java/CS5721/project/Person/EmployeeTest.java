@@ -35,7 +35,7 @@ public class EmployeeTest {
 	}
 
 	@Test
-	// Simple test to check employee weekly wage
+	// Simple test to check employee monthly wage
 	public void testEmployeeMonthlyWage() {
 		Calendar calendar = new_employee.getCalendar();
 		double employeeMonthlyWage = wageService.getMonthlyWage(calendar);

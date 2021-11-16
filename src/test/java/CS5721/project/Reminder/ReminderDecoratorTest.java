@@ -1,5 +1,6 @@
 package CS5721.project.Reminder;
 
+import CS5721.project.entity.person.Employee;
 import CS5721.project.entity.reminder.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -29,6 +30,11 @@ public class ReminderDecoratorTest {
                                                     new Reminder()));
         String result = withLocationAndDescription.printReminder();
         Assertions.assertEquals("Here is a location.\ntext\nHere is a description.\n", result);
+    }
+
+    @Test
+    public void testEmployeeReminder(){
+        Employee newEmployee = new Employee();
     }
 
 }

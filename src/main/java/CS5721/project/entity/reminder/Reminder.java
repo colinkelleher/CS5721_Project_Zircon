@@ -3,14 +3,14 @@ package CS5721.project.entity.reminder;
 public class Reminder implements ReminderInterface {
 
     private long employeeID;
-    private long toDoID;
+    private long reminderID;
     private String title;
 
     public Reminder() {}
 
-    public Reminder(long employeeID, long toDoID, String title){
+    public Reminder(long employeeID, long reminderID, String title){
         this.employeeID = employeeID;
-        this.toDoID = toDoID;
+        this.reminderID = reminderID;
         this.title = title;
     }
 
@@ -21,11 +21,11 @@ public class Reminder implements ReminderInterface {
         this.employeeID = employeeID;
     }
 
-    public long getToDoID() {
-        return toDoID;
+    public long getId() {
+        return reminderID;
     }
-    public void setToDoID(long toDoID) {
-        this.toDoID = toDoID;
+    public void setId(long id) {
+        this.reminderID = id;
     }
 
     public String getTitle() {
