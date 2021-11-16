@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+    <title>Zircon Human Resources Management System</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        h1,h2,footer{
+            text-align: center;
+        }
+        #title1 {
+            color: white;
+            background-color: black;
+            padding: 1em;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 30% 30% 30%;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            padding: 1em;
+            grid-column-gap: 2em;
+            grid-row-gap: 4em;
+
+        }
+
+        .grid-item {
+            width:  100%;
+            padding: 2em;
+            font-size: inherit;
+            text-align: center;
+            border-radius: 20%;
+            color: black;
+            text-underline-mode: None;
+        }
+
+        a {
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+            width: 100%;
+            padding: 2em;
+        }
+    </style>
+</head>
+
+<body>
+<h1 id="title1">Zircon Human Resources Management System</h1>
+
+<h1>Welcome to your tasks <span  th:text="${employeeName}"></span></h1>
+</body>
+
+<footer>
+    &copy;Zircon 2021
+</footer>
+</html>
