@@ -10,7 +10,7 @@ public class EventSystem extends EventManager {
 
 	private static EventSystem eventSystemInstance;
 
-	private EventSystem(OPERATIONS[] operations) {
+	public EventSystem(OPERATIONS[] operations) {
 		super(operations);
 	}
 
