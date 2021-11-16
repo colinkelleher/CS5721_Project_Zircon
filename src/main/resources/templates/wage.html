@@ -5,14 +5,13 @@
 </head>
 
 <body>
-    <td><a th:href="@{/}" >log-out</a></td>
-    
-    <h4>Employee Name :  <span th:text="${employeeName}"></span></h4>    
-    <h4>Employee ID :  <span th:text="${employeeI}"></span></h4> 
+    <button class="grid-item"><a th:href="@{/}" >LOG OUT</a></button>
+     
+    <h3>Employee ID :  <span th:text="${employeeId}"></span></h3> 
 
-    <h5>Monthly wage :  <span th:text="${monthlyWage}"></span></h5> 
+    <h4>Monthly wage :  <span th:text="${monthlyWage}"></span></h4> 
 
-    <h5>Weekly wage :  <span th:text="${weeklyWage}"></span></h5>
+    <h4>Weekly wage :  <span th:text="${weeklyWage}"></span></h4>
 
 </body>
 </html>

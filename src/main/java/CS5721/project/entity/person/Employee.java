@@ -1,11 +1,10 @@
 package CS5721.project.entity.person;
 
-import java.time.LocalDateTime;
 import java.util.Objects;
 
+import CS5721.project.entity.DEPARTMENT;
 import CS5721.project.entity.calendar.Calendar;
 import CS5721.project.entity.calendar.CalendarEvent;
-import CS5721.project.entity.calendar.TypeOfEvent;
 import CS5721.project.observer.OPERATIONS;
 import CS5721.project.observer.listeners.EventListener;
 import CS5721.project.observer.publisher.EventSystem;
@@ -16,11 +15,14 @@ public class Employee implements EventListener {
 
 	private String name;
 
+	private DEPARTMENT department;
+
 	private Calendar calendar;
 
-	public Employee(Long id, String name, EventSystem eventSystem, OPERATIONS[] operations) {
+	public Employee(Long id, String name, DEPARTMENT department, EventSystem eventSystem, OPERATIONS[] operations) {
 		this.id = id;
 		this.name = name;
+		this.department = department;
 		this.calendar = new Calendar();
 		for (OPERATIONS operation : operations) {
 			eventSystem.subscribe(operation, this);
@@ -28,10 +30,11 @@ public class Employee implements EventListener {
 
 	}
 
-	public Employee(Long id, String name, Calendar calendar) {
+	public Employee(Long id, String name, DEPARTMENT department, Calendar calendar) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.department = department;
 		this.calendar = calendar;
 	}
 
@@ -63,6 +66,14 @@ public class Employee implements EventListener {
 		this.calendar = calendar;
 	}
 
+	public DEPARTMENT getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(DEPARTMENT department) {
+		this.department = department;
+	}
+
 	@Override
 	public void update(OPERATIONS operations) {
 
@@ -70,14 +81,16 @@ public class Employee implements EventListener {
 
 	@Override
 	public void update(OPERATIONS operation, long id) {
-		if (operation.equals(OPERATIONS.VALIDATE_REQUEST)){
+		if (operation.equals(OPERATIONS.VALIDATE_REQUEST)) {
 			this.calendar.findEvent(id).setApproved(true);
 		}
 	}
 
-
 	@Override
 	public void update(OPERATIONS operation, CalendarEvent event, Long employeeID) {
-		if (Objects.equals(this.id, employeeID)) {this.calendar.addEvent(event);}
+		if (Objects.equals(this.id, employeeID)) {
+			this.calendar.addEvent(event);
+		}
 	}
+
 }
