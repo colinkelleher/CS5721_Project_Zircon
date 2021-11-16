@@ -5,6 +5,7 @@ import java.util.Objects;
 import CS5721.project.entity.DEPARTMENT;
 import CS5721.project.entity.calendar.Calendar;
 import CS5721.project.entity.calendar.CalendarEvent;
+import CS5721.project.entity.reminder.ReminderList;
 import CS5721.project.observer.OPERATIONS;
 import CS5721.project.observer.listeners.EventListener;
 import CS5721.project.observer.publisher.EventSystem;
@@ -18,6 +19,8 @@ public class Employee implements EventListener {
 	private DEPARTMENT department;
 
 	private Calendar calendar;
+
+	private ReminderList reminderList;
 
 	public Employee(Long id, String name, DEPARTMENT department, EventSystem eventSystem, OPERATIONS[] operations) {
 		this.id = id;
@@ -40,6 +43,7 @@ public class Employee implements EventListener {
 
 	public Employee() {
 		this.calendar = new Calendar();
+		this.reminderList = new ReminderList();
 	}
 
 	public Long getId() {
@@ -72,6 +76,14 @@ public class Employee implements EventListener {
 
 	public void setDepartment(DEPARTMENT department) {
 		this.department = department;
+	}
+
+	public ReminderList getReminderList() {
+		return reminderList;
+	}
+
+	public void setReminderList(ReminderList reminderList) {
+		this.reminderList = reminderList;
 	}
 
 	@Override
