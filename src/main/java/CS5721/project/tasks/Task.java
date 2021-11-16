@@ -1,7 +1,5 @@
 package CS5721.project.tasks;
 
-import CS5721.project.entity.person.Employee;
-
 import java.time.LocalDateTime;
 
 public class Task {
@@ -11,10 +9,11 @@ public class Task {
     private String taskDescription;
     private String teamEmployee;
     private long employeeId;
-    private LocalDateTime taskStartDate;
-    private LocalDateTime taskEndDate;
+    private final LocalDateTime taskStartDate;
+    private final LocalDateTime taskEndDate;
+    private boolean completed;
 
-    public Task(int taskId, String taskName, String taskDescription, String teamEmployee, Long employeeId, LocalDateTime taskStartDate, LocalDateTime taskEndDate){
+    public Task(int taskId, String taskName, String taskDescription, String teamEmployee, Long employeeId, LocalDateTime taskStartDate, LocalDateTime taskEndDate, boolean completed){
         this.taskId = taskId;
         this.taskName = taskName;
         this.taskDescription = taskDescription;
@@ -22,6 +21,7 @@ public class Task {
         this.employeeId = employeeId;
         this.taskStartDate = taskStartDate;
         this.taskEndDate = taskEndDate;
+        this.completed = completed;
 
     }
 
@@ -51,4 +51,13 @@ public class Task {
     }
     public void setEmployeeId(long employeeId) {this.employeeId = employeeId;}
     public long getEmployeeId(){return employeeId;}
+    public boolean isTaskCompleted() {
+        return completed;
+    }
+    public Task setTaskCompleted() {
+        this.completed = true;
+
+        return null;
+    }
+
 }
