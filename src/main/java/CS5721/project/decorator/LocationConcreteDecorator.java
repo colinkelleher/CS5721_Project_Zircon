@@ -1,8 +1,10 @@
-package CS5721.project.entity.reminder;
+package CS5721.project.decorator;
 
-public class LocationDecorator extends ReminderDecorator {
+import CS5721.project.entity.reminder.ReminderInterface;
 
-    public LocationDecorator(ReminderInterface wrapper){
+public class LocationConcreteDecorator extends ReminderDecorator {
+
+    public LocationConcreteDecorator(ReminderInterface wrapper){
         super(wrapper);
     }
 
