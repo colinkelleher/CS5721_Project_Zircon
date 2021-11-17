@@ -1,34 +1,51 @@
 package CS5721.project.entity.person;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 import CS5721.project.entity.DEPARTMENT;
-import CS5721.project.entity.calendar.Calendar;
 import CS5721.project.entity.calendar.CalendarEvent;
 import CS5721.project.observer.OPERATIONS;
+import CS5721.project.observer.publisher.EventSystem;
 
 public class Manager extends Employee {
 
 	// Here we link an event to an employeeID
-	private final Map<CalendarEvent, Long> requests;
+	private final Map<Long, List<CalendarEvent>> requests;
 
-	public Manager(Long id, String name, DEPARTMENT department, Calendar calendar) {
-		super(id, name, department, calendar);
+	public Manager(Long id, String name, DEPARTMENT department, EventSystem eventSystem, OPERATIONS[] operations) {
+		super(id, name, department, eventSystem, operations);
 		requests = new HashMap<>();
 	}
 
-	public Map<CalendarEvent, Long> getRequests() {
+	public Map<Long, List<CalendarEvent>> getRequests() {
 		return this.requests;
 	}
 
 	public void addRequest(CalendarEvent request, Long employeeID) {
-		this.requests.put(request, employeeID);
+		List<CalendarEvent> newRequestList;
+
+		if (requests.containsKey(employeeID)){
+			newRequestList = requests.get(employeeID);
+			newRequestList.add(request);
+		}
+		else {
+			newRequestList = new ArrayList<>(List.of(request));
+		}
+
+		requests.put(employeeID, newRequestList);
 	}
 
-	public void deleteRequest(CalendarEvent request) {
-		this.requests.remove(request);
+	public void deleteRequestWithID(long employeeID, long eventID){
+		List<CalendarEvent> requestList = requests.get(employeeID);
+
+		requestList.removeIf(request -> request.getId() == eventID);
+	}
+
+	@Override
+	public void update(OPERATIONS operation, long eventID, long employeeID) {
+		if (operation.equals(OPERATIONS.VALIDATE_REQUEST)) {
+			deleteRequestWithID(employeeID, eventID);
+		}
 	}
 
 	@Override
@@ -42,4 +59,6 @@ public class Manager extends Employee {
 			this.getCalendar().addEvent(event);
 		}
 	}
+
+
 }

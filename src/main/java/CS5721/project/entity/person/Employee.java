@@ -92,9 +92,9 @@ public class Employee implements EventListener {
 	}
 
 	@Override
-	public void update(OPERATIONS operation, long id) {
+	public void update(OPERATIONS operation, long eventID, long employeeID) {
 		if (operation.equals(OPERATIONS.VALIDATE_REQUEST)) {
-			this.calendar.findEvent(id).setApproved(true);
+			this.calendar.findEvent(eventID).setApproved(true);
 		}
 	}
 

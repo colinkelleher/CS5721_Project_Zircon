@@ -16,10 +16,9 @@ import CS5721.project.observer.publisher.EventSystem;
 public class EmployeeData {
 
 	private static final Map<Long, Employee> employees = new HashMap<>();
+	private static final EventSystem eventSystem = EventSystem.getEventSystemInstance(OPERATIONS.values());
 
 	static {
-		EventSystem eventSystem = EventSystem.getEventSystemInstance(OPERATIONS.values()); // singleton
-
 		Employee employee1 = new Employee(1L, "Ewen", DEPARTMENT.BUSINESS_DEPARTMENT, eventSystem, OPERATIONS.values());
 		CalendarEvent event1 = new OvertimeEvent(LocalDateTime.of(2021, 11, 5, 9, 0),
 				LocalDateTime.of(2021, 11, 5, 18, 30), 1L);
@@ -48,6 +47,10 @@ public class EmployeeData {
 
 	public static void removeEmployee(Long employeeId) {
 		employees.remove(employeeId);
+	}
+
+	public static EventSystem getEventSystem() {
+		return eventSystem;
 	}
 
 }
