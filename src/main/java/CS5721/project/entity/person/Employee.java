@@ -36,6 +36,7 @@ public class Employee implements EventListener {
 		this.shift = shift;
 		this.calendar = new Calendar();
 		this.clockingInfo = new ClockingInfo();
+		this.reminderList = new ReminderList();
 		for (OPERATIONS operation : operations) {
 			eventSystem.subscribe(operation, this);
 		}

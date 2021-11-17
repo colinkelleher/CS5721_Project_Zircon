@@ -6,8 +6,6 @@ public class Reminder implements ReminderInterface {
     private String title;
     private String description;
 
-    public Reminder() {}
-
     public Reminder(long reminderID, String title){
         this.reminderID = reminderID;
         this.title = title;
