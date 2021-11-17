@@ -18,12 +18,10 @@ public class ReminderDecoratorTest {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
     String date = _date.format(formatter);
 
-
-
     @Test
-    public void testReminderWithDate(){
+    public void testReminderWithDescription(){
         ReminderDecorator withDescription = new DateConcreteDecorator(
-                                        new Reminder());
+                                                new Reminder());
         String result = withDescription.printReminder();
         Assertions.assertEquals("text\n"+date, result);
     }

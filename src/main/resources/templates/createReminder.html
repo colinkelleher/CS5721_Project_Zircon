@@ -7,15 +7,18 @@
 <body>
 You can create a Reminder here and add it to your list.
 
-<form action="#" th:action="@{/createReminder}" th:object="${Reminder}" method="post">
+<form th:action="@{/createReminder}"  method="post">
+
+    <!--<td>Your Id : <span th:text="${employee.id}">  </span></td>
+    <br>-->
 
     <label for="title">Enter title</label>
-    <input type="text" id="title" th:name="title" placeholder="Title of the reminder...">
+    <input required="true" type="text" id="title" th:name="title" placeholder="Title of the reminder...">
+    <input type="hidden"  th:name="employeeId" th:value="${employee.id}"/>
 
-    <!--
-    <label for="description">Enter description</label>
+    <label for="description">Enter description (optional)</label>
     <input type="text" id="description" th:name="description" placeholder="Description...">
-    -->
+
     <!--
     <label for="location">Enter location (optional)</label>
     <input type="text" id="location" th:name="location" placeholder="Location...">

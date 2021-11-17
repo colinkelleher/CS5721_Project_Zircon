@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
 <head>
     <meta charset="UTF-8">
     <title>ItemList</title>
 </head>
 <body>
+<button><a th:href="@{/}" >LOG OUT</a></button>
     <h1>Welcome <span  th:text="${employeeName}"></span></h1>
 
-    <h2>Here is your reminders :</h2>
-    <div>
-        Item 1
-        Item 2
-    </div>
+    <h2>Here is your reminder List :</h2>
 
-    <button><a th:href="@{${'/createReminder'}}">Click here to add a reminder</a></button>
+<table>
+    <thead>
+    <tr>
+        <th> ReminderID </th>
+        <th> Title </th>
+        <th> Description </th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr th:each="reminder : ${reminders}">
+        <td><span th:text="${reminder.reminderID}">  </span></td>
+        <td><span th:text="${reminder.title}" > </span></td>
+        <td><span th:text="${reminder.description}" > </span></td>
+    </tr>
+    </tbody>
+</table>
+
+<button><a th:href="@{${'/createReminder?employeeId=' + employeeId }}">Click here to add a reminder</a></button>
 
 
 </body>

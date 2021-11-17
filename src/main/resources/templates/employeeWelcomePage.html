@@ -58,7 +58,7 @@
 	 
 		<button class="grid-item"><a th:href="@{${'/wage?employeeId=' + employeeId }}" >Wage</a></button>
 	  
-		<button class="grid-item"><a th:href="@{${'/reminderList'}}">Reminders</a></button>
+		<button class="grid-item"><a th:href="@{${'/reminderList?employeeId=' + employeeId }}">Reminders</a></button>
 
 		<button class="grid-item"><a th:href="@{${'/info?employeeId=' + employeeId }}">Personal Info</a></button>
 
