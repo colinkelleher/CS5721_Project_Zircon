@@ -45,6 +45,21 @@
             width: 100%;
             padding: 2em;
         }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
     </style>
 </head>
 
@@ -52,6 +67,29 @@
 <h1 id="title1">Zircon Human Resources Management System</h1>
 
 <h1>Welcome to your tasks <span  th:text="${employeeName}"></span></h1>
+<table>
+    <tr>
+        <th>Task ID</th>
+        <th>Task Name</th>
+        <th>Task Description</th>
+        <th>Employee Name</th>
+        <th>Employee ID</th>
+        <th>Task Start Date</th>
+        <th>Task End Date</th>
+        <th>Task Status (Completed / Not Completed)</th>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+</table>
 </body>
 
 <footer>
