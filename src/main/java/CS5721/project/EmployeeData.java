@@ -19,13 +19,13 @@ public class EmployeeData {
 	private static final EventSystem eventSystem = EventSystem.getEventSystemInstance(OPERATIONS.values());
 
 	static {
-		Employee employee1 = new Employee(1L, "Ewen", DEPARTMENT.BUSINESS_DEPARTMENT, eventSystem, OPERATIONS.values());
+		Employee employee1 = new Employee(1L, "Ewen", DEPARTMENT.BUSINESS_DEPARTMENT, eventSystem, null, OPERATIONS.values());
 		CalendarEvent event1 = new OvertimeEvent(LocalDateTime.of(2021, 11, 5, 9, 0),
 				LocalDateTime.of(2021, 11, 5, 18, 30), 1L);
 		eventSystem.notifyEvent(OPERATIONS.CREATE_EVENT, event1, 1L);
 
 		Employee employee2 = new Employee(2L, "Colin", DEPARTMENT.RESEARCH_DEPARTMENT, eventSystem,
-				OPERATIONS.values());
+				null, OPERATIONS.values());
 
 		employees.put(1L, employee1);
 		employees.put(2L, employee2);

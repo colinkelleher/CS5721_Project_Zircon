@@ -5,6 +5,8 @@ import java.util.Objects;
 import CS5721.project.entity.DEPARTMENT;
 import CS5721.project.entity.calendar.Calendar;
 import CS5721.project.entity.calendar.CalendarEvent;
+import CS5721.project.entity.clock.ClockingInfo;
+import CS5721.project.entity.clock.Shift;
 import CS5721.project.entity.reminder.ReminderList;
 import CS5721.project.observer.OPERATIONS;
 import CS5721.project.observer.listeners.EventListener;
@@ -17,33 +19,43 @@ public class Employee implements EventListener {
 	private String name;
 
 	private DEPARTMENT department;
-
+ 
 	private Calendar calendar;
 
 	private ReminderList reminderList;
 
-	public Employee(Long id, String name, DEPARTMENT department, EventSystem eventSystem, OPERATIONS[] operations) {
+	private Shift shift;
+
+	private ClockingInfo clockingInfo;
+
+	public Employee(Long id, String name, DEPARTMENT department, EventSystem eventSystem, Shift shift,
+			OPERATIONS[] operations) {
 		this.id = id;
 		this.name = name;
 		this.department = department;
+		this.shift = shift;
 		this.calendar = new Calendar();
+		this.clockingInfo = new ClockingInfo();
 		for (OPERATIONS operation : operations) {
 			eventSystem.subscribe(operation, this);
 		}
 
 	}
 
-	public Employee(Long id, String name, DEPARTMENT department, Calendar calendar) {
+	public Employee(Long id, String name, DEPARTMENT department, Shift shift, Calendar calendar) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.department = department;
 		this.calendar = calendar;
+		this.shift = shift;
+		this.clockingInfo = new ClockingInfo();
 	}
 
 	public Employee() {
 		this.calendar = new Calendar();
 		this.reminderList = new ReminderList();
+		this.clockingInfo = new ClockingInfo();
 	}
 
 	public Long getId() {
@@ -84,6 +96,22 @@ public class Employee implements EventListener {
 
 	public void setReminderList(ReminderList reminderList) {
 		this.reminderList = reminderList;
+	}
+
+	public Shift getShift() {
+		return shift;
+	}
+
+	public void setShift(Shift shift) {
+		this.shift = shift;
+	}
+
+	public ClockingInfo getClockingInfo() {
+		return clockingInfo;
+	}
+
+	public void setClockingInfo(ClockingInfo clockingInfo) {
+		this.clockingInfo = clockingInfo;
 	}
 
 	@Override

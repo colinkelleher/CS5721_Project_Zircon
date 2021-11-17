@@ -50,7 +50,7 @@
             box-shadow: 1px 1px grey;
 
         }
-        input[type=clockbutton] {
+        input[type=submit] {
             width: 70%;
             background-color: #4CAF50;
             color: white;
@@ -111,17 +111,11 @@
 </div>
 
 <div class="clockdiv">
-    <form action="#" th:action="@{/clocking}" th:object="${employee}" method="post">
-        <label for="id">Enter Employee ID</label>
-        <input type="text" id="id" th:field="*{id}" placeholder="Employee ID">
-
-        <!---
-        <label for="dept">Enter Department</label>
-        <input type="text" id="dept" th:field="*{dept}" placeholder="Department">
-        --->
-
-        <input type="clockbutton" value="Clock">
-    </form>
+    <form class="form-item" th:action="@{/clocking}" method="post">
+		<label for="id">Employee ID</label>
+		<input type="text" th:name="employeeId" required="true"/> 
+		<input type="submit" value="Clock"/> 
+	</form>
 </div>
 
 <td><a th:href="@{${'/login'}}">Log-in</a></td>

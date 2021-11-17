@@ -6,8 +6,11 @@
 </head>
 <body>
 
-    <h2>WP! You clocked in.</h2>
-    <h2>(But nothing more will happen rn than displaying this page, nothing coded further)</h2>
+    <h2 th:if="${clockingStatus == 'in'}">WP! You clocked In at <a th:text="@{${clockingTime.toLocalTime()}}"></h2>
+    <h2 th:if="${clockingStatus == 'out'}">WP! You clocked Out at <a th:text="@{${clockingTime.toLocalTime()}}"></h2>
+    
+    <td><a th:href="@{/}">Main menu</a></td>
+    <br></br>
 
 </body>
 <td><a th:href="@{${'/login'}}">Log-in</a></td>

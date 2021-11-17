@@ -1,51 +1,36 @@
 package CS5721.project.entity.person;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 import CS5721.project.entity.DEPARTMENT;
+import CS5721.project.entity.calendar.Calendar;
 import CS5721.project.entity.calendar.CalendarEvent;
+import CS5721.project.entity.clock.Shift;
 import CS5721.project.observer.OPERATIONS;
 import CS5721.project.observer.publisher.EventSystem;
 
 public class Manager extends Employee {
 
 	// Here we link an event to an employeeID
-	private final Map<Long, List<CalendarEvent>> requests;
+	private final Map<CalendarEvent, Long> requests;
 
-	public Manager(Long id, String name, DEPARTMENT department, EventSystem eventSystem, OPERATIONS[] operations) {
-		super(id, name, department, eventSystem, operations);
+	public Manager(Long id, String name, DEPARTMENT department, Shift shift, Calendar calendar) {
+		super(id, name, department, shift, calendar);
 		requests = new HashMap<>();
 	}
 
-	public Map<Long, List<CalendarEvent>> getRequests() {
+	public Map<CalendarEvent, Long> getRequests() {
 		return this.requests;
 	}
 
 	public void addRequest(CalendarEvent request, Long employeeID) {
-		List<CalendarEvent> newRequestList;
-
-		if (requests.containsKey(employeeID)){
-			newRequestList = requests.get(employeeID);
-			newRequestList.add(request);
-		}
-		else {
-			newRequestList = new ArrayList<>(List.of(request));
-		}
-
-		requests.put(employeeID, newRequestList);
+		this.requests.put(request, employeeID);
 	}
 
-	public void deleteRequestWithID(long employeeID, long eventID){
-		List<CalendarEvent> requestList = requests.get(employeeID);
-
-		requestList.removeIf(request -> request.getId() == eventID);
-	}
-
-	@Override
-	public void update(OPERATIONS operation, long eventID, long employeeID) {
-		if (operation.equals(OPERATIONS.VALIDATE_REQUEST)) {
-			deleteRequestWithID(employeeID, eventID);
-		}
+	public void deleteRequest(CalendarEvent request) {
+		this.requests.remove(request);
 	}
 
 	@Override
