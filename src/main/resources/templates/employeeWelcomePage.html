@@ -58,17 +58,11 @@
 	 
 		<button class="grid-item"><a th:href="@{${'/wage?employeeId=' + employeeId }}" >Wage</a></button>
 	  
-		<button class="grid-item"><a th:href="@{${'/delete/'}}">BUTTON 3</a></button>
+		<button class="grid-item"><a th:href="@{${'/reminderList'}}">Reminders</a></button>
 
-		<button class="grid-item"><a th:href="@{${'/delete/'}}">BUTTON 4</a></button>
+		<button class="grid-item"><a th:href="@{${'/info?employeeId=' + employeeId }}">Personal Info</a></button>
 
-		<button class="grid-item"><a th:href="@{${'/delete/'}}">BUTTON 5</a></button>
-
-		<button class="grid-item"><a th:href="@{${'/delete/'}}">BUTTON 6</a></button>
-
-		<button class="grid-item"><a th:href="@{${'/delete/'}}">BUTTON 7</a></button>
-
-		<button class="grid-item"><a th:href="@{${'/delete/'}}">BUTTON 8</a></button>
+		<button class="grid-item"><a th:href="@{${'/tasks?employeeId=' + employeeId }}">Tasks</a></button>
 
 		<button class="grid-item"><a th:href="@{/}" >LOG OUT</a></button>
 	</div>

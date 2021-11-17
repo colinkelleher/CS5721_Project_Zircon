@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ItemList</title>
+</head>
+<body>
+    <h1>Welcome <span  th:text="${employeeName}"></span></h1>
+
+    <h2>Here is your reminders :</h2>
+    <div>
+        Item 1
+        Item 2
+    </div>
+
+    <button><a th:href="@{${'/createReminder'}}">Click here to add a reminder</a></button>
+
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+<link th:href="@{../css/style.css}" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" 
+	rel="stylesheet" 
+	integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" 
+	crossorigin="anonymous">
+</head>
+<body>
+	<button><a th:href="@{/}" >LOG OUT</a></button>
+	<br></br>
+	<h3>Personal Info : </h3>
+
+     <td>Id : <span th:text="${employee.id}">  </span></td>    
+     <br></br>
+     <td>Name : <span th:text="${employee.name}" > </span></td>
+     <br></br>
+     <td>Department : <span th:text="${employee.department}">  </span></td>
+     <br></br>
+     
+     <button><a th:href="@{${'/info/update?employeeId=' + employee.id }}">Update Info</a></button>
+
+</body>
+</html>

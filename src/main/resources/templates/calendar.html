@@ -6,6 +6,23 @@
 	rel="stylesheet" 
 	integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" 
 	crossorigin="anonymous">
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
 </head>
 <body>
 	<button><a th:href="@{/}" >LOG OUT</a></button>
@@ -14,8 +31,8 @@
     <thead>
         <tr>
             <th> Type of event </th>
-            <th> start date </th>
-            <th> end date </th>
+            <th> Start date </th>
+            <th> End date </th>
 
         </tr>
     </thead>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>createItem</title>
+</head>
+<body>
+You can create a Reminder here and add it to your list.
+
+<form action="#" th:action="@{/createReminder}" th:object="${Reminder}" method="post">
+
+    <label for="title">Enter title</label>
+    <input type="text" id="title" th:name="title" placeholder="Title of the reminder...">
+
+    <!--
+    <label for="description">Enter description</label>
+    <input type="text" id="description" th:name="description" placeholder="Description...">
+    -->
+    <!--
+    <label for="location">Enter location (optional)</label>
+    <input type="text" id="location" th:name="location" placeholder="Location...">
+    -->
+    <!--
+    <label for="date">Enter date (optional)</label>
+    <input type="text" id="date" th:name="date" placeholder="Date...">
+    -->
+    <input type="submit" value="Create">
+</form>
+
+<button><a th:href="@{${'/reminderList'}}">Click here to go back to the list</a></button>
+
+</body>
+</html>
