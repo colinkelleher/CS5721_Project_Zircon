@@ -9,9 +9,9 @@ import java.util.Map;
 import CS5721.project.entity.DEPARTMENT;
 import CS5721.project.entity.calendar.CalendarEvent;
 import CS5721.project.entity.calendar.OvertimeEvent;
+import CS5721.project.entity.clock.Shift;
 import CS5721.project.entity.person.Employee;
 import CS5721.project.entity.reminder.Reminder;
-import CS5721.project.entity.reminder.ReminderList;
 import CS5721.project.observer.OPERATIONS;
 import CS5721.project.observer.publisher.EventSystem;
 
@@ -21,7 +21,7 @@ public class EmployeeData {
 	private static final EventSystem eventSystem = EventSystem.getEventSystemInstance(OPERATIONS.values());
 
 	static {
-		Employee employee1 = new Employee(1L, "Ewen", DEPARTMENT.BUSINESS_DEPARTMENT, eventSystem, null, OPERATIONS.values());
+		Employee employee1 = new Employee(1L, "Ewen", DEPARTMENT.BUSINESS_DEPARTMENT, eventSystem, OPERATIONS.values(), new Shift());
 		CalendarEvent event1 = new OvertimeEvent(LocalDateTime.of(2021, 11, 5, 9, 0),
 				LocalDateTime.of(2021, 11, 5, 18, 30), 1L);
 		eventSystem.notifyEvent(OPERATIONS.CREATE_EVENT, event1, 1L);
@@ -29,7 +29,7 @@ public class EmployeeData {
 		employee1.getReminderList().addReminder(new Reminder(1L, "Reminder 1"));
 
 		Employee employee2 = new Employee(2L, "Colin", DEPARTMENT.RESEARCH_DEPARTMENT, eventSystem,
-				null, OPERATIONS.values());
+				 OPERATIONS.values(), new Shift());
 
 		employees.put(1L, employee1);
 		employees.put(2L, employee2);

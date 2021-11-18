@@ -1,8 +1,10 @@
 package CS5721.project.Calendar;
 
 
+import CS5721.project.entity.DEPARTMENT;
 import CS5721.project.entity.calendar.CalendarEvent;
 import CS5721.project.entity.calendar.OvertimeEvent;
+import CS5721.project.entity.clock.Shift;
 import CS5721.project.entity.person.Employee;
 import CS5721.project.observer.OPERATIONS;
 import CS5721.project.observer.publisher.EventSystem;
@@ -20,7 +22,7 @@ public class OvertimeTest {
 
     //Then we create our employee and pass as parameter the eventSystem, as well as an array of Operations we want
     // the employee to subscribe to : here it is only the CREATE_EVENT
-    Employee new_employee = new Employee(ID, "Test Employee", eventSystem, new OPERATIONS[]{OPERATIONS.CREATE_EVENT});
+    Employee new_employee = new Employee(ID, "Test Employee", DEPARTMENT.RESEARCH_DEPARTMENT,eventSystem, new OPERATIONS[]{OPERATIONS.CREATE_EVENT}, new Shift());
     CalendarEvent overtimeEvent = new OvertimeEvent(EVENT_START_DATE, EVENT_END_DATE, 1L);
 
 

@@ -1,32 +1,34 @@
 package CS5721.project.entity.clock;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class Shift {
-    private LocalDateTime start;
-    private LocalDateTime end;
+    private int startHour;
+    private int endHour;
 
     public Shift() {
+        startHour = 8;
+        endHour = 17;
     }
 
-    public Shift(LocalDateTime start, LocalDateTime end) {
-        this.start = start;
-        this.end = end;
+    public Shift(int start, int end) {
+        this.startHour = start;
+        this.endHour = end;
     }
 
-    public LocalDateTime getStart() {
-        return start;
+    public int getStartHour() {
+        return startHour;
     }
 
-    public void setStart(LocalDateTime start) {
-        this.start = start;
+    public void setStartHour(int startHour) {
+        this.startHour = startHour;
     }
 
-    public LocalDateTime getEnd() {
-        return end;
+    public int getEndHour() {
+        return endHour;
     }
 
-    public void setEnd(LocalDateTime end) {
-        this.end = end;
+    public void setEndHour(int endHour) {
+        this.endHour = endHour;
     }
 }

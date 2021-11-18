@@ -28,8 +28,8 @@ public class Employee implements EventListener {
 
 	private ClockingInfo clockingInfo;
 
-	public Employee(Long id, String name, DEPARTMENT department, EventSystem eventSystem, Shift shift,
-			OPERATIONS[] operations) {
+	public Employee(Long id, String name, DEPARTMENT department, EventSystem eventSystem,
+			OPERATIONS[] operations,Shift shift) {
 		this.id = id;
 		this.name = name;
 		this.department = department;

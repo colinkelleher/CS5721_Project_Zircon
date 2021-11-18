@@ -9,7 +9,6 @@ import CS5721.project.entity.calendar.Calendar;
 import CS5721.project.entity.calendar.CalendarEvent;
 import CS5721.project.entity.clock.Shift;
 import CS5721.project.observer.OPERATIONS;
-import CS5721.project.observer.publisher.EventSystem;
 
 public class Manager extends Employee {
 

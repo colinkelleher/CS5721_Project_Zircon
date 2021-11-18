@@ -1,8 +1,5 @@
 package CS5721.project.entity.reminder;
 
-import CS5721.project.decorator.ReminderDecorator;
-import CS5721.project.entity.calendar.CalendarEvent;
-
 import java.util.ArrayList;
 
 public class ReminderList {
