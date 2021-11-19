@@ -14,7 +14,7 @@ import java.util.List;
 public class TaskTests {
     TaskDAO taskDAO = new TaskDAOimpl();
 
-    Task task4 = new Task(44,"Refactoring","Refactor lines 1-33","Ewen",1L, LocalDateTime.of(2021,11,15,11,30,0),LocalDateTime.of(2021,11,15,14,30,0));
+    Task task4 = new Task(44,"Refactoring","Refactor lines 1-33","Ewen",1L, LocalDateTime.of(2021,11,15,11,30,0),LocalDateTime.of(2021,11,15,14,30,0), false);
 
 
     @Test
