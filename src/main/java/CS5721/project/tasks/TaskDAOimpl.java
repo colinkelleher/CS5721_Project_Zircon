@@ -9,7 +9,7 @@ public class TaskDAOimpl implements TaskDAO {
     List<Task> tasks;
 
     public TaskDAOimpl() {
-        tasks = new ArrayList<Task>();
+        tasks = new ArrayList<>();
         Task task1 = new Task(1, "Research", "Research Assignment", "Colin", 1L,LocalDateTime.of(2021,11,5,9,0),LocalDateTime.of(2021,11,10,18,0),false);
         tasks.add(task1);
         Task task2 = new Task(2, "Research", "Research Assignment", "Colin", 1L, LocalDateTime.of(2021,11,5,9,0),LocalDateTime.of(2021,11,5,18,0),false);

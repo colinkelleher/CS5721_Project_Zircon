@@ -9,10 +9,7 @@ public class CheckExistingEmployeeService {
 
 	public boolean execute(Long employeeId) {
 
-		if (EmployeeData.getEmployeeDetails(employeeId) == null) {
-			return false;
-		}
-		return true;
+		return EmployeeData.getEmployeeDetails(employeeId) != null;
 	}
 
 }

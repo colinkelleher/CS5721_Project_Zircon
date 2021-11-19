@@ -45,7 +45,7 @@ public class TaskTests {
     @Test
     public void AddTaskTest() {
         List<Task> new_tasks;
-        new_tasks = new ArrayList<Task>();
+        new_tasks = new ArrayList<>();
         new_tasks.add(task4);
         Assertions.assertEquals(task4,new_tasks.get(0));
     }
@@ -53,7 +53,7 @@ public class TaskTests {
     @Test
     public void RemoveTaskTest() {
         List<Task> new_tasks;
-        new_tasks = new ArrayList<Task>();
+        new_tasks = new ArrayList<>();
         new_tasks.add(task4);
         Assertions.assertEquals(task4,new_tasks.get(0));
         new_tasks.remove(0);

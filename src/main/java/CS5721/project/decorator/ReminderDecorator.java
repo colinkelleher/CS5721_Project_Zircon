@@ -4,7 +4,7 @@ import CS5721.project.entity.reminder.ReminderInterface;
 
 public class ReminderDecorator implements ReminderInterface {
 
-    private ReminderInterface wrapper;
+    private final ReminderInterface wrapper;
 
     public ReminderDecorator(ReminderInterface wrapper){
         this.wrapper = wrapper;
