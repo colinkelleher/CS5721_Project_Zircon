@@ -11,11 +11,11 @@ public class ReminderCreateService {
 
     public void execute(Employee employee, String title, String description) {
 
-        ReminderDecorator withDescription = new DescriptionConcreteDecorator(new Reminder(1L,"Reminder"));
+        ReminderDecorator withDescription = new DescriptionConcreteDecorator(new Reminder(1L,"Reminder",description));
         withDescription.printReminder();
 
 
-        Reminder reminder = new Reminder(3L, title);
+        Reminder reminder = new Reminder(3L, title,description);
         reminder.setDescription(description);
         employee.getReminderList().addReminder(reminder);
     }

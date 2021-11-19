@@ -19,7 +19,7 @@ public class DescriptionConcreteDecorator extends ReminderDecorator {
     }
 
     public void setDescription(String description){
-        Reminder reminder = new Reminder(1L,"Reminder");
+        Reminder reminder = new Reminder(1L,"Reminder","description goes here");
         reminder.setDescription(description);
     }
 }

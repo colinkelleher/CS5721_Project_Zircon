@@ -26,7 +26,7 @@ public class EmployeeData {
 				LocalDateTime.of(2021, 11, 5, 18, 30), 1L);
 		eventSystem.notifyEvent(OPERATIONS.CREATE_EVENT, event1, 1L);
 
-		employee1.getReminderList().addReminder(new Reminder(1L, "Reminder 1"));
+		employee1.getReminderList().addReminder(new Reminder(1L, "Reminder 1", "Reminder Description"));
 
 		Employee employee2 = new Employee(2L, "Colin", DEPARTMENT.RESEARCH_DEPARTMENT, eventSystem,
 				 OPERATIONS.values(), new Shift());

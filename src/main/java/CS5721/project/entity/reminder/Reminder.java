@@ -6,10 +6,10 @@ public class Reminder implements ReminderInterface {
     private String title;
     private String description;
 
-    public Reminder(long reminderID, String title){
+    public Reminder(long reminderID, String title, String reminderDesc){
         this.reminderID = reminderID;
         this.title = title;
-        this.description = "No description for this reminder.";
+        this.description = reminderDesc ;
     }
 
     public String getTitle() {
@@ -33,8 +33,8 @@ public class Reminder implements ReminderInterface {
     public String getDescription() {
         return description;
     }
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescription(String reminderDesc) {
+        this.description = reminderDesc;
     }
 
 }
