@@ -20,7 +20,7 @@ public class ReminderDecoratorTest {
 
     @Test
     public void testReminderWithDescription(){
-        ReminderDecorator withDescription = new DateConcreteDecorator(new Reminder(1,"test\n"));
+        ReminderDecorator withDescription = new DateConcreteDecorator(new Reminder(1,"test\n","description of reminder"));
         String result = withDescription.printReminder();
         Assertions.assertEquals("test\n"+date, result);
     }
@@ -29,7 +29,7 @@ public class ReminderDecoratorTest {
     public void testReminderWithLocationAndDescription(){
         ReminderDecorator withLocationAndDescription = new LocationConcreteDecorator(
                                             new DescriptionConcreteDecorator(
-                                                    new Reminder(1,"text\n")));
+                                                    new Reminder(1,"text\n","description")));
         String result = withLocationAndDescription.printReminder();
         Assertions.assertEquals("Here is a location.\ntext\nHere is a description.\n", result);
     }
