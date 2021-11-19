@@ -2,6 +2,8 @@ package CS5721.project.Clock;
 
 import java.time.LocalDateTime;
 
+import CS5721.project.EmployeeData;
+import CS5721.project.entity.clock.Shift;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -20,8 +22,7 @@ public class ClockingInOutTest {
 	@Test
 	public void clockingInOutTest() {
 
-		Employee employee1 = new Employee(1L, "Ewen", DEPARTMENT.BUSINESS_DEPARTMENT, eventSystem, null,
-				OPERATIONS.values());
+		Employee employee1 = new Employee(1L, "Ewen", DEPARTMENT.BUSINESS_DEPARTMENT, EmployeeData.getEventSystem(), OPERATIONS.values(), new Shift());
 		LocalDateTime today = LocalDateTime.now();
 		LocalDateTime laterToday = today.plusHours(5);
 
