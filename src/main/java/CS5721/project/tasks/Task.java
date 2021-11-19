@@ -13,6 +13,8 @@ public class Task {
     private final LocalDateTime taskEndDate;
     private boolean completed;
 
+
+
     public Task(int taskId, String taskName, String taskDescription, String teamEmployee, Long employeeId, LocalDateTime taskStartDate, LocalDateTime taskEndDate, boolean completed){
         this.taskId = taskId;
         this.taskName = taskName;
@@ -51,13 +53,21 @@ public class Task {
     }
     public void setEmployeeId(long employeeId) {this.employeeId = employeeId;}
     public long getEmployeeId(){return employeeId;}
-    public boolean isTaskCompleted() {
-        return completed;
-    }
+
     public Task setTaskCompleted() {
         this.completed = true;
 
         return null;
     }
+    public boolean isCompleted() {
+        return completed;
+    }
 
+    public LocalDateTime getTaskStartDate() {
+        return taskStartDate;
+    }
+
+    public LocalDateTime getTaskEndDate() {
+        return taskEndDate;
+    }
 }

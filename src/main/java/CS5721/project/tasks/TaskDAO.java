@@ -1,12 +1,14 @@
 package CS5721.project.tasks;
 
-import java.util.List;
 
-public interface TaskDAO {
-    List<Task> findAllTasks();
-    int insertTask(Task newTask);
-    void deleteTask(Task task);
-    Task getTask(int taskId);
-    Task setCompleted(int taskId);
+import java.util.ArrayList;
+
+
+public interface TaskDAO<T> {
+    ArrayList<T> findAllTasks();
+    int insertTask(T t);
+    void deleteTask(T t);
+    Task getTask(int tId);
+    Task setCompleted(int tId);
 
 }

@@ -1,26 +1,26 @@
 package CS5721.project.tasks;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-public class TaskDAOimpl implements TaskDAO {
+@Component
+public class TaskDAOimpl implements TaskDAO<Task> {
 
-    List<Task> tasks;
+    private List<Task> taskList = new ArrayList<>();
 
     public TaskDAOimpl() {
-        tasks = new ArrayList<>();
-        Task task1 = new Task(1, "Research", "Research Assignment", "Colin", 1L,LocalDateTime.of(2021,11,5,9,0),LocalDateTime.of(2021,11,10,18,0),false);
-        tasks.add(task1);
-        Task task2 = new Task(2, "Research", "Research Assignment", "Colin", 1L, LocalDateTime.of(2021,11,5,9,0),LocalDateTime.of(2021,11,5,18,0),false);
-        tasks.add(task2);
-        Task task3 = new Task(3, "Research", "Research Assignment", "Colin", 2L,LocalDateTime.of(2021,11,20,9,0),LocalDateTime.of(2021,11,25,18,0),false);
-        tasks.add(task3);
+        Task task1 = new Task(1, "Research", "Research Assignment", "Ewen", 1L,LocalDateTime.of(2021,11,5,9,0),LocalDateTime.of(2021,11,10,18,0),false);
+        taskList.add(task1);
+        Task task2 = new Task(2, "Research", "Research Assignment", "Ewen", 1L, LocalDateTime.of(2021,11,5,9,0),LocalDateTime.of(2021,11,5,18,0),false);
+        taskList.add(task2);
+        Task task3 = new Task(3, "Research", "Research Assignment", "Colin", 2L,LocalDateTime.of(2021,11,20,9,0),LocalDateTime.of(2021,11,25,18,0),true);
+        taskList.add(task3);
     }
 
 
-    public List<Task> findAllTasks() {
-        return tasks;
+    public ArrayList<Task> findAllTasks() {
+        return (ArrayList<Task>) taskList;
     }
 
     @Override
@@ -30,17 +30,17 @@ public class TaskDAOimpl implements TaskDAO {
 
     @Override
     public Task getTask(int taskId) {
-        return tasks.get(taskId);
+        return taskList.get(taskId);
     }
 
     @Override
     public Task setCompleted(int taskId) {
-        return tasks.get(taskId).setTaskCompleted();
+        return taskList.get(taskId).setTaskCompleted();
     }
 
     @Override
     public void deleteTask(Task task) {
-        tasks.remove(task.getTaskId());
+        taskList.remove(task.getTaskId());
     }
 
 }
