@@ -1,21 +1,20 @@
 package CS5721.project.decorator;
 
-import CS5721.project.entity.reminder.ReminderInterface;
+import CS5721.project.entity.reminder.ReminderAbstract;
 
 public class LocationConcreteDecorator extends ReminderDecorator {
 
-    public LocationConcreteDecorator(ReminderInterface wrapper){
-        super(wrapper);
+    private final ReminderAbstract wrapper;
+    private String location;
+
+    public LocationConcreteDecorator(ReminderAbstract wrapper, String description){
+        this.wrapper = wrapper;
+        this.location = description;
     }
 
     @Override
-    public String printReminder() {
-        String _text = super.printReminder();
-        return addTitle(_text);
-    }
-
-    private String addTitle(String text){
-        return "Here is a location.\n" + text;
+    public String addDetails(String detail) {
+        return wrapper.addDetails(detail) + " - Location: " + location;
     }
 
 }

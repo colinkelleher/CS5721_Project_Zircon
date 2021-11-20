@@ -26,10 +26,11 @@ public class ReminderCreateActionController {
 
     @PostMapping(path = "/createReminder")
     public String createReminder(@RequestParam Long employeeId, @RequestParam String title,
-                                 @RequestParam(required = false) String description){
+                                 @RequestParam(required = false) String description,
+                                 @RequestParam(required = false) String location){
 
         Employee employee = employeeFinderService.execute(employeeId);
-        reminderCreateService.execute(employee, title, description);
+        reminderCreateService.execute(employee, title, description, location);
 
         return "redirect:" + "/reminderList?employeeId="+ employeeId;
     }

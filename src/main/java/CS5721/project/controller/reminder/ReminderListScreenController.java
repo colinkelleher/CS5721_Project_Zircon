@@ -1,6 +1,7 @@
 package CS5721.project.controller.reminder;
 
 import CS5721.project.entity.reminder.Reminder;
+import CS5721.project.entity.reminder.ReminderAbstract;
 import CS5721.project.entity.reminder.ReminderList;
 import CS5721.project.service.employee.EmployeeFindReminderListService;
 import org.springframework.stereotype.Controller;
@@ -29,10 +30,6 @@ public class ReminderListScreenController {
 
         ReminderList reminderList = employeeFindReminderListService.execute(employeeId);
         ArrayList<Reminder> reminders = reminderList.getReminderList();
-        /*for(int i=0; i<reminders.size(); i++){
-            String reminder = reminders.get(i).printReminder();
-            model.addAttribute("reminder"+i, reminder);
-        }*/
 
         model.addAttribute("employeeId", employeeId);
         model.addAttribute("reminders", reminders);

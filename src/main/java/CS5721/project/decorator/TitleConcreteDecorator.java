@@ -2,16 +2,19 @@ package CS5721.project.decorator;
 
 import CS5721.project.entity.reminder.ReminderAbstract;
 
-public class DateConcreteDecorator extends ReminderDecorator {
+public class TitleConcreteDecorator extends ReminderDecorator{
     private final ReminderAbstract wrapper;
 
-    public DateConcreteDecorator(ReminderAbstract wrapper){
+    private String title;
+
+    public TitleConcreteDecorator(ReminderAbstract wrapper, String title){
         this.wrapper = wrapper;
+        this.title = title;
     }
 
     @Override
     public String addDetails(String detail) {
-        return wrapper.addDetails(detail) + "Here is a date.\n";
+        return wrapper.addDetails(detail) + title;
     }
 
 }

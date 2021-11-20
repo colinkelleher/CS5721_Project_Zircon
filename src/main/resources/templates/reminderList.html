@@ -4,33 +4,78 @@
 <head>
     <meta charset="UTF-8">
     <title>ItemList</title>
+    <style>
+        h1,h2,footer{
+            text-align: center;
+        }
+        #title1 {
+            color: white;
+            background-color: black;
+            padding: 0.5em;
+        }
+        #title2 {
+            color: #0F350C;
+            padding: 0.5em;
+        }
+        a {
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+            width: 100%;
+            padding: 2em;
+        }
+        input[type=submit] {
+            width: 15%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 auto;
+            text-align: center;
+        }
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+        button{
+            background-color: #4CAF50;
+            width:30%;
+            margin-left:35%;
+            margin-right:35%;
+            padding: 1em;
+            margin-bottom: 2em;
+            border: none;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+            align-items: left;
+            justify-content: left;
+        }
+    </style>
 </head>
 <body>
-<button><a th:href="@{/}" >LOG OUT</a></button>
-    <h1>Welcome <span  th:text="${employeeName}"></span></h1>
-
-    <h2>Here is your reminder List :</h2>
+<h1 id="title1">Zircon Human Resources Management System</h1>
+<br>
+<h2 id="title2">Welcome <span  th:text="${employeeName}"></span></h2>
+<br>
+<h3>Here is your reminder List :</h3>
 
 <table>
-    <thead>
-    <tr>
-        <th> ReminderID </th>
-        <th> Title </th>
-        <th> Description </th>
-    </tr>
-    </thead>
     <tbody>
 
     <tr th:each="reminder : ${reminders}">
-        <td><span th:text="${reminder.reminderID}">  </span></td>
-        <td><span th:text="${reminder.title}" > </span></td>
-        <td><span th:text="${reminder.description}" > </span></td>
+        <td><span th:text="${reminder.details}">  </span></td>
     </tr>
     </tbody>
 </table>
 
+<br>
 <button><a th:href="@{${'/createReminder?employeeId=' + employeeId }}">Click here to add a reminder</a></button>
 
+<br>
+<button><a th:href="@{/}" >LOG OUT</a></button>
 
 </body>
 </html>

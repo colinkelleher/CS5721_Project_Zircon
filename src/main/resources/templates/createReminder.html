@@ -2,11 +2,78 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>createItem</title>
+    <title>createReminder</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        h1,h2,footer{
+            text-align: center;
+        }
+        form{
+            align-items: center;
+            justify-content: center;
+            padding: 2em;
+            padding-bottom: 5em;
+            text-align: center;
+        }
+        #title1 {
+            color: white;
+            background-color: black;
+            padding: 0.5em;
+        }
+        a {
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+            width: 100%;
+            padding: 2em;
+        }
+        input {
+            display: inline-block;
+            align-items: center;
+            justify-content: center;
+        }
+        .form-item {
+            align-items: center;
+            justify-content: center;
+            padding: 1em;
+            text-align: center;
+        }
+        input[type=submit] {
+            width: 15%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 auto;
+            text-align: center;
+        }
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+        button{
+            background-color: #4CAF50;
+            width:30%;
+            margin-left:35%;
+            margin-right:35%;
+            padding: 1em;
+            margin-bottom: 2em;
+            border: none;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 </head>
 <body>
-You can create a Reminder here and add it to your list.
-
+<h1 id="title1">Zircon Human Resources Management System</h1>
+<br>
+<h2> You can create a Reminder here and add it to your list.</h2>
+<br>
 <form th:action="@{/createReminder}"  method="post">
 
     <!--<td>Your Id : <span th:text="${employee.id}">  </span></td>
@@ -15,14 +82,15 @@ You can create a Reminder here and add it to your list.
     <label for="title">Enter title</label>
     <input required="true" type="text" id="title" th:name="title" placeholder="Title of the reminder...">
     <input type="hidden"  th:name="employeeId" th:value="${employee.id}"/>
+    <br><br>
 
     <label for="description">Enter description (optional)</label>
     <input type="text" id="description" th:name="description" placeholder="Description...">
+    <br><br>
 
-    <!--
     <label for="location">Enter location (optional)</label>
     <input type="text" id="location" th:name="location" placeholder="Location...">
-    -->
+    <br><br>
     <!--
     <label for="date">Enter date (optional)</label>
     <input type="text" id="date" th:name="date" placeholder="Date...">
@@ -30,7 +98,7 @@ You can create a Reminder here and add it to your list.
     <input type="submit" value="Create">
 </form>
 
-<button><a th:href="@{${'/reminderList'}}">Click here to go back to the list</a></button>
+<!--<button><a th:href="@{${'/reminderList?employeeId=' + employeeId }}">Click here to go back to the list</a></button>-->
 
 </body>
 </html>

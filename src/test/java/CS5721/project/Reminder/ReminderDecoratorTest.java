@@ -1,9 +1,6 @@
 package CS5721.project.Reminder;
 
-import CS5721.project.decorator.DateConcreteDecorator;
-import CS5721.project.decorator.DescriptionConcreteDecorator;
-import CS5721.project.decorator.LocationConcreteDecorator;
-import CS5721.project.decorator.ReminderDecorator;
+import CS5721.project.decorator.*;
 import CS5721.project.entity.reminder.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -19,28 +16,10 @@ public class ReminderDecoratorTest {
     String date = _date.format(formatter);
 
     @Test
-    public void testReminderWithDescription(){
-        ReminderDecorator withDescription = new DateConcreteDecorator(new Reminder(1,"test\n","description of reminder"));
-        String result = withDescription.printReminder();
-        Assertions.assertEquals("test\n"+date, result);
+    public void testReminderWithTitleAndDescription(){
+        ReminderAbstract withDescription = new DescriptionConcreteDecorator(new TitleConcreteDecorator(new Reminder(""), "Title"), "Description");
+        String result = withDescription.addDetails("");
+        Assertions.assertEquals("Title\nDescription\n", result);
     }
-
-    @Test
-    public void testReminderWithLocationAndDescription(){
-        ReminderDecorator withLocationAndDescription = new LocationConcreteDecorator(
-                                            new DescriptionConcreteDecorator(
-                                                    new Reminder(1,"text\n","description")));
-        String result = withLocationAndDescription.printReminder();
-        Assertions.assertEquals("Here is a location.\ntext\nHere is a description.\n", result);
-    }
-
-    /*
-    @Test
-    public void testEmployeeReminder(){
-        Employee newEmployee = new Employee();
-
-        Assertions.assertEquals( , );
-    }
-    */
 
 }
