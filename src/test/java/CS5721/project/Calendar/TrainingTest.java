@@ -1,13 +1,12 @@
 package CS5721.project.Calendar;
 
 import CS5721.project.EmployeeData;
-import CS5721.project.entity.DEPARTMENT;
-import CS5721.project.entity.calendar.Calendar;
-import CS5721.project.entity.calendar.CalendarEvent;
-import CS5721.project.entity.calendar.TrainingEvent;
-import CS5721.project.entity.clock.Shift;
-import CS5721.project.entity.person.Employee;
-
+import CS5721.project.calendar.entity.Calendar;
+import CS5721.project.calendar.entity.CalendarEvent;
+import CS5721.project.calendar.entity.TrainingEvent;
+import CS5721.project.clocking.entity.Shift;
+import CS5721.project.employee.entity.DEPARTMENT;
+import CS5721.project.employee.entity.Employee;
 import CS5721.project.observer.OPERATIONS;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

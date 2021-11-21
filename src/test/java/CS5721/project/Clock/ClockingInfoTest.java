@@ -1,8 +1,9 @@
 package CS5721.project.Clock;
 
-import CS5721.project.entity.clock.ClockingInfo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import CS5721.project.clocking.entity.ClockingInfo;
 
 import java.time.LocalDateTime;
 

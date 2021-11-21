@@ -1,4 +1,4 @@
-package CS5721.project.entity.reminder;
+package CS5721.project.reminder.entity;
 
 public interface ReminderInterface {
 

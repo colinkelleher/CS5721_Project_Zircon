@@ -1,10 +1,18 @@
 package CS5721.project.decorator;
 
-import CS5721.project.entity.reminder.ReminderAbstract;
-import CS5721.project.entity.reminder.ReminderInterface;
+import CS5721.project.reminder.entity.ReminderInterface;
 
-public abstract class ReminderDecorator extends ReminderAbstract {
+public class ReminderDecorator implements ReminderInterface {
 
-    public abstract String addDetails(String detail);
+    private final ReminderInterface wrapper;
+
+    public ReminderDecorator(ReminderInterface wrapper){
+        this.wrapper = wrapper;
+    }
+
+    @Override
+    public String printReminder(){
+        return wrapper.printReminder();
+    }
 
 }

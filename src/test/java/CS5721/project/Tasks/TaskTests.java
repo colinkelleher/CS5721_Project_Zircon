@@ -1,10 +1,11 @@
 package CS5721.project.Tasks;
 
-import CS5721.project.tasks.Task;
-import CS5721.project.tasks.TaskDAO;
-import CS5721.project.tasks.TaskDAOimpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import CS5721.project.task.entity.Task;
+import CS5721.project.task.entity.TaskDAO;
+import CS5721.project.task.entity.TaskDAOimpl;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

@@ -1,8 +1,9 @@
-package CS5721.project.controller.reminder;
+package CS5721.project.reminder.controller;
 
-import CS5721.project.entity.person.Employee;
-import CS5721.project.service.employee.EmployeeFinderService;
-import CS5721.project.service.reminder.ReminderCreateService;
+import CS5721.project.employee.entity.Employee;
+import CS5721.project.employee.service.EmployeeFinderService;
+import CS5721.project.reminder.service.ReminderCreateService;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

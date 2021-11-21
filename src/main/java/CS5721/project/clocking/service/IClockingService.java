@@ -1,11 +1,11 @@
-package CS5721.project.service.clocking;
+package CS5721.project.clocking.service;
 
 import java.time.LocalDateTime;
 
-import CS5721.project.entity.calendar.CalendarEvent;
-import CS5721.project.entity.clock.ClockingInfo;
-import CS5721.project.entity.clock.Shift;
-import CS5721.project.entity.person.Employee;
+import CS5721.project.calendar.entity.CalendarEvent;
+import CS5721.project.clocking.entity.ClockingInfo;
+import CS5721.project.clocking.entity.Shift;
+import CS5721.project.employee.entity.Employee;
 
 public interface IClockingService {
 

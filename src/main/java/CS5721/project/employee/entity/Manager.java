@@ -1,22 +1,22 @@
-package CS5721.project.entity.person;
+package CS5721.project.employee.entity;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import CS5721.project.entity.DEPARTMENT;
-import CS5721.project.entity.calendar.Calendar;
-import CS5721.project.entity.calendar.CalendarEvent;
-import CS5721.project.entity.clock.Shift;
+import CS5721.project.calendar.entity.Calendar;
+import CS5721.project.calendar.entity.CalendarEvent;
+import CS5721.project.clocking.entity.Shift;
 import CS5721.project.observer.OPERATIONS;
 
 public class Manager extends Employee {
 
 	// Here we link an event to an employeeID
+
 	private final Map<CalendarEvent, Long> requests;
 
 	public Manager(Long id, String name, DEPARTMENT department, Shift shift, Calendar calendar) {
-		super(id, name, department, shift, calendar);
+		super(id, name, department, calendar, shift);
 		requests = new HashMap<>();
 	}
 
@@ -43,6 +43,5 @@ public class Manager extends Employee {
 			this.getCalendar().addEvent(event);
 		}
 	}
-
 
 }

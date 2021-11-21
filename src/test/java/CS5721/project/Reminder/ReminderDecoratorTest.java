@@ -2,6 +2,8 @@ package CS5721.project.Reminder;
 
 import CS5721.project.decorator.*;
 import CS5721.project.entity.reminder.*;
+import CS5721.project.reminder.entity.Reminder;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package CS5721.project.controller.clocking;
+package CS5721.project.clocking.controller;
 
 import java.time.LocalDateTime;
 
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import CS5721.project.entity.person.Employee;
-import CS5721.project.service.clocking.ClockingService;
-import CS5721.project.service.employee.EmployeeFinderService;
+import CS5721.project.clocking.service.ClockingService;
+import CS5721.project.employee.entity.Employee;
+import CS5721.project.employee.service.EmployeeFinderService;
 
 @Controller
 @RequestMapping(path = "")

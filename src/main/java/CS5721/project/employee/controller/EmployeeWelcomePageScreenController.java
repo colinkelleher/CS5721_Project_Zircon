@@ -1,4 +1,4 @@
-package CS5721.project.controller.employee;
+package CS5721.project.employee.controller;
 
 import javax.inject.Inject;
 
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import CS5721.project.entity.person.Employee;
-import CS5721.project.service.employee.EmployeeFinderService;
+import CS5721.project.employee.entity.Employee;
+import CS5721.project.employee.service.EmployeeFinderService;
 
 @Controller
 @RequestMapping(path = "")

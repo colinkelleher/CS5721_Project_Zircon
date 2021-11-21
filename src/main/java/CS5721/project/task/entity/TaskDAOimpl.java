@@ -1,4 +1,4 @@
-package CS5721.project.tasks;
+package CS5721.project.task.entity;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;

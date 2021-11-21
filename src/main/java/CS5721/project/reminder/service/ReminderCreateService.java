@@ -1,21 +1,20 @@
-package CS5721.project.service.reminder;
+package CS5721.project.reminder.service;
 
 import CS5721.project.decorator.DescriptionConcreteDecorator;
 import CS5721.project.decorator.LocationConcreteDecorator;
 import CS5721.project.decorator.ReminderDecorator;
-import CS5721.project.decorator.TitleConcreteDecorator;
-import CS5721.project.entity.person.Employee;
-import CS5721.project.entity.reminder.Reminder;
-import org.springframework.stereotype.Service;
+import CS5721.project.employee.entity.Employee;
+import CS5721.project.reminder.entity.Reminder;
 
-import java.util.Objects;
+import org.springframework.stereotype.Service;
 
 @Service
 public class ReminderCreateService {
 
-    public void execute(Employee employee, String title, String description, String location) {
+    public void execute(Employee employee, String title, String description) {
 
-        ReminderDecorator dReminder = new TitleConcreteDecorator(new Reminder(""), title);
+        ReminderDecorator withDescription = new DescriptionConcreteDecorator(new Reminder(1L,"Reminder",description));
+        withDescription.printReminder();
 
         // Only description
         if (!Objects.equals(description, "") && Objects.equals(location, "")) {
@@ -30,7 +29,8 @@ public class ReminderCreateService {
             }
         }
 
-        Reminder reminder = dReminder.newReminder(dReminder.addDetails(""));
+        Reminder reminder = new Reminder(3L, title,description);
+        reminder.setDescription(description);
         employee.getReminderList().addReminder(reminder);
 
     }

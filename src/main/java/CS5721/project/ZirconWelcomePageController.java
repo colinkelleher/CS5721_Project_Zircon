@@ -1,10 +1,11 @@
-package CS5721.project.controller;
+package CS5721.project;
 
-import CS5721.project.entity.person.Employee;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import CS5721.project.employee.entity.Employee;
 
 @Controller
 @RequestMapping(path = "")

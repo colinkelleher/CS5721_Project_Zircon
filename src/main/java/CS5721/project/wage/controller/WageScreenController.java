@@ -1,4 +1,4 @@
-package CS5721.project.controller.wage;
+package CS5721.project.wage.controller;
 
 import javax.inject.Inject;
 
@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import CS5721.project.entity.calendar.Calendar;
-import CS5721.project.service.employee.EmployeeFindCalendarService;
-import CS5721.project.service.wage.WageService;
+import CS5721.project.calendar.entity.Calendar;
+import CS5721.project.employee.service.EmployeeFindCalendarService;
+import CS5721.project.wage.service.WageService;
 
 import java.time.Month;
 

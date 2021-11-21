@@ -1,9 +1,10 @@
-package CS5721.project.service.tasks;
+package CS5721.project.task.service;
 
-import CS5721.project.tasks.Task;
-import CS5721.project.tasks.TaskDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import CS5721.project.task.entity.Task;
+import CS5721.project.task.entity.TaskDAO;
 
 import java.util.ArrayList;
 

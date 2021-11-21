@@ -1,7 +1,8 @@
-package CS5721.project.service.employee;
+package CS5721.project.employee.service;
 
-import CS5721.project.entity.person.Employee;
-import CS5721.project.entity.reminder.ReminderList;
+import CS5721.project.employee.entity.Employee;
+import CS5721.project.reminder.entity.ReminderList;
+
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;

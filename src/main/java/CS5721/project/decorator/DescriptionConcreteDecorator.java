@@ -1,20 +1,25 @@
 package CS5721.project.decorator;
 
-import CS5721.project.entity.reminder.ReminderAbstract;
+import CS5721.project.reminder.entity.Reminder;
+import CS5721.project.reminder.entity.ReminderInterface;
 
 public class DescriptionConcreteDecorator extends ReminderDecorator {
 
-    private final ReminderAbstract wrapper;
-    private String description;
-
-    public DescriptionConcreteDecorator(ReminderAbstract wrapper, String description){
-        this.wrapper = wrapper;
-        this.description = description;
+    public DescriptionConcreteDecorator(ReminderInterface wrapper){
+        super(wrapper);
     }
 
     @Override
-    public String addDetails(String detail) {
-        return wrapper.addDetails(detail) + " - Description: " + description;
+    public String printReminder() {
+        String _text = super.printReminder();
+        return addDescription(_text);
+    }
+    private String addDescription(String text){
+        return text + "Here is a description.\n";
     }
 
+    public void setDescription(String description){
+        Reminder reminder = new Reminder(1L,"Reminder","description goes here");
+        reminder.setDescription(description);
+    }
 }

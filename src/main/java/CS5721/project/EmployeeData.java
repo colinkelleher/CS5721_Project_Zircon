@@ -6,14 +6,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import CS5721.project.entity.DEPARTMENT;
-import CS5721.project.entity.calendar.CalendarEvent;
-import CS5721.project.entity.calendar.OvertimeEvent;
-import CS5721.project.entity.clock.Shift;
-import CS5721.project.entity.person.Employee;
-import CS5721.project.entity.reminder.Reminder;
+import CS5721.project.calendar.entity.CalendarEvent;
+import CS5721.project.calendar.entity.OvertimeEvent;
+import CS5721.project.clocking.entity.Shift;
+import CS5721.project.employee.entity.DEPARTMENT;
+import CS5721.project.employee.entity.Employee;
 import CS5721.project.observer.OPERATIONS;
 import CS5721.project.observer.publisher.EventSystem;
+import CS5721.project.reminder.entity.Reminder;
 
 public class EmployeeData {
 

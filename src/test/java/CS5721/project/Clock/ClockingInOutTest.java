@@ -3,16 +3,17 @@ package CS5721.project.Clock;
 import java.time.LocalDateTime;
 
 import CS5721.project.EmployeeData;
-import CS5721.project.entity.clock.Shift;
+import CS5721.project.clocking.entity.ClockingInfo;
+import CS5721.project.clocking.entity.Shift;
+import CS5721.project.clocking.service.ClockingService;
+import CS5721.project.employee.entity.DEPARTMENT;
+import CS5721.project.employee.entity.Employee;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import CS5721.project.entity.DEPARTMENT;
-import CS5721.project.entity.clock.ClockingInfo;
-import CS5721.project.entity.person.Employee;
 import CS5721.project.observer.OPERATIONS;
 import CS5721.project.observer.publisher.EventSystem;
-import CS5721.project.service.clocking.ClockingService;
 
 public class ClockingInOutTest {
 

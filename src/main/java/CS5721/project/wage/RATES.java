@@ -1,4 +1,4 @@
-package CS5721.project.entity;
+package CS5721.project.wage;
 
 public enum RATES {
     OVERTIME_RATE(16),

@@ -1,6 +1,6 @@
-package CS5721.project.service.wage;
+package CS5721.project.wage.service;
 
-import CS5721.project.entity.calendar.Calendar;
+import CS5721.project.calendar.entity.Calendar;
 
 public interface IWageService {
 

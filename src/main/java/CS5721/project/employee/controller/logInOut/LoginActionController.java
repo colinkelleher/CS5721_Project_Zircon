@@ -1,4 +1,4 @@
-package CS5721.project.controller.logingInOut;
+package CS5721.project.employee.controller.logInOut;
 
 import javax.inject.Inject;
 
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import CS5721.project.service.logingInOut.CheckExistingEmployeeService;
+import CS5721.project.employee.service.CheckExistingEmployeeService;
 
 @Controller
 @RequestMapping(path = "")
