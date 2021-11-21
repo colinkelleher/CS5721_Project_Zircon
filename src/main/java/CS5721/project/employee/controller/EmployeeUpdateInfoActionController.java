@@ -1,14 +1,14 @@
-package CS5721.project.controller.employee;
+package CS5721.project.employee.controller;
 
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import CS5721.project.entity.DEPARTMENT;
-import CS5721.project.service.employee.EmployeeUpdateInfoService;
+import CS5721.project.employee.dto.EmployeeDto;
+import CS5721.project.employee.service.EmployeeUpdateInfoService;
 
 @Controller
 @RequestMapping(path = "")
@@ -23,12 +23,11 @@ public class EmployeeUpdateInfoActionController {
 	}
 
 	@PostMapping(path = "/info/update")
-	public String updateEmployeeInfo(@RequestParam Long id, @RequestParam String name,
-			@RequestParam DEPARTMENT department) {
+	public String updateEmployeeInfo(@ModelAttribute("employee") EmployeeDto employeeDto) {
 
-		employeeUpdateInfoService.execute(id, name, department);
+		employeeUpdateInfoService.execute(employeeDto);
 
-		return "redirect:" + "/info?employeeId=" + id;
+		return "redirect:" + "/info?employeeId=" + employeeDto.getId();
 
 	}
 
