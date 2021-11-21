@@ -29,7 +29,7 @@ public class WageService implements IWageService {
 
 		ArrayList<CalendarEvent> events = calendar.getEvents();
 
-		// Check all events and filters them to keep only those of current Week
+		// Check all events and filters them to keep only those of the last seven days
 		return events.stream().filter(event -> Duration.between(event.getStartDate(), LocalDateTime.now()).toDays() < 7)
 				.mapToDouble(CalendarEvent::getPay).sum();
 

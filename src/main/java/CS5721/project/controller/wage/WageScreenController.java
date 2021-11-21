@@ -12,6 +12,8 @@ import CS5721.project.entity.calendar.Calendar;
 import CS5721.project.service.employee.EmployeeFindCalendarService;
 import CS5721.project.service.wage.WageService;
 
+import java.time.Month;
+
 @Controller
 @RequestMapping(path = "")
 public class WageScreenController {
@@ -27,7 +29,7 @@ public class WageScreenController {
 	}
 
 	@GetMapping(path = "/wage")
-	public String wage(Model model, @RequestParam Long employeeId) {
+	public String wage(Model model, @RequestParam Long employeeId, @RequestParam(required = false) String previousMonthWage) {
 
 		Calendar employeeCalendar = employeeFindCalendarService.execute(employeeId);
 
@@ -37,6 +39,7 @@ public class WageScreenController {
 		model.addAttribute("employeeId", employeeId);
 		model.addAttribute("weeklyWage", weeklyWage);
 		model.addAttribute("monthlyWage", monthlyWage);
+		model.addAttribute("previousMonthWage", previousMonthWage);
 
 		return "wage.html";
 	}

@@ -9,9 +9,23 @@
      
     <h3>Employee ID :  <span th:text="${employeeId}"></span></h3> 
 
-    <h4>Monthly wage :  <span th:text="${monthlyWage}"></span></h4> 
+    <h4>Current month wage :  <span th:text="${monthlyWage}"></span></h4>
 
-    <h4>Weekly wage :  <span th:text="${weeklyWage}"></span></h4>
+    <h4>Last 7 days wage :  <span th:text="${weeklyWage}"></span></h4>
+
+    <br>
+    <h3>Previous wage</h3>
+
+    <form class="form-item" th:action="@{/previousMonthWage}" method="post">
+        <label for="month">Month : </label>
+        <input type="date" id="month" min="2021-01" value="2021-11" th:name="month" required="true"/>
+
+        <input type="hidden"  th:name="employeeId" th:value="${employeeId}"/>
+
+        <input type="submit" value="Search"/>
+    </form>
+
+    <h4>Previous month wage :  <span th:text="${previousMonthWage}"></span></h4>
 
 </body>
 </html>
