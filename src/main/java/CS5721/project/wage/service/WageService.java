@@ -1,21 +1,21 @@
-package CS5721.project.service.wage;
+package CS5721.project.wage.service;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.Month;
-import java.util.ArrayList;
+import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
-import CS5721.project.entity.calendar.Calendar;
-import CS5721.project.entity.calendar.CalendarEvent;
+import CS5721.project.calendar.entity.Calendar;
+import CS5721.project.calendar.entity.CalendarEvent;
 
 @Service
 public class WageService implements IWageService {
 
 	public double getMonthlyWage(Calendar calendar) {
 
-		ArrayList<CalendarEvent> events = calendar.getEvents();
+		Set<CalendarEvent> events = calendar.getEvents();
 
 		Month currentMonth = LocalDateTime.now().getMonth();
 
@@ -27,7 +27,7 @@ public class WageService implements IWageService {
 
 	public double getWeeklyWage(Calendar calendar) {
 
-		ArrayList<CalendarEvent> events = calendar.getEvents();
+		Set<CalendarEvent> events = calendar.getEvents();
 
 		// Check all events and filters them to keep only those of the last seven days
 		return events.stream().filter(event -> Duration.between(event.getStartDate(), LocalDateTime.now()).toDays() < 7)

@@ -1,6 +1,6 @@
-package CS5721.project.controller.calendar;
+package CS5721.project.calendar.controller;
 
-import java.util.ArrayList;
+import java.util.Set;
 
 import javax.inject.Inject;
 
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import CS5721.project.entity.calendar.Calendar;
-import CS5721.project.entity.calendar.CalendarEvent;
-import CS5721.project.service.employee.EmployeeFindCalendarService;
+import CS5721.project.calendar.entity.Calendar;
+import CS5721.project.calendar.entity.CalendarEvent;
+import CS5721.project.employee.service.EmployeeFindCalendarService;
 
 @Controller
 @RequestMapping(path = "")
@@ -30,7 +30,7 @@ public class CalendarScreenController {
 	public String wage(Model model, @RequestParam Long employeeId) {
 
 		Calendar employeeCalendar = employeeFindCalendarService.execute(employeeId);
-		ArrayList<CalendarEvent> events = employeeCalendar.getEvents();
+		Set<CalendarEvent> events = employeeCalendar.getEvents();
 
 		model.addAttribute("employeeId", employeeId);
 		model.addAttribute("events", events);
