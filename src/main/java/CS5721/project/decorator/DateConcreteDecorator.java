@@ -1,27 +1,17 @@
 package CS5721.project.decorator;
 
-import CS5721.project.entity.reminder.ReminderInterface;
-
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
-import CS5721.project.reminder.entity.ReminderInterface;
+import CS5721.project.reminder.entity.ReminderAbstract;
 
 public class DateConcreteDecorator extends ReminderDecorator {
-    public DateConcreteDecorator(ReminderInterface wrapper) {
-        super(wrapper);
-    }
+	private final ReminderAbstract wrapper;
 
-    @Override
-    public String printReminder() {
-        String reminder = super.printReminder();
-        return addDate(reminder);
-    }
+	public DateConcreteDecorator(ReminderAbstract wrapper) {
+		this.wrapper = wrapper;
+	}
 
-    public String addDate(String reminder) {
-        LocalDateTime _date = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
-        String date = _date.format(formatter);
-        return reminder + date;
-    }
+	@Override
+	public String addDetails(String detail) {
+		return wrapper.addDetails(detail) + "Here is a date.\n";
+	}
+
 }

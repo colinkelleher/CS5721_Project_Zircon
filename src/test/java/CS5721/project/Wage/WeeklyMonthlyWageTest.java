@@ -2,6 +2,9 @@ package CS5721.project.Wage;
 
 import java.time.LocalDateTime;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 import CS5721.project.EmployeeData;
 import CS5721.project.calendar.entity.Calendar;
 import CS5721.project.calendar.entity.CalendarEvent;
@@ -14,9 +17,6 @@ import CS5721.project.employee.entity.Employee;
 import CS5721.project.observer.OPERATIONS;
 import CS5721.project.wage.service.WageService;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
 public class WeeklyMonthlyWageTest {
 
 	WageService wageService = new WageService();
@@ -27,10 +27,11 @@ public class WeeklyMonthlyWageTest {
 	@Test
 	public void weeklyMonthlyWageTest() {
 
-		Employee employee1 = new Employee(1L, "employeeName1", DEPARTMENT.RESEARCH_DEPARTMENT, EmployeeData.getEventSystem(), OPERATIONS.values(), new Shift());
+		Employee employee1 = new Employee(1L, "employeeName1", DEPARTMENT.RESEARCH_DEPARTMENT, new Shift(),
+				EmployeeData.getEventSystem(), OPERATIONS.values());
 		Calendar calendar1 = employee1.getCalendar();
-		CalendarEvent event1 = new OvertimeEvent(EVENT_START_DATE, EVENT_END_DATE,1L );
-		CalendarEvent event2 = new RegularEvent(EVENT_START_DATE, EVENT_END_DATE, 2L );
+		CalendarEvent event1 = new OvertimeEvent(EVENT_START_DATE, EVENT_END_DATE, 1L);
+		CalendarEvent event2 = new RegularEvent(EVENT_START_DATE, EVENT_END_DATE, 2L);
 		CalendarEvent event3 = new TrainingEvent(EVENT_START_DATE, EVENT_END_DATE, 3L);
 		calendar1.addEvent(event1);
 		calendar1.addEvent(event2);

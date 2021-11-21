@@ -13,7 +13,6 @@ import CS5721.project.employee.entity.DEPARTMENT;
 import CS5721.project.employee.entity.Employee;
 import CS5721.project.observer.OPERATIONS;
 import CS5721.project.observer.publisher.EventSystem;
-import CS5721.project.reminder.entity.Reminder;
 
 public class EmployeeData {
 
@@ -21,14 +20,14 @@ public class EmployeeData {
 	private static final EventSystem eventSystem = EventSystem.getEventSystemInstance(OPERATIONS.values());
 
 	static {
-		Employee employee1 = new Employee(1L, "Ewen", DEPARTMENT.BUSINESS_DEPARTMENT, eventSystem, OPERATIONS.values(), new Shift());
+		Employee employee1 = new Employee(1L, "Ewen", DEPARTMENT.BUSINESS_DEPARTMENT, new Shift(), eventSystem,
+				OPERATIONS.values());
 		CalendarEvent event1 = new OvertimeEvent(LocalDateTime.of(2021, 11, 5, 9, 0),
 				LocalDateTime.of(2021, 11, 5, 18, 30), 1L);
 		eventSystem.notifyEvent(OPERATIONS.CREATE_EVENT, event1, 1L);
 
-
-		Employee employee2 = new Employee(2L, "Colin", DEPARTMENT.RESEARCH_DEPARTMENT, eventSystem,
-				 OPERATIONS.values(), new Shift());
+		Employee employee2 = new Employee(2L, "Colin", DEPARTMENT.RESEARCH_DEPARTMENT, new Shift(), eventSystem,
+				OPERATIONS.values());
 
 		employees.put(1L, employee1);
 		employees.put(2L, employee2);

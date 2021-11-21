@@ -28,7 +28,7 @@ public class TaskTests {
     @Test
     public void TaskEmployeeTest(){
         Task task = taskDAO.getTask(1);
-        Assertions.assertEquals("Colin",task.getTeamEmployee());
+        Assertions.assertEquals("Ewen",task.getTeamEmployee());
     }
 
     @Test

@@ -31,11 +31,6 @@ public class ReminderListScreenController {
 
 		ReminderList reminderList = employeeFindReminderListService.execute(employeeId);
 		Set<Reminder> reminders = reminderList.getReminderList();
-		/*
-		 * for(int i=0; i<reminders.size(); i++){ String reminder =
-		 * reminders.get(i).printReminder(); model.addAttribute("reminder"+i, reminder);
-		 * }
-		 */
 
 		model.addAttribute("employeeId", employeeId);
 		model.addAttribute("reminders", reminders);

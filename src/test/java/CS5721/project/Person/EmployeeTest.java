@@ -1,5 +1,8 @@
 package CS5721.project.Person;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 import CS5721.project.EmployeeData;
 import CS5721.project.calendar.entity.Calendar;
 import CS5721.project.clocking.entity.Shift;
@@ -8,13 +11,11 @@ import CS5721.project.employee.entity.Employee;
 import CS5721.project.observer.OPERATIONS;
 import CS5721.project.wage.service.WageService;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
 public class EmployeeTest {
 	WageService wageService = new WageService();
 
-	Employee new_employee = new Employee(122354L,"Test Employee", DEPARTMENT.RESEARCH_DEPARTMENT, EmployeeData.getEventSystem(), OPERATIONS.values(), new Shift());
+	Employee new_employee = new Employee(122354L, "Test Employee", DEPARTMENT.RESEARCH_DEPARTMENT, new Shift(),
+			EmployeeData.getEventSystem(), OPERATIONS.values());
 
 	@Test
 	public void testEmployeeID() {

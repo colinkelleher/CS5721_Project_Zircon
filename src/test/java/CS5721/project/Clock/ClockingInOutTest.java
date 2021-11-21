@@ -2,16 +2,15 @@ package CS5721.project.Clock;
 
 import java.time.LocalDateTime;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
 import CS5721.project.EmployeeData;
 import CS5721.project.clocking.entity.ClockingInfo;
 import CS5721.project.clocking.entity.Shift;
 import CS5721.project.clocking.service.ClockingService;
 import CS5721.project.employee.entity.DEPARTMENT;
 import CS5721.project.employee.entity.Employee;
-
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
 import CS5721.project.observer.OPERATIONS;
 import CS5721.project.observer.publisher.EventSystem;
 
@@ -23,9 +22,10 @@ public class ClockingInOutTest {
 	@Test
 	public void clockingInOutTest() {
 
-		Employee employee1 = new Employee(1L, "Ewen", DEPARTMENT.BUSINESS_DEPARTMENT, EmployeeData.getEventSystem(), OPERATIONS.values(), new Shift());
+		Employee employee1 = new Employee(1L, "Ewen", DEPARTMENT.BUSINESS_DEPARTMENT, new Shift(),
+				EmployeeData.getEventSystem(), OPERATIONS.values());
 		LocalDateTime today = LocalDateTime.now();
-		LocalDateTime laterToday = today.plusHours(5);
+		LocalDateTime laterToday = today.plusHours(1);
 
 		Long employeeId = employee1.getId();
 
@@ -42,7 +42,5 @@ public class ClockingInOutTest {
 		Assertions.assertEquals(today, clockingInTime);
 		Assertions.assertEquals(laterToday, clockingOutTime);
 	}
-	
-
 
 }
