@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import CS5721.project.builder.Director;
+import CS5721.project.builder.EmployeeBuilder;
+import CS5721.project.builder.ManagerBuilder;
 import CS5721.project.calendar.entity.CalendarEvent;
 import CS5721.project.calendar.entity.OvertimeEvent;
 import CS5721.project.clocking.entity.Shift;
@@ -20,14 +23,18 @@ public class EmployeeData {
 	private static final EventSystem eventSystem = EventSystem.getEventSystemInstance(OPERATIONS.values());
 
 	static {
-		Employee employee1 = new Employee(1L, "Ewen", DEPARTMENT.BUSINESS_DEPARTMENT, new Shift(), eventSystem,
-				OPERATIONS.values());
+		Director director = new Director();
+		EmployeeBuilder employeeBuilder = new EmployeeBuilder();
+		ManagerBuilder managerBuilder = new ManagerBuilder();
+
+		director.constructNameOnly(employeeBuilder, "Ewen");
+		Employee employee1 = employeeBuilder.getResult();
 		CalendarEvent event1 = new OvertimeEvent(LocalDateTime.of(2021, 11, 5, 9, 0),
 				LocalDateTime.of(2021, 11, 5, 18, 30), 1L);
 		eventSystem.notifyEvent(OPERATIONS.CREATE_EVENT, event1, 1L);
 
-		Employee employee2 = new Employee(2L, "Colin", DEPARTMENT.RESEARCH_DEPARTMENT, new Shift(), eventSystem,
-				OPERATIONS.values());
+		director.constructNameAndID(employeeBuilder,"Colin",2L);
+		Employee employee2 = employeeBuilder.getResult();
 
 		employees.put(1L, employee1);
 		employees.put(2L, employee2);

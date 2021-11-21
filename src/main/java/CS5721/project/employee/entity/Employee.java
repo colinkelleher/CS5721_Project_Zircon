@@ -27,8 +27,7 @@ import CS5721.project.reminder.entity.ReminderList;
 @Entity
 @Table(name = "employee")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Employee implements EventListener, CompanyEntity {
-
+public class Employee implements EventListener {
 	@Id
 	@Column(name = "id", unique = true)
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -53,15 +52,15 @@ public class Employee implements EventListener, CompanyEntity {
 	@OneToOne(cascade = CascadeType.REMOVE)
 	private ClockingInfo clockingInfo;
 
-	public Employee(Long id, String name, DEPARTMENT department, Shift shift, EventSystem eventSystem,
+	public Employee(Long id, String name, DEPARTMENT department, Shift shift,Calendar calendar, ClockingInfo clockingInfo, ReminderList reminderList, EventSystem eventSystem,
 			OPERATIONS[] operations) {
 		this.id = id;
 		this.name = name;
 		this.department = department;
 		this.shift = shift;
-		this.calendar = new Calendar();
-		this.clockingInfo = new ClockingInfo();
-		this.reminderList = new ReminderList();
+		this.calendar = calendar;
+		this.clockingInfo = clockingInfo;
+		this.reminderList = reminderList;
 		for (OPERATIONS operation : operations) {
 			eventSystem.subscribe(operation, this);
 		}
@@ -159,7 +158,6 @@ public class Employee implements EventListener, CompanyEntity {
 		}
 	}
 
-	@Override
 	public String getDetails() {
 		return ("Employee : " + id + " - " + name + " - " + department.toString());
 	}

@@ -6,8 +6,11 @@ import java.util.Objects;
 
 import CS5721.project.calendar.entity.Calendar;
 import CS5721.project.calendar.entity.CalendarEvent;
+import CS5721.project.clocking.entity.ClockingInfo;
 import CS5721.project.clocking.entity.Shift;
 import CS5721.project.observer.OPERATIONS;
+import CS5721.project.observer.publisher.EventSystem;
+import CS5721.project.reminder.entity.ReminderList;
 
 public class Manager extends Employee {
 
@@ -15,8 +18,9 @@ public class Manager extends Employee {
 
 	private final Map<CalendarEvent, Long> requests;
 
-	public Manager(Long id, String name, DEPARTMENT department, Shift shift, Calendar calendar) {
-		super(id, name, department, calendar, shift);
+	public Manager(Long id, String name, DEPARTMENT department, Shift shift, Calendar calendar, ClockingInfo clockingInfo, ReminderList reminderList, EventSystem eventSystem,
+				   OPERATIONS[] operations) {
+		super(id,name,department,shift,calendar,clockingInfo,reminderList,eventSystem,operations);
 		requests = new HashMap<>();
 	}
 

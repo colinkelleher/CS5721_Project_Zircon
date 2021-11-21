@@ -1,21 +1,28 @@
 package CS5721.project.Person;
 
+import CS5721.project.builder.Director;
+import CS5721.project.builder.EmployeeBuilder;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import CS5721.project.EmployeeData;
 import CS5721.project.calendar.entity.Calendar;
-import CS5721.project.clocking.entity.Shift;
-import CS5721.project.employee.entity.DEPARTMENT;
 import CS5721.project.employee.entity.Employee;
-import CS5721.project.observer.OPERATIONS;
 import CS5721.project.wage.service.WageService;
 
 public class EmployeeTest {
 	WageService wageService = new WageService();
 
-	Employee new_employee = new Employee(122354L, "Test Employee", DEPARTMENT.RESEARCH_DEPARTMENT, new Shift(),
-			EmployeeData.getEventSystem(), OPERATIONS.values());
+	static Employee new_employee;
+
+	@BeforeAll
+	static void setUp() {
+		Director director = new Director();
+		EmployeeBuilder employeeBuilder = new EmployeeBuilder();
+
+		director.constructNameOnly(employeeBuilder,"Test Employee");
+		new_employee = employeeBuilder.getResult();
+	}
 
 	@Test
 	public void testEmployeeID() {

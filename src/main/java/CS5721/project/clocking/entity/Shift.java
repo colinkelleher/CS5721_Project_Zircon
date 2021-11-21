@@ -31,6 +31,10 @@ public class Shift {
 		this.endHour = end;
 	}
 
+	public Long getId() {return id;}
+
+	public void setId(Long id) {this.id = id;}
+
 	public int getStartHour() {
 		return startHour;
 	}
