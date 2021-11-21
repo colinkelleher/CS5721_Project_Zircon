@@ -1,54 +1,73 @@
-package CS5721.project.entity.clock;
+package CS5721.project.clocking.entity;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import CS5721.project.employee.entity.DEPARTMENT;
+
+@Entity
+@Table(name = "clocking_info")
 public class ClockingInfo {
-    private Long id;
 
-    private String department;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 
-    private LocalDateTime clockingInTime;
+	@Column(name = "department")
+	private DEPARTMENT department;
 
-    private LocalDateTime clockingOutTime;
+	@Column(name = "clocking_in_time")
+	private LocalDateTime clockingInTime;
 
-    public ClockingInfo(Long id, String department, LocalDateTime clockingInTime, LocalDateTime clockingOutTime) {
-        this.id = id;
-        this.department = department;
-        this.clockingInTime = clockingInTime;
-        this.clockingOutTime = clockingOutTime;
-    }
+	@Column(name = "clocking_out_time")
+	private LocalDateTime clockingOutTime;
 
-    public ClockingInfo() {
-        super();
-    }
+	public ClockingInfo(Long id, DEPARTMENT department, LocalDateTime clockingInTime, LocalDateTime clockingOutTime) {
+		this.id = id;
+		this.department = department;
+		this.clockingInTime = clockingInTime;
+		this.clockingOutTime = clockingOutTime;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public ClockingInfo() {
+		super();
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setClockingInTime(LocalDateTime clockingInTime) {
-        this.clockingInTime = clockingInTime;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public LocalDateTime getClockingInTime() {
-        return clockingInTime;
-    }
+	public void setClockingInTime(LocalDateTime clockingInTime) {
+		this.clockingInTime = clockingInTime;
+	}
 
-    public void setClockingOutTime(LocalDateTime clockingOutTime) {
-        this.clockingOutTime = clockingOutTime;
-    }
+	public LocalDateTime getClockingInTime() {
+		return clockingInTime;
+	}
 
-    public LocalDateTime getClockingOutTime() {
-        return clockingOutTime;
-    }
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-    public String getDepartment() {
-        return department;
-    }
+	public void setClockingOutTime(LocalDateTime clockingOutTime) {
+		this.clockingOutTime = clockingOutTime;
+	}
+
+	public LocalDateTime getClockingOutTime() {
+		return clockingOutTime;
+	}
+
+	public void setDepartment(DEPARTMENT department) {
+		this.department = department;
+	}
+
+	public DEPARTMENT getDepartment() {
+		return department;
+	}
 }

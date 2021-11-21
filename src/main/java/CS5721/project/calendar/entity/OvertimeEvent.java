@@ -1,32 +1,39 @@
-package CS5721.project.entity.calendar;
-
-import CS5721.project.entity.RATES;
+package CS5721.project.calendar.entity;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-public class OvertimeEvent extends CalendarEvent{
-    public OvertimeEvent(LocalDateTime startDate, LocalDateTime endDate, long id) {
-        super(startDate, endDate, id);
-        this.setApproved(false);
-    }
+import javax.persistence.Entity;
 
-    @Override
-    public double getPay() {
-        LocalDateTime startDate = getStartDate();
-        LocalDateTime endDate = getEndDate();
-        Duration duration;
-        duration = Duration.between(startDate,endDate);
-        return duration.toHours() * RATES.OVERTIME_RATE.getValue();
-    }
+import CS5721.project.wage.RATES;
 
-    @Override
-    public boolean isOvertime() {
-        return true;
-    }
+@Entity
+public class OvertimeEvent extends CalendarEvent {
+	public OvertimeEvent(LocalDateTime startDate, LocalDateTime endDate, long id) {
+		super(startDate, endDate, id);
+		this.setApproved(false);
+	}
 
-    @Override
-    public boolean isTraining() {
-        return false;
-    }
+	public OvertimeEvent() {
+		super();
+	}
+
+	@Override
+	public double getPay() {
+		LocalDateTime startDate = getStartDate();
+		LocalDateTime endDate = getEndDate();
+		Duration duration;
+		duration = Duration.between(startDate, endDate);
+		return duration.toHours() * RATES.OVERTIME_RATE.getValue();
+	}
+
+	@Override
+	public boolean isOvertime() {
+		return true;
+	}
+
+	@Override
+	public boolean isTraining() {
+		return false;
+	}
 }

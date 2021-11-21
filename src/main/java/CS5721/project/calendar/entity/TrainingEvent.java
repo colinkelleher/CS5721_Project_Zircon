@@ -1,25 +1,32 @@
-package CS5721.project.entity.calendar;
+package CS5721.project.calendar.entity;
 
 import java.time.LocalDateTime;
 
-public class TrainingEvent extends CalendarEvent{
-    public TrainingEvent(LocalDateTime startDate, LocalDateTime endDate, long id) {
-        super(startDate, endDate, id);
-        this.setApproved(true);
-    }
+import javax.persistence.Entity;
 
-    @Override
-    public double getPay() {
-        return 0;
-    }
+@Entity
+public class TrainingEvent extends CalendarEvent {
+	public TrainingEvent(LocalDateTime startDate, LocalDateTime endDate, long id) {
+		super(startDate, endDate, id);
+		this.setApproved(true);
+	}
 
-    @Override
-    public boolean isOvertime() {
-        return false;
-    }
+	public TrainingEvent() {
+		super();
+	}
 
-    @Override
-    public boolean isTraining() {
-        return true;
-    }
+	@Override
+	public double getPay() {
+		return 10;
+	}
+
+	@Override
+	public boolean isOvertime() {
+		return false;
+	}
+
+	@Override
+	public boolean isTraining() {
+		return true;
+	}
 }

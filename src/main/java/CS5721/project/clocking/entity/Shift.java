@@ -1,34 +1,49 @@
-package CS5721.project.entity.clock;
+package CS5721.project.clocking.entity;
 
-import java.time.LocalDate;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "shift")
 public class Shift {
-    private int startHour;
-    private int endHour;
 
-    public Shift() {
-        startHour = 8;
-        endHour = 17;
-    }
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 
-    public Shift(int start, int end) {
-        this.startHour = start;
-        this.endHour = end;
-    }
+	@Column(name = "start_hour")
+	private int startHour;
 
-    public int getStartHour() {
-        return startHour;
-    }
+	@Column(name = "end_hour")
+	private int endHour;
 
-    public void setStartHour(int startHour) {
-        this.startHour = startHour;
-    }
+	public Shift() {
+		startHour = 8;
+		endHour = 17;
+	}
 
-    public int getEndHour() {
-        return endHour;
-    }
+	public Shift(int start, int end) {
+		this.startHour = start;
+		this.endHour = end;
+	}
 
-    public void setEndHour(int endHour) {
-        this.endHour = endHour;
-    }
+	public int getStartHour() {
+		return startHour;
+	}
+
+	public void setStartHour(int startHour) {
+		this.startHour = startHour;
+	}
+
+	public int getEndHour() {
+		return endHour;
+	}
+
+	public void setEndHour(int endHour) {
+		this.endHour = endHour;
+	}
 }

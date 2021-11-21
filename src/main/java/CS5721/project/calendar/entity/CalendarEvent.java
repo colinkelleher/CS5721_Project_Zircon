@@ -1,55 +1,74 @@
-package CS5721.project.entity.calendar;
+package CS5721.project.calendar.entity;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
+
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class CalendarEvent {
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
-    private long id;
-    private boolean approved;
 
-    public CalendarEvent(LocalDateTime startDate, LocalDateTime endDate, long id) {
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.id = id;
-    }
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 
-    public abstract double getPay();
+	private LocalDateTime startDate;
+	private LocalDateTime endDate;
+	private boolean approved;
 
-    public abstract boolean isOvertime();
+	@ManyToOne()
+	protected Calendar calendar;
 
-    public abstract boolean isTraining();
+	public CalendarEvent(LocalDateTime startDate, LocalDateTime endDate, long id) {
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.id = id;
+	}
 
-    public LocalDateTime getStartDate() {
-        return startDate;
-    }
+	public CalendarEvent() {
+	}
 
-    public void setStartDate(LocalDateTime startDate) {
-        this.startDate = startDate;
-    }
+	public abstract double getPay();
 
-    public LocalDateTime getEndDate() {
-        return endDate;
-    }
+	public abstract boolean isOvertime();
 
-    public void setEndDate(LocalDateTime endData) {
-        this.endDate = endData;
-    }
+	public abstract boolean isTraining();
 
-    public long getId() {
-        return id;
-    }
+	public LocalDateTime getStartDate() {
+		return startDate;
+	}
 
-    public void setId(long id) {
-        this.id = id;
-    }
+	public void setStartDate(LocalDateTime startDate) {
+		this.startDate = startDate;
+	}
 
+	public LocalDateTime getEndDate() {
+		return endDate;
+	}
 
-    public boolean isApproved() {
-        return approved;
-    }
+	public void setEndDate(LocalDateTime endData) {
+		this.endDate = endData;
+	}
 
-    public void setApproved(boolean approved) {
-        this.approved = approved;
-    }
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public boolean isApproved() {
+		return approved;
+	}
+
+	public void setApproved(boolean approved) {
+		this.approved = approved;
+	}
 }

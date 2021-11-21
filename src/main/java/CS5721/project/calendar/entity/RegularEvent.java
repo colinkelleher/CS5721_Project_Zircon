@@ -1,14 +1,21 @@
-package CS5721.project.entity.calendar;
+package CS5721.project.calendar.entity;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-import CS5721.project.entity.RATES;
+import javax.persistence.Entity;
 
+import CS5721.project.wage.RATES;
+
+@Entity
 public class RegularEvent extends CalendarEvent {
 	public RegularEvent(LocalDateTime startDate, LocalDateTime endDate, long id) {
-		super(startDate, endDate,id );
+		super(startDate, endDate, id);
 		this.setApproved(true);
+	}
+
+	public RegularEvent() {
+		super();
 	}
 
 	@Override
