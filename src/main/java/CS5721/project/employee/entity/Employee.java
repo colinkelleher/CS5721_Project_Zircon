@@ -3,17 +3,9 @@ package CS5721.project.employee.entity;
 import java.util.Objects;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 import CS5721.project.calendar.entity.Calendar;
 import CS5721.project.calendar.entity.CalendarEvent;
@@ -25,20 +17,8 @@ import CS5721.project.observer.publisher.EventSystem;
 import CS5721.project.reminder.entity.ReminderList;
 
 @Entity
-@Table(name = "employee")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Employee implements EventListener {
-	@Id
-	@Column(name = "id", unique = true)
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-
-	@Column(name = "name")
-	private String name;
-
-	@Column(name = "department")
-	@Enumerated(EnumType.STRING)
-	private DEPARTMENT department;
+@DiscriminatorValue("employee")
+public class Employee extends CompanyEntity implements EventListener {
 
 	@OneToOne(cascade = CascadeType.REMOVE)
 	private Calendar calendar;
@@ -52,11 +32,9 @@ public class Employee implements EventListener {
 	@OneToOne(cascade = CascadeType.REMOVE)
 	private ClockingInfo clockingInfo;
 
-	public Employee(Long id, String name, DEPARTMENT department, Shift shift,Calendar calendar, ClockingInfo clockingInfo, ReminderList reminderList, EventSystem eventSystem,
-			OPERATIONS[] operations) {
-		this.id = id;
-		this.name = name;
-		this.department = department;
+	public Employee(String name, DEPARTMENT department, Shift shift, Calendar calendar, ClockingInfo clockingInfo,
+			ReminderList reminderList, EventSystem eventSystem, OPERATIONS[] operations) {
+		super(name, department);
 		this.shift = shift;
 		this.calendar = calendar;
 		this.clockingInfo = clockingInfo;
@@ -68,10 +46,7 @@ public class Employee implements EventListener {
 	}
 
 	public Employee(Long id, String name, DEPARTMENT department, Calendar calendar, Shift shift) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.department = department;
+		super(name, department);
 		this.calendar = calendar;
 		this.shift = shift;
 		this.clockingInfo = new ClockingInfo();
@@ -83,36 +58,12 @@ public class Employee implements EventListener {
 		this.clockingInfo = new ClockingInfo();
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public Calendar getCalendar() {
 		return calendar;
 	}
 
 	public void setCalendar(Calendar calendar) {
 		this.calendar = calendar;
-	}
-
-	public DEPARTMENT getDepartment() {
-		return department;
-	}
-
-	public void setDepartment(DEPARTMENT department) {
-		this.department = department;
 	}
 
 	public ReminderList getReminderList() {
@@ -153,13 +104,27 @@ public class Employee implements EventListener {
 
 	@Override
 	public void update(OPERATIONS operation, CalendarEvent event, Long employeeID) {
-		if (Objects.equals(this.id, employeeID)) {
+		if (Objects.equals(this.getId(), employeeID)) {
 			this.calendar.addEvent(event);
 		}
 	}
 
 	public String getDetails() {
-		return ("Employee : " + id + " - " + name + " - " + department.toString());
+		return ("Employee : " + this.getId() + " - " + this.getName() + " - " + this.getDepartment().toString());
+	}
+
+	@Override
+	public void add(CompanyEntity companyEntity) {
+		// no implementation needed for a leaf in composite pattern, defining child
+		// management in root abstract class gives more transparency but less safety
+		// according to the GoF
+	}
+
+	@Override
+	public void remove(CompanyEntity companyEntity) {
+		// no implementation needed for a leaf in composite pattern, defining child
+		// management in root abstract class gives more transparency but less safety
+		// according to the GoF
 	}
 
 }
