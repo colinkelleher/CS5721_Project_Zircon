@@ -32,7 +32,7 @@ public class CalendarEventTest {
 		director.constructNameOnly(employeeBuilder,"Test Employee");
 		new_employee = employeeBuilder.getResult();
 		calendar1 = new_employee.getCalendar();
-		overtimeEvent = new OvertimeEvent(EVENT_START_DATE, EVENT_END_DATE, 1L);
+		overtimeEvent = new OvertimeEvent(EVENT_START_DATE, EVENT_END_DATE);
 	}
 
 	@Test

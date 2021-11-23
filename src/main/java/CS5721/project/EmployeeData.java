@@ -30,7 +30,7 @@ public class EmployeeData {
 		director.constructNameOnly(employeeBuilder, "Ewen");
 		Employee employee1 = employeeBuilder.getResult();
 		CalendarEvent event1 = new OvertimeEvent(LocalDateTime.of(2021, 11, 5, 9, 0),
-				LocalDateTime.of(2021, 11, 5, 18, 30), 1L);
+				LocalDateTime.of(2021, 11, 5, 18, 30));
 		eventSystem.notifyEvent(OPERATIONS.CREATE_EVENT, event1, 1L);
 
 		director.constructNameAndID(employeeBuilder,"Colin",2L);
