@@ -14,6 +14,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OrderBy;
 
 import CS5721.project.calendar.entity.Calendar;
+import CS5721.project.clocking.entity.ClockingInfo;
 import CS5721.project.reminder.entity.ReminderList;
 
 @Entity
@@ -49,16 +50,6 @@ public class Team extends CompanyEntity {
 	}
 
 	@Override
-	public Calendar getCalendar() {
-		return null;
-	}
-
-	@Override
-	public ReminderList getReminderList() {
-		return null;
-	}
-
-	@Override
 	public void add(CompanyEntity companyEntity) {
 		this.companyEntities.add(companyEntity);
 	}
@@ -66,6 +57,23 @@ public class Team extends CompanyEntity {
 	@Override
 	public void remove(CompanyEntity companyEntity) {
 		this.companyEntities.remove(companyEntity);
+	}
+
+	@Override
+	public Calendar getCalendar() {
+		// could return a list of all CalendarEvent of the sub companyEntities
+		return null;
+	}
+
+	@Override
+	public ReminderList getReminderList() {
+		// could return a list of all Reminder of the sub ompanyEntities
+		return null;
+	}
+
+	@Override
+	public ClockingInfo getClockingInfo() {
+		return null;
 	}
 
 }

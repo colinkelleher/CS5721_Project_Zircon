@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import CS5721.project.clocking.service.ClockingService;
-import CS5721.project.employee.entity.Employee;
+import CS5721.project.employee.entity.CompanyEntity;
 import CS5721.project.employee.service.EmployeeFinderService;
 
 @Controller
@@ -31,7 +31,7 @@ public class ClockingActionController {
 	@PostMapping(path = "/clocking")
 	public String clocking(Model model, @RequestParam Long employeeId) {
 
-		Employee employee = employeeFinderService.execute(employeeId);
+		CompanyEntity employee = employeeFinderService.execute(employeeId);
 
 		LocalDateTime clockingTime = LocalDateTime.now();
 		String clockingStatus = clockingService.execute(employee, clockingTime);

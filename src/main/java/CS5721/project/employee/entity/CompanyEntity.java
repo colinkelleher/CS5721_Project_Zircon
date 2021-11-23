@@ -15,6 +15,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 import CS5721.project.calendar.entity.Calendar;
+import CS5721.project.clocking.entity.ClockingInfo;
 import CS5721.project.reminder.entity.ReminderList;
 
 @Entity
@@ -53,6 +54,8 @@ public abstract class CompanyEntity {
 	public abstract Calendar getCalendar();
 
 	public abstract ReminderList getReminderList();
+
+	public abstract ClockingInfo getClockingInfo();
 
 	public abstract void add(CompanyEntity companyEntity);
 
