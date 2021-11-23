@@ -9,8 +9,8 @@ import CS5721.project.wage.RATES;
 
 @Entity
 public class RegularEvent extends CalendarEvent {
-	public RegularEvent(LocalDateTime startDate, LocalDateTime endDate, long id) {
-		super(startDate, endDate, id);
+	public RegularEvent(LocalDateTime startDate, LocalDateTime endDate) {
+		super(startDate, endDate);
 		this.setApproved(true);
 	}
 

@@ -25,10 +25,9 @@ public abstract class CalendarEvent {
 	@ManyToOne()
 	protected Calendar calendar;
 
-	public CalendarEvent(LocalDateTime startDate, LocalDateTime endDate, long id) {
+	public CalendarEvent(LocalDateTime startDate, LocalDateTime endDate) {
 		this.startDate = startDate;
 		this.endDate = endDate;
-		this.id = id;
 	}
 
 	public CalendarEvent() {

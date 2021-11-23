@@ -6,8 +6,8 @@ import javax.persistence.Entity;
 
 @Entity
 public class TrainingEvent extends CalendarEvent {
-	public TrainingEvent(LocalDateTime startDate, LocalDateTime endDate, long id) {
-		super(startDate, endDate, id);
+	public TrainingEvent(LocalDateTime startDate, LocalDateTime endDate) {
+		super(startDate, endDate);
 		this.setApproved(true);
 	}
 

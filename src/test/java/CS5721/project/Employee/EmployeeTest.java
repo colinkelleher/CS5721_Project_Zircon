@@ -1,4 +1,4 @@
-package CS5721.project.Person;
+package CS5721.project.Employee;
 
 import CS5721.project.builder.Director;
 import CS5721.project.builder.EmployeeBuilder;

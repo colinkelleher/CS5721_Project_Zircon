@@ -9,8 +9,8 @@ import CS5721.project.wage.RATES;
 
 @Entity
 public class OvertimeEvent extends CalendarEvent {
-	public OvertimeEvent(LocalDateTime startDate, LocalDateTime endDate, long id) {
-		super(startDate, endDate, id);
+	public OvertimeEvent(LocalDateTime startDate, LocalDateTime endDate) {
+		super(startDate, endDate);
 		this.setApproved(false);
 	}
 

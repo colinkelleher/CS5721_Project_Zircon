@@ -49,6 +49,8 @@ public abstract class CompanyEntity {
 	public CompanyEntity() {
 	}
 
+	public abstract long getWeeklyWorkedHours();
+
 	public abstract String getDetails();
 
 	public abstract Calendar getCalendar();

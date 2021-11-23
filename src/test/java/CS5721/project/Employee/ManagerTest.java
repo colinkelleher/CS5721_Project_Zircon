@@ -1,4 +1,4 @@
-package CS5721.project.Person;
+package CS5721.project.Employee;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -10,8 +10,8 @@ import CS5721.project.employee.entity.Employee;
 import CS5721.project.observer.OPERATIONS;
 
 public class ManagerTest {
-	Employee new_manager = new Employee(1223544L, "Test Manager", DEPARTMENT.RESEARCH_DEPARTMENT, new Shift(),
-			EmployeeData.getEventSystem(), OPERATIONS.values());
+	Employee new_manager = new Employee(1223544L, "Test Manager", DEPARTMENT.RESEARCH_DEPARTMENT, new Shift(), null,
+			null, null, EmployeeData.getEventSystem(), OPERATIONS.values());
 
 	@Test
 	public void testManagerID() {
