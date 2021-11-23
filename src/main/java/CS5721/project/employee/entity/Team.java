@@ -32,6 +32,12 @@ public class Team extends CompanyEntity {
 	@Column(name = "department")
 	private DEPARTMENT department;
 
+	public Team(String name, DEPARTMENT department) {
+		this.name = name;
+		this.department = department;
+		this.companyEntities = new ArrayList<>();
+	}
+
 	public Team() {
 		this.companyEntities = new ArrayList<>();
 	}
@@ -57,6 +63,15 @@ public class Team extends CompanyEntity {
 	@Override
 	public void remove(CompanyEntity companyEntity) {
 		this.companyEntities.remove(companyEntity);
+	}
+
+	@Override
+	public long getWeeklyWorkedHours() {
+		long weeklyWorkedHours = 0;
+		for (CompanyEntity companyEntity : this.companyEntities) {
+			weeklyWorkedHours += companyEntity.getWeeklyWorkedHours();
+		}
+		return weeklyWorkedHours;
 	}
 
 	@Override

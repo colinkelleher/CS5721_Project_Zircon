@@ -1,5 +1,8 @@
 package CS5721.project.employee.entity;
 
+import java.time.DayOfWeek;
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 import javax.persistence.CascadeType;
@@ -107,6 +110,25 @@ public class Employee extends CompanyEntity implements EventListener {
 		if (Objects.equals(this.getId(), employeeID)) {
 			this.calendar.addEvent(event);
 		}
+	}
+
+	@Override
+	public long getWeeklyWorkedHours() {
+		long weeklyWorkedHours = 0;
+		LocalDateTime today = LocalDateTime.now();
+		LocalDateTime beginningOfThisWeek = today.with(DayOfWeek.MONDAY);
+
+		for (CalendarEvent event : this.calendar.getEvents()) {
+
+			LocalDateTime eventStartDate = event.getStartDate();
+			LocalDateTime eventEndDate = event.getEndDate();
+
+			if (eventStartDate.isAfter(beginningOfThisWeek)) {
+				Duration duration = Duration.between(eventStartDate, eventEndDate);
+				weeklyWorkedHours += duration.toHours();
+			}
+		}
+		return weeklyWorkedHours;
 	}
 
 	public String getDetails() {
