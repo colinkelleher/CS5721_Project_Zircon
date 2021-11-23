@@ -1,5 +1,6 @@
 package CS5721.project.task.controller;
 
+import CS5721.project.employee.entity.CompanyEntity;
 import CS5721.project.employee.entity.Employee;
 import CS5721.project.employee.service.EmployeeFinderService;
 import CS5721.project.task.entity.Task;
@@ -26,7 +27,7 @@ public class TaskPageController {
 
     @GetMapping(path = "/tasks")
     public String welcomePage(Model model, @RequestParam Long employeeId) {
-        Employee employee = employeeFinderService.execute(employeeId);
+        CompanyEntity employee = employeeFinderService.execute(employeeId);
         String employeeName = employee.getName();
         ArrayList<Task> tasks = taskService.getAllTasks();
         model.addAttribute("employeeName", employeeName);

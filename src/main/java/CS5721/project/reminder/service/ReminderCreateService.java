@@ -2,6 +2,7 @@ package CS5721.project.reminder.service;
 
 import java.util.Objects;
 
+import CS5721.project.employee.entity.CompanyEntity;
 import org.springframework.stereotype.Service;
 
 import CS5721.project.decorator.DescriptionConcreteDecorator;
@@ -14,7 +15,7 @@ import CS5721.project.reminder.entity.Reminder;
 @Service
 public class ReminderCreateService {
 
-    public void execute(Employee employee, String title, String description, String location) {
+    public void execute(CompanyEntity employee, String title, String description, String location) {
 
     	 ReminderDecorator dReminder = new TitleConcreteDecorator(new Reminder(""), title);
 

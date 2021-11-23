@@ -1,5 +1,6 @@
 package CS5721.project.reminder.controller;
 
+import CS5721.project.employee.entity.CompanyEntity;
 import CS5721.project.employee.entity.Employee;
 import CS5721.project.employee.service.EmployeeFinderService;
 import CS5721.project.reminder.service.ReminderCreateService;
@@ -30,7 +31,7 @@ public class ReminderCreateActionController {
                                  @RequestParam(required = false) String description,
                                  @RequestParam(required = false) String location){
 
-        Employee employee = (Employee) employeeFinderService.execute(employeeId);
+        CompanyEntity employee = employeeFinderService.execute(employeeId);
         reminderCreateService.execute(employee, title, description, location);
 
         return "redirect:" + "/reminderList?employeeId="+ employeeId;
