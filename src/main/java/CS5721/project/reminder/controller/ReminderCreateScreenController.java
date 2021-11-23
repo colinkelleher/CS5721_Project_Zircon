@@ -26,7 +26,7 @@ public class ReminderCreateScreenController {
     @GetMapping(path = "/createReminder")
     public String createReminder(Model model, @RequestParam Long employeeId) {
 
-        Employee employee = employeeFinderService.execute(employeeId);
+        Employee employee = (Employee) employeeFinderService.execute(employeeId);
         model.addAttribute("employee", employee);
 
         return "createReminder.html";
