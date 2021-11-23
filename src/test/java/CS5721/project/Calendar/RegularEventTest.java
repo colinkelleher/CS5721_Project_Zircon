@@ -19,7 +19,7 @@ public class RegularEventTest {
 	public static final LocalDateTime EVENT_START_DATE = LocalDateTime.of(2021, 11, 5, 18, 0);
 	public static final LocalDateTime EVENT_END_DATE = LocalDateTime.of(2021, 11, 5, 22, 0);
 
-	EventSystem eventSystem = new EventSystem(OPERATIONS.values());
+	EventSystem eventSystem = EventSystem.getEventSystemInstance(OPERATIONS.values());
 
 	// Then we create our employee and pass as parameter the eventSystem, as well as
 	// an array of Operations we want
