@@ -5,7 +5,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import CS5721.project.calendar.entity.Calendar;
-import CS5721.project.employee.entity.Employee;
+import CS5721.project.employee.entity.CompanyEntity;
 
 @Service
 public class EmployeeFindCalendarService {
@@ -19,7 +19,7 @@ public class EmployeeFindCalendarService {
 
 	public Calendar execute(Long employeeId) {
 
-		Employee employee = employeeFinderService.execute(employeeId);
+		CompanyEntity employee = employeeFinderService.execute(employeeId);
 		return employee.getCalendar();
 
 	}

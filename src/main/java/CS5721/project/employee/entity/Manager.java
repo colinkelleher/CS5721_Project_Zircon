@@ -12,15 +12,16 @@ import CS5721.project.observer.OPERATIONS;
 import CS5721.project.observer.publisher.EventSystem;
 import CS5721.project.reminder.entity.ReminderList;
 
+//@Entity
 public class Manager extends Employee {
 
 	// Here we link an event to an employeeID
 
 	private final Map<CalendarEvent, Long> requests;
 
-	public Manager(Long id, String name, DEPARTMENT department, Shift shift, Calendar calendar, ClockingInfo clockingInfo, ReminderList reminderList, EventSystem eventSystem,
-				   OPERATIONS[] operations) {
-		super(id,name,department,shift,calendar,clockingInfo,reminderList,eventSystem,operations);
+	public Manager(Long id, String name, DEPARTMENT department, Shift shift, Calendar calendar,
+			ClockingInfo clockingInfo, ReminderList reminderList, EventSystem eventSystem, OPERATIONS[] operations) {
+		super(name, department, shift, calendar, clockingInfo, reminderList, eventSystem, operations);
 		requests = new HashMap<>();
 	}
 

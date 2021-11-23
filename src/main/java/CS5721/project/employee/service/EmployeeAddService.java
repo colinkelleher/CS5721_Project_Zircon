@@ -5,15 +5,15 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import CS5721.project.employee.entity.Employee;
-import CS5721.project.employee.repository.EmployeeRepository;
+import CS5721.project.employee.repository.CompanyEntityRepository;
 
 @Service
 public class EmployeeAddService {
 
-	private final EmployeeRepository employeeRepository;
+	private final CompanyEntityRepository employeeRepository;
 
 	@Inject
-	public EmployeeAddService(EmployeeRepository employeeRepository) {
+	public EmployeeAddService(CompanyEntityRepository employeeRepository) {
 		this.employeeRepository = employeeRepository;
 	}
 

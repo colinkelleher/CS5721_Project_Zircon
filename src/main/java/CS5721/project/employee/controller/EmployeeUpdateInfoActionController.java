@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import CS5721.project.employee.dto.EmployeeDto;
+import CS5721.project.employee.dto.CompanyEntityDto;
 import CS5721.project.employee.service.EmployeeUpdateInfoService;
 
 @Controller
@@ -23,7 +23,7 @@ public class EmployeeUpdateInfoActionController {
 	}
 
 	@PostMapping(path = "/info/update")
-	public String updateEmployeeInfo(@ModelAttribute("employee") EmployeeDto employeeDto) {
+	public String updateEmployeeInfo(@ModelAttribute("employee") CompanyEntityDto employeeDto) {
 
 		employeeUpdateInfoService.execute(employeeDto);
 

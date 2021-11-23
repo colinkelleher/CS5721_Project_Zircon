@@ -1,5 +1,6 @@
 package CS5721.project.employee.service;
 
+import CS5721.project.employee.entity.CompanyEntity;
 import CS5721.project.employee.entity.Employee;
 import CS5721.project.reminder.entity.ReminderList;
 
@@ -19,7 +20,7 @@ public class EmployeeFindReminderListService {
 
     public ReminderList execute(Long employeeId) {
 
-        Employee employee = employeeFinderService.execute(employeeId);
+        CompanyEntity employee = employeeFinderService.execute(employeeId);
         return employee.getReminderList();
 
     }

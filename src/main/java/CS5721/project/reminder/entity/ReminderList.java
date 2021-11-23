@@ -14,6 +14,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "reminder_list")
 public class ReminderList {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;

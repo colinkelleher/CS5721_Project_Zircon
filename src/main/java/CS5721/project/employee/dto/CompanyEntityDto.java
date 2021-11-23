@@ -1,9 +1,10 @@
 package CS5721.project.employee.dto;
 
+import CS5721.project.employee.entity.CompanyEntity;
 import CS5721.project.employee.entity.DEPARTMENT;
 import CS5721.project.employee.entity.Employee;
 
-public class EmployeeDto {
+public class CompanyEntityDto {
 
 	private Long id;
 
@@ -11,14 +12,14 @@ public class EmployeeDto {
 
 	private DEPARTMENT department;
 
-	public EmployeeDto(Employee employee) {
-		this.id = employee.getId();
-		this.name = employee.getName();
-		this.department = employee.getDepartment();
+	public CompanyEntityDto(CompanyEntity companyEntity) {
+		this.id = companyEntity.getId();
+		this.name = companyEntity.getName();
+		this.department = companyEntity.getDepartment();
 
 	}
 
-	public EmployeeDto() {
+	public CompanyEntityDto() {
 
 	}
 

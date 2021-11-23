@@ -6,25 +6,29 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
-import CS5721.project.employee.entity.Employee;
-import CS5721.project.employee.repository.EmployeeRepository;
+import CS5721.project.employee.entity.CompanyEntity;
+import CS5721.project.employee.repository.CompanyEntityRepository;
 
 @Service
 public class CheckExistingEmployeeService {
 
-	private final EmployeeRepository employeeRepository;
+	private final CompanyEntityRepository companyEntityRepository;
+	private final CompanyEntityCreateService appResourceCreateService;
 
 	@Inject
-	public CheckExistingEmployeeService(EmployeeRepository employeeRepository) {
-		this.employeeRepository = employeeRepository;
+	public CheckExistingEmployeeService(CompanyEntityRepository companyEntityRepository,
+			CompanyEntityCreateService appResourceCreateService) {
+		this.companyEntityRepository = companyEntityRepository;
+		this.appResourceCreateService = appResourceCreateService;
 	}
 
 	public boolean execute(Long employeeId) {
 
-		Optional<Employee> optionalEmployee = employeeRepository.findById(employeeId);
-		if (optionalEmployee.isEmpty()) {
+		Optional<CompanyEntity> optionalCompanyEntity = companyEntityRepository.findById(employeeId);
+		if (optionalCompanyEntity.isEmpty()) {
 			return false;
 		}
+
 		return true;
 	}
 

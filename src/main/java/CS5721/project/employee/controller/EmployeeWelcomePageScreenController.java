@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import CS5721.project.employee.entity.Employee;
+import CS5721.project.employee.entity.CompanyEntity;
 import CS5721.project.employee.service.EmployeeFinderService;
 
 @Controller
@@ -26,9 +26,9 @@ public class EmployeeWelcomePageScreenController {
 	@GetMapping(path = "/menu")
 	public String login(Model model, @RequestParam Long employeeId) {
 
-		Employee employee = employeeFinderService.execute(employeeId);
+		CompanyEntity employee = employeeFinderService.execute(employeeId);
 		String employeeName = employee.getName();
-		
+
 		model.addAttribute("employeeName", employeeName);
 		model.addAttribute("employeeId", employeeId);
 
