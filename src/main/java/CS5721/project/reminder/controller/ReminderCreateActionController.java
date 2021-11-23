@@ -30,7 +30,7 @@ public class ReminderCreateActionController {
                                  @RequestParam(required = false) String description,
                                  @RequestParam(required = false) String location){
 
-        Employee employee = employeeFinderService.execute(employeeId);
+        Employee employee = (Employee) employeeFinderService.execute(employeeId);
         reminderCreateService.execute(employee, title, description, location);
 
         return "redirect:" + "/reminderList?employeeId="+ employeeId;
