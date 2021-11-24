@@ -1,5 +1,7 @@
 package CS5721.project.employee.entity;
 
+import java.util.ArrayList;
+
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -50,6 +52,8 @@ public abstract class CompanyEntity {
 	}
 
 	public abstract long getWeeklyWorkedHours();
+
+	public abstract ArrayList<Employee> getChildrenEntities(ArrayList<Employee> childrenList);
 
 	public abstract String getDetails();
 

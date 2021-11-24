@@ -24,6 +24,7 @@ public class Reminder extends ReminderAbstract {
 		this.details = _details;
 	}
 
+	@Override
 	public String addDetails(String detail) {
 		return details;
 	}

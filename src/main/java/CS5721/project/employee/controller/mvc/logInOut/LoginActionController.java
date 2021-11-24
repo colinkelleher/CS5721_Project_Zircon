@@ -1,4 +1,4 @@
-package CS5721.project.employee.controller.logInOut;
+package CS5721.project.employee.controller.mvc.logInOut;
 
 import javax.inject.Inject;
 

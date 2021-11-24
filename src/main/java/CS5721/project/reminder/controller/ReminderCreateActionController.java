@@ -1,7 +1,6 @@
 package CS5721.project.reminder.controller;
 
 import CS5721.project.employee.entity.CompanyEntity;
-import CS5721.project.employee.entity.Employee;
 import CS5721.project.employee.service.EmployeeFinderService;
 import CS5721.project.reminder.service.ReminderCreateService;
 

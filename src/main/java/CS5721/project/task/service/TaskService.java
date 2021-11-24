@@ -14,12 +14,10 @@ public class TaskService {
 
     @Autowired
     private TaskDAO<Task> taskDAO;
-//    private Task task = new Task();
 
-    public  ArrayList<Task> getAllTasks() {
+    public ArrayList<Task> getAllTasks() {
         return  taskDAO.findAllTasks();
     }
-
 
     }
 

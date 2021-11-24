@@ -1,4 +1,4 @@
-package CS5721.project.employee.controller;
+package CS5721.project.employee.controller.mvc;
 
 import javax.inject.Inject;
 
@@ -8,34 +8,31 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import CS5721.project.employee.dto.CompanyEntityDto;
 import CS5721.project.employee.entity.CompanyEntity;
-import CS5721.project.employee.entity.DEPARTMENT;
 import CS5721.project.employee.service.EmployeeFinderService;
 
 @Controller
 @RequestMapping(path = "")
-public class EmployeeUpdateInfoScreenController {
+public class EmployeeWelcomePageScreenController {
 
 	public final EmployeeFinderService employeeFinderService;
 
 	@Inject
-	public EmployeeUpdateInfoScreenController(EmployeeFinderService employeeFinderService) {
+	public EmployeeWelcomePageScreenController(EmployeeFinderService employeeFinderService) {
 		super();
 		this.employeeFinderService = employeeFinderService;
 	}
 
-	@GetMapping(path = "/info/update")
-	public String personalInfo(Model model, @RequestParam Long employeeId) {
+	@GetMapping(path = "/menu")
+	public String login(Model model, @RequestParam Long employeeId) {
 
 		CompanyEntity employee = employeeFinderService.execute(employeeId);
-		CompanyEntityDto employeeDto = new CompanyEntityDto(employee);
-		model.addAttribute("employee", employeeDto);
+		String employeeName = employee.getName();
 
-		DEPARTMENT[] departmentList = DEPARTMENT.values();
-		model.addAttribute("departmentList", departmentList);
+		model.addAttribute("employeeName", employeeName);
+		model.addAttribute("employeeId", employeeId);
 
-		return "employeeUpdateInfo.html";
+		return "employeeWelcomePage.html";
 	}
 
 }

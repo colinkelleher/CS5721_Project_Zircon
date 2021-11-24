@@ -26,26 +26,26 @@ public class TaskTests {
 //    }
 
     @Test
-    public void TaskEmployeeTest(){
+    void TaskEmployeeTest(){
         Task task = taskDAO.getTask(1);
         Assertions.assertEquals("Ewen",task.getTeamEmployee());
     }
 
     @Test
-    public void TaskEmployeeIdTest(){
+    void TaskEmployeeIdTest(){
         Task taskIdEmp = taskDAO.getTask(1);
         Assertions.assertEquals(1,taskIdEmp.getEmployeeId());
     }
 
     @Test
-    public void TaskUpdateEmployee(){
+    void TaskUpdateEmployee(){
         Task taskupdate = taskDAO.getTask(1);
         taskupdate.setEmployeeId(2);
         Assertions.assertEquals(2,taskDAO.getTask(1).getEmployeeId());
     }
 
     @Test
-    public void AddTaskTest() {
+    void AddTaskTest() {
         List<Task> new_tasks;
         new_tasks = new ArrayList<>();
         new_tasks.add(task4);
@@ -53,7 +53,7 @@ public class TaskTests {
     }
 
     @Test
-    public void RemoveTaskTest() {
+    void RemoveTaskTest() {
         List<Task> new_tasks;
         new_tasks = new ArrayList<>();
         new_tasks.add(task4);
