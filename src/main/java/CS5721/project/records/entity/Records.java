@@ -1,7 +1,6 @@
 package CS5721.project.records.entity;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Records {
 
@@ -79,10 +78,9 @@ public class Records {
         return employeeName;
     }
 
-
-
-
-
+    public Records setCompleted() {
+        return null;
+    }
 }
 
 

@@ -1,9 +1,12 @@
 package CS5721.project.records.entity;
 
+import org.springframework.stereotype.Component;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class RecordsDAOimpl implements RecordsDAO<Records> {
     private final List<Records> recordList = new ArrayList<>();
 

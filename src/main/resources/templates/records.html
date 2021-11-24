@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+    <title>Zircon Human Resources Management System</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        h1,h2,footer{
+            text-align: center;
+        }
+        #title1 {
+            color: white;
+            background-color: black;
+            padding: 1em;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 30% 30% 30%;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+            padding: 1em;
+            grid-column-gap: 2em;
+            grid-row-gap: 4em;
+
+        }
+
+        .grid-item {
+            width:  100%;
+            padding: 2em;
+            font-size: inherit;
+            text-align: center;
+            border-radius: 20%;
+            color: black;
+            text-underline-mode: None;
+        }
+
+        a {
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+            width: 100%;
+            padding: 2em;
+        }
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+<h1 id="title1">Zircon Human Resources Management System</h1>
+
+<h1>Welcome <span  th:text="${employeeName}"></span>, Here you can view all the Training Records</h1>
+<table>
+    <tr>
+        <th>Record ID</th>
+        <th>Record Name</th>
+        <th>Training Body</th>
+        <th>Training Date</th>
+        <th>Expiry Date</th>
+        <th>Employee ID</th>
+        <th>Employee Name</th>
+        <th>Completed</th>
+    </tr>
+
+
+    <tr th:each="record : ${records}">
+        <td><span th:text="${record.recordId}" > </span></td>
+        <td><span th:text="${record.recordName}" > </span></td>
+        <td><span th:text="${record.trainingBody}" > </span></td>
+        <td><span th:text="${#temporals.format(record.trainingDate, 'dd-MM-yyyy')}" > </span></td>
+        <td><span th:text="${#temporals.format(record.expiryDate, 'dd-MM-yyyy')}" > </span></td>
+        <td><span th:text="${record.employeeId}" > </span></td>
+        <td><span th:text="${record.employeeName}" > </span></td>
+        <td><span th:text="${record.completed}" > </span></td>
+<!--        <td><span th:text="${#temporals.format(task.taskStartDate, 'dd-MM-yyyy HH:mm')}">}" > </span></td>-->
+<!--        <td><span th:text="${#temporals.format(task.taskEndDate, 'dd-MM-yyyy HH:mm')}">}" > </span></td>-->
+<!--        <td><span th:text="${task.completed}" > </span></td>-->
+
+
+    </tr>
+
+</table>
+</body>
+
+<footer>
+    &copy;Zircon 2021
+</footer>
+</html>
