@@ -12,7 +12,6 @@ public class Director {
 
 	public void constructNameOnly(Builder builder, String name) {
 		builder.setName(name);
-		builder.setID(getRandomLong(1L, 100L));
 		builder.setDepartment(DEPARTMENT.RESEARCH_DEPARTMENT);
 		builder.setShift(new Shift());
 		builder.setCalendar(new Calendar());

@@ -1,4 +1,4 @@
-package CS5721.project.employee.controller;
+package CS5721.project.employee.controller.mvc;
 
 import javax.inject.Inject;
 
@@ -13,26 +13,23 @@ import CS5721.project.employee.service.EmployeeFinderService;
 
 @Controller
 @RequestMapping(path = "")
-public class EmployeeWelcomePageScreenController {
+public class EmployeeInfoScreenController {
 
 	public final EmployeeFinderService employeeFinderService;
 
 	@Inject
-	public EmployeeWelcomePageScreenController(EmployeeFinderService employeeFinderService) {
+	public EmployeeInfoScreenController(EmployeeFinderService employeeFinderService) {
 		super();
 		this.employeeFinderService = employeeFinderService;
 	}
 
-	@GetMapping(path = "/menu")
-	public String login(Model model, @RequestParam Long employeeId) {
+	@GetMapping(path = "/info")
+	public String personalInfo(Model model, @RequestParam Long employeeId) {
 
 		CompanyEntity employee = employeeFinderService.execute(employeeId);
-		String employeeName = employee.getName();
+		model.addAttribute("employee", employee);
 
-		model.addAttribute("employeeName", employeeName);
-		model.addAttribute("employeeId", employeeId);
-
-		return "employeeWelcomePage.html";
+		return "employeeInfo.html";
 	}
 
 }
