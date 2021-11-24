@@ -8,7 +8,6 @@ public abstract class ReminderAbstract {
 	}
 
 	public Reminder newReminder(String _details) {
-		// String _details = addDetails("");
 		return new Reminder(_details);
 	}
 
