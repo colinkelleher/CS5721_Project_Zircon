@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public abstract class CalendarEvent {
+public abstract  class CalendarEvent {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,7 +25,7 @@ public abstract class CalendarEvent {
 	@ManyToOne()
 	protected Calendar calendar;
 
-	public CalendarEvent(LocalDateTime startDate, LocalDateTime endDate) {
+	protected CalendarEvent(LocalDateTime startDate, LocalDateTime endDate) {
 		this.startDate = startDate;
 		this.endDate = endDate;
 	}
