@@ -1,5 +1,6 @@
 package CS5721.project.records.entity;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Records {
@@ -7,13 +8,13 @@ public class Records {
     private int recordId;
     private String recordName;
     private String trainingBody;
-    private Date trainingDate;
-    private Date expiryDate;
+    private LocalDate trainingDate;
+    private LocalDate expiryDate;
     private Boolean completed;
     private long employeeId;
     private String employeeName;
 
-    public Records(int recordId, String recordName, String trainingBody, Date trainingDate, Date expiryDate, Boolean completed, long employeeId, String employeeName) {
+    public Records(int recordId, String recordName, String trainingBody, LocalDate trainingDate, LocalDate expiryDate, Boolean completed, long employeeId, String employeeName) {
         this.recordId = recordId;
         this.recordName = recordName;
         this.trainingBody = trainingBody;
@@ -46,23 +47,24 @@ public class Records {
         this.trainingBody = trainingBody;
     }
 
-    public void setTrainingDate(Date trainingDate) {
+    public void setTrainingDate(LocalDate trainingDate) {
         this.trainingDate = trainingDate;
     }
-    public Date getTrainingDate () {
+    public LocalDate getTrainingDate () {
         return trainingDate;
     }
-    public void setExpiryDate(Date expiryDate) {
+    public void setExpiryDate(LocalDate expiryDate) {
         this.expiryDate = expiryDate;
     }
-    public Date getExpiryDate() {
+    public LocalDate getExpiryDate() {
         return expiryDate;
     }
     public Boolean getCompleted(){
         return completed;
     }
-    public void setCompleted(Boolean completed){
+    public Records setCompleted(Boolean completed){
         this.completed = completed;
+        return null;
     }
     public void setEmployeeId(long employeeId) {
         this.employeeId = employeeId;
