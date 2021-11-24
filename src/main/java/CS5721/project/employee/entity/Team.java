@@ -91,4 +91,14 @@ public class Team extends CompanyEntity {
 		return null;
 	}
 
+	@Override
+	public ArrayList<Employee> getChildrenEntities(ArrayList<Employee> childrenList) {
+		if (!this.companyEntities.isEmpty()) {
+			for (CompanyEntity entity : companyEntities) {
+				childrenList = entity.getChildrenEntities(childrenList);
+			}
+		}
+		return childrenList;
+	}
+
 }

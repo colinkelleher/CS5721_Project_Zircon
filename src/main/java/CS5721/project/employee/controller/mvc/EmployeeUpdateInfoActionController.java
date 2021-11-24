@@ -1,4 +1,4 @@
-package CS5721.project.employee.controller;
+package CS5721.project.employee.controller.mvc;
 
 import javax.inject.Inject;
 

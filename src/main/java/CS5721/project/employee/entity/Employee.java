@@ -3,6 +3,7 @@ package CS5721.project.employee.entity;
 import java.time.DayOfWeek;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Objects;
 
 import javax.persistence.CascadeType;
@@ -147,6 +148,12 @@ public class Employee extends CompanyEntity implements EventListener {
 		// no implementation needed for a leaf in composite pattern, defining child
 		// management in root abstract class gives more transparency but less safety
 		// according to the GoF
+	}
+
+	@Override
+	public ArrayList<Employee> getChildrenEntities(ArrayList<Employee> childrenList) {
+		childrenList.add(this);
+		return childrenList;
 	}
 
 }
