@@ -13,6 +13,7 @@ import CS5721.project.calendar.repository.CalendarRepository;
 import CS5721.project.employee.repository.CompanyEntityRepository;
 import CS5721.project.observer.OPERATIONS;
 import CS5721.project.observer.publisher.EventSystem;
+import CS5721.project.request.observer.service.EventSystemCreateEvent;
 import org.springframework.stereotype.Service;
 
 import CS5721.project.calendar.entity.CalendarEvent;
@@ -28,14 +29,16 @@ public class ClockingService implements IClockingService {
 	public final CalendarRepository calendarRepository;
 	public final CompanyEntityRepository companyEntityRepository;
 	public final CalendarEventRepository calendarEventRepository;
+	public final EventSystemCreateEvent eventSystemCreateEventService;
 
 	@Inject
-	public ClockingService(ClockingInfoRepository clockingInfoRepository, CalendarRepository calendarRepository, CompanyEntityRepository companyEntityRepository, CalendarEventRepository calendarEventRepository) {
+	public ClockingService(ClockingInfoRepository clockingInfoRepository, CalendarRepository calendarRepository, CompanyEntityRepository companyEntityRepository, CalendarEventRepository calendarEventRepository, EventSystemCreateEvent eventSystemCreateEventService) {
 		super();
 		this.clockingInfoRepository = clockingInfoRepository;
 		this.calendarRepository = calendarRepository;
 		this.companyEntityRepository = companyEntityRepository;
 		this.calendarEventRepository = calendarEventRepository;
+		this.eventSystemCreateEventService = eventSystemCreateEventService;
 	}
 
 	public ArrayList<CalendarEvent> getClockingEvents(ClockingInfo clockingInfo, Shift shift) {
@@ -79,7 +82,7 @@ public class ClockingService implements IClockingService {
 			ArrayList<CalendarEvent> listOfEvents = getClockingEvents(clockingInfo, employee.getShift());
 			EventSystem eventSystemInstance = EventSystem.getEventSystemInstance(OPERATIONS.values());
 			for(CalendarEvent event : listOfEvents) {
-				eventSystemInstance.notifyEvent(OPERATIONS.CREATE_EVENT,event, employee.getId());
+				eventSystemCreateEventService.execute(event, employee.getId());
 				calendarEventRepository.save(event);
 			}
 			companyEntityRepository.save(employee);
