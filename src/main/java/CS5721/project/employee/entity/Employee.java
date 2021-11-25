@@ -4,7 +4,6 @@ import java.time.DayOfWeek;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Objects;
 
 import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
@@ -24,16 +23,16 @@ import CS5721.project.reminder.entity.ReminderList;
 @DiscriminatorValue("employee")
 public class Employee extends CompanyEntity implements EventListener {
 
-	@OneToOne(cascade = CascadeType.REMOVE)
+	@OneToOne(cascade = CascadeType.ALL)
 	private Calendar calendar;
 
-	@OneToOne(cascade = CascadeType.REMOVE)
+	@OneToOne(cascade = CascadeType.ALL)
 	private ReminderList reminderList;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	private Shift shift;
 
-	@OneToOne(cascade = CascadeType.REMOVE)
+	@OneToOne(cascade = CascadeType.ALL)
 	private ClockingInfo clockingInfo;
 
 	public Employee(String name, DEPARTMENT department, Shift shift, Calendar calendar, ClockingInfo clockingInfo,
@@ -99,12 +98,12 @@ public class Employee extends CompanyEntity implements EventListener {
 		}
 	}
 
-	@Override
-	public void update(OPERATIONS operation, CalendarEvent event, Long employeeID) {
-		if (Objects.equals(this.getId(), employeeID)) {
-			this.calendar.addEvent(event);
-		}
-	}
+//	@Override
+//	public void update(OPERATIONS operation, CalendarEvent event, Long employeeID) {
+//		if (Objects.equals(this.getId(), employeeID)) {
+//			this.calendar.addEvent(event);
+//		}
+//	}
 
 	@Override
 	public long getWeeklyWorkedHours() {
