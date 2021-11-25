@@ -8,6 +8,7 @@ import javax.inject.Inject;
 
 import CS5721.project.calendar.entity.OvertimeEvent;
 import CS5721.project.calendar.entity.RegularEvent;
+import CS5721.project.calendar.repository.CalendarEventRepository;
 import CS5721.project.calendar.repository.CalendarRepository;
 import CS5721.project.employee.repository.CompanyEntityRepository;
 import CS5721.project.observer.OPERATIONS;
@@ -26,13 +27,15 @@ public class ClockingService implements IClockingService {
 	public final ClockingInfoRepository clockingInfoRepository;
 	public final CalendarRepository calendarRepository;
 	public final CompanyEntityRepository companyEntityRepository;
+	public final CalendarEventRepository calendarEventRepository;
 
 	@Inject
-	public ClockingService(ClockingInfoRepository clockingInfoRepository, CalendarRepository calendarRepository, CompanyEntityRepository companyEntityRepository) {
+	public ClockingService(ClockingInfoRepository clockingInfoRepository, CalendarRepository calendarRepository, CompanyEntityRepository companyEntityRepository, CalendarEventRepository calendarEventRepository) {
 		super();
 		this.clockingInfoRepository = clockingInfoRepository;
 		this.calendarRepository = calendarRepository;
 		this.companyEntityRepository = companyEntityRepository;
+		this.calendarEventRepository = calendarEventRepository;
 	}
 
 	public ArrayList<CalendarEvent> getClockingEvents(ClockingInfo clockingInfo, Shift shift) {
@@ -77,7 +80,7 @@ public class ClockingService implements IClockingService {
 			EventSystem eventSystemInstance = EventSystem.getEventSystemInstance(OPERATIONS.values());
 			for(CalendarEvent event : listOfEvents) {
 				eventSystemInstance.notifyEvent(OPERATIONS.CREATE_EVENT,event, employee.getId());
-				calendarRepository.save(employee.getCalendar());
+				calendarEventRepository.save(event);
 			}
 			companyEntityRepository.save(employee);
 			clockingInfoRepository.save(clockingInfo);
