@@ -32,6 +32,7 @@ public class Calendar {
 
 	public void addEvent(CalendarEvent event) {
 		events.add(event);
+		event.setCalendar(this);
 	}
 
 	public Set<CalendarEvent> getEvents() {
