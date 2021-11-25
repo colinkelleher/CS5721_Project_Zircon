@@ -22,7 +22,7 @@ public class EventSystem extends EventManager {
 		}
 	}
 
-	public void notifyRequestValidation(long eventID, long employeeID){
+	public void notifyRequestValidation(long eventID, long employeeID) {
 		List<EventListener> users = listeners.get(OPERATIONS.VALIDATE_REQUEST);
 		for (EventListener listener : users) {
 			listener.update(OPERATIONS.VALIDATE_REQUEST, eventID, employeeID);

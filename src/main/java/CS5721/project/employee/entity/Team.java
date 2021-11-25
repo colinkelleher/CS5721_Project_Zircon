@@ -15,6 +15,7 @@ import javax.persistence.OrderBy;
 
 import CS5721.project.calendar.entity.Calendar;
 import CS5721.project.clocking.entity.ClockingInfo;
+import CS5721.project.clocking.entity.Shift;
 import CS5721.project.reminder.entity.ReminderList;
 
 @Entity
@@ -42,12 +43,23 @@ public class Team extends CompanyEntity {
 		this.companyEntities = new ArrayList<>();
 	}
 
-	public List<CompanyEntity> getCompanyEntities() {
-		return companyEntities;
+	@Override
+	public long getWeeklyWorkedHours() {
+		long weeklyWorkedHours = 0;
+		for (CompanyEntity companyEntity : this.companyEntities) {
+			weeklyWorkedHours += companyEntity.getWeeklyWorkedHours();
+		}
+		return weeklyWorkedHours;
 	}
 
-	public void setCompanyEntities(List<CompanyEntity> companyEntities) {
-		this.companyEntities = companyEntities;
+	@Override
+	public ArrayList<Employee> getChildrenEntities(ArrayList<Employee> childrenList) {
+		if (!this.companyEntities.isEmpty()) {
+			for (CompanyEntity entity : companyEntities) {
+				childrenList = entity.getChildrenEntities(childrenList);
+			}
+		}
+		return childrenList;
 	}
 
 	@Override
@@ -65,13 +77,12 @@ public class Team extends CompanyEntity {
 		this.companyEntities.remove(companyEntity);
 	}
 
-	@Override
-	public long getWeeklyWorkedHours() {
-		long weeklyWorkedHours = 0;
-		for (CompanyEntity companyEntity : this.companyEntities) {
-			weeklyWorkedHours += companyEntity.getWeeklyWorkedHours();
-		}
-		return weeklyWorkedHours;
+	public List<CompanyEntity> getCompanyEntities() {
+		return companyEntities;
+	}
+
+	public void setCompanyEntities(List<CompanyEntity> companyEntities) {
+		this.companyEntities = companyEntities;
 	}
 
 	@Override
@@ -92,13 +103,8 @@ public class Team extends CompanyEntity {
 	}
 
 	@Override
-	public ArrayList<Employee> getChildrenEntities(ArrayList<Employee> childrenList) {
-		if (!this.companyEntities.isEmpty()) {
-			for (CompanyEntity entity : companyEntities) {
-				childrenList = entity.getChildrenEntities(childrenList);
-			}
-		}
-		return childrenList;
+	public Shift getShift() {
+		return null;
 	}
 
 }
