@@ -22,6 +22,14 @@ public abstract  class CalendarEvent {
 	private LocalDateTime endDate;
 	private boolean approved;
 
+	public Calendar getCalendar() {
+		return calendar;
+	}
+
+	public void setCalendar(Calendar calendar) {
+		this.calendar = calendar;
+	}
+
 	@ManyToOne()
 	protected Calendar calendar;
 

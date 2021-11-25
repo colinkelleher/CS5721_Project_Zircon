@@ -1,9 +1,12 @@
 package CS5721.project;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.inject.Inject;
 
+import CS5721.project.calendar.entity.RegularEvent;
+import CS5721.project.calendar.repository.CalendarEventRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,17 +37,19 @@ public class ZirconWelcomePageController {
 	public final CalendarRepository calendarRepository;
 	public final ClockingInfoRepository clockingInfoRepository;
 	public final ReminderListRepository reminderListRepository;
+	public final CalendarEventRepository calendarEventRepository;
 
 	@Inject
 	public ZirconWelcomePageController(CompanyEntityRepository companyEntityRepository, ShiftRepository shiftRepository,
-			CalendarRepository calendarRepository, ClockingInfoRepository clockingInfoRepository,
-			ReminderListRepository reminderListRepository) {
+									   CalendarRepository calendarRepository, ClockingInfoRepository clockingInfoRepository,
+									   ReminderListRepository reminderListRepository, CalendarEventRepository calendarEventRepository) {
 		super();
 		this.companyEntityRepository = companyEntityRepository;
 		this.shiftRepository = shiftRepository;
 		this.calendarRepository = calendarRepository;
 		this.clockingInfoRepository = clockingInfoRepository;
 		this.reminderListRepository = reminderListRepository;
+		this.calendarEventRepository = calendarEventRepository;
 	}
 
 	@GetMapping(path = "/")
@@ -59,6 +64,12 @@ public class ZirconWelcomePageController {
 		Shift shift1 = chiefExecutive.getShift();
 		shiftRepository.save(shift1);
 		Calendar calendar1 = chiefExecutive.getCalendar();
+		calendarRepository.save(calendar1);
+		RegularEvent regularEvent = new RegularEvent(LocalDateTime.now().withDayOfMonth(1).withHour(8),LocalDateTime.now().withDayOfMonth(1).withHour(17));
+		regularEvent.setCalendar(calendar1);
+		calendarEventRepository.save(regularEvent);
+		calendar1.addEvent(regularEvent);
+		calendarEventRepository.save(regularEvent);
 		calendarRepository.save(calendar1);
 		ClockingInfo clockingInfo1 = chiefExecutive.getClockingInfo();
 		clockingInfoRepository.save(clockingInfo1);
@@ -114,6 +125,9 @@ public class ZirconWelcomePageController {
 		companyEntities.add(businessTeam);
 		companyEntities.add(marketingTeam);
 
+		for(CompanyEntity companyEntity : companyEntities) {
+			companyEntityRepository.save(companyEntity);
+		}
 		companyEntityRepository.save(company);
 
 		return "clock.html";
