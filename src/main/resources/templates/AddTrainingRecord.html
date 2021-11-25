@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <title>Zircon Human Resources Management System</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        h1,h2,footer{
+            text-align: center;
+        }
+        form{
+            align-items: center;
+            justify-content: center;
+            padding: 2em;
+            padding-bottom: 5em;
+            text-align: center;
+        }
+        #title1 {
+            color: white;
+            background-color: black;
+            padding: 1em;
+        }
+        a {
+            color: black;
+            font-weight: bold;
+            text-decoration: none;
+            width: 100%;
+            padding: 2em;
+        }
+        input {
+            display: inline-block;
+            align-items: center;
+            justify-content: center;
+        }
+        .form-item {
+            align-items: center;
+            justify-content: center;
+            padding: 1em;
+            text-align: center;
+        }
+        input[type=submit] {
+            width: 15%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 auto;
+            text-align: center;
+        }
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+        button{
+            background-color: #4CAF50;
+            width:30%;
+            margin-left:35%;
+            margin-right:35%;
+            padding: 1em;
+            margin-bottom: 2em;
+            border: none;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+            align-items: center;
+            justify-content: center;
+        }
+        #form{
+            padding: 1em;
+        }
+    </style>
+</head>
+<body>
+<h1 id="title1">Zircon Human Resources Management System</h1>
+
+<h2>Add a new Training Record</h2>
+
+<form class="form-item" th:action="@{/login}" method="post">
+    <div id="form">
+    <label for="id">Employee ID</label>
+    <input type="text" th:name="recordName" required="true"/>
+    </div>
+    <div id="form">
+    <label for="id">Training Body:</label>
+    <input type="text" th:name="trainingBody" required="true"/>
+    </div>
+    <div id="form">
+        <label for="id">Training Date</label>
+        <input type="date" th:name="trainingDate" required="true"/>
+    </div>
+    <div id="form">
+        <label for="id">Expiry Date</label>
+        <input type="date" th:name="expiryDate" required="true"/>
+    </div>
+    <div id="form">
+        <label for="id">Employee ID</label>
+        <input type="number" th:name="employeeId" required="true"/>
+    </div>
+    <div id="form">
+        <label for="id">Employee Name</label>
+        <input type="text" th:name="employeeName" required="true"/>
+    </div>
+    <div id="form">
+        <label for="id">Completed</label>
+        <input type="checkbox" th:name="completed" required="true"/>
+    </div>
+    <div>
+    <input type="submit" value="Log in"/>
+    </div>
+</form>
+
+
+<button><a th:href="@{${'/'}}">Click here to access Clocking Screen</a></button>
+
+
+
+</body>
+<footer>
+    &copy; Team Zircon 2021
+</footer>
+</html>
