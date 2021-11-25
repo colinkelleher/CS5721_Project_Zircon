@@ -18,6 +18,7 @@ import javax.persistence.Table;
 
 import CS5721.project.calendar.entity.Calendar;
 import CS5721.project.clocking.entity.ClockingInfo;
+import CS5721.project.clocking.entity.Shift;
 import CS5721.project.reminder.entity.ReminderList;
 
 @Entity
@@ -39,7 +40,7 @@ public abstract class CompanyEntity {
 	@Enumerated(EnumType.STRING)
 	private DEPARTMENT department;
 
-	@Column(name = "isEmployee")
+	@Column(name = "is_employee")
 	private Boolean isEmployee;
 
 	public CompanyEntity(String name, DEPARTMENT department) {
@@ -62,6 +63,8 @@ public abstract class CompanyEntity {
 	public abstract ReminderList getReminderList();
 
 	public abstract ClockingInfo getClockingInfo();
+
+	public abstract Shift getShift();
 
 	public abstract void add(CompanyEntity companyEntity);
 

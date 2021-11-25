@@ -15,6 +15,7 @@ import javax.persistence.OrderBy;
 
 import CS5721.project.calendar.entity.Calendar;
 import CS5721.project.clocking.entity.ClockingInfo;
+import CS5721.project.clocking.entity.Shift;
 import CS5721.project.reminder.entity.ReminderList;
 
 @Entity
@@ -88,6 +89,11 @@ public class Team extends CompanyEntity {
 
 	@Override
 	public ClockingInfo getClockingInfo() {
+		return null;
+	}
+
+	@Override
+	public Shift getShift() {
 		return null;
 	}
 

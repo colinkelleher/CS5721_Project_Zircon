@@ -49,13 +49,6 @@ public class Employee extends CompanyEntity implements EventListener {
 
 	}
 
-	public Employee(Long id, String name, DEPARTMENT department, Calendar calendar, Shift shift) {
-		super(name, department);
-		this.calendar = calendar;
-		this.shift = shift;
-		this.clockingInfo = new ClockingInfo();
-	}
-
 	public Employee() {
 		this.calendar = new Calendar();
 		this.reminderList = new ReminderList();
