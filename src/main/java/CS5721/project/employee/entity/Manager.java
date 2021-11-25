@@ -17,7 +17,7 @@ public class Manager extends Employee {
 
 	// Here we link an event to an employeeID
 
-	private final Map<CalendarEvent, Long> requests;
+	private final Map<Long, CalendarEvent> requests;
 
 	public Manager(Long id, String name, DEPARTMENT department, Shift shift, Calendar calendar,
 			ClockingInfo clockingInfo, ReminderList reminderList, EventSystem eventSystem, OPERATIONS[] operations) {
@@ -25,16 +25,16 @@ public class Manager extends Employee {
 		requests = new HashMap<>();
 	}
 
-	public Map<CalendarEvent, Long> getRequests() {
+	public Map<Long, CalendarEvent> getRequests() {
 		return this.requests;
 	}
 
 	public void addRequest(CalendarEvent request, Long employeeID) {
-		this.requests.put(request, employeeID);
+		this.requests.put(employeeID, request);
 	}
 
 	public void deleteRequest(CalendarEvent request) {
-		this.requests.remove(request);
+		this.requests.values().remove(request);
 	}
 
 	@Override
