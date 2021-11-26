@@ -80,7 +80,6 @@ public class ClockingService implements IClockingService {
 		} else if (clockingInfo.getClockingOutTime() == null || !clockingDate.equals(todaysDate)) {
 			clockingInfo.setClockingOutTime(clockingTime);
 			ArrayList<CalendarEvent> listOfEvents = getClockingEvents(clockingInfo, employee.getShift());
-			EventSystem eventSystemInstance = EventSystem.getEventSystemInstance(OPERATIONS.values());
 			for(CalendarEvent event : listOfEvents) {
 				eventSystemCreateEventService.execute(event, employee.getId());
 				calendarEventRepository.save(event);
