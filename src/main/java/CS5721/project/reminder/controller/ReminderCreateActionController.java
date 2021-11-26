@@ -2,6 +2,7 @@ package CS5721.project.reminder.controller;
 
 import CS5721.project.employee.entity.CompanyEntity;
 import CS5721.project.employee.service.EmployeeFinderService;
+import CS5721.project.reminder.repository.ReminderRepository;
 import CS5721.project.reminder.service.ReminderCreateService;
 
 import org.springframework.stereotype.Controller;
@@ -17,12 +18,16 @@ public class ReminderCreateActionController {
 
     public final ReminderCreateService reminderCreateService;
     public final EmployeeFinderService employeeFinderService;
+    public final ReminderRepository reminderRepository;
 
     @Inject
-    public ReminderCreateActionController(ReminderCreateService reminderCreateService, EmployeeFinderService employeeFinderService){
+    public ReminderCreateActionController(ReminderCreateService reminderCreateService,
+                                          EmployeeFinderService employeeFinderService,
+                                          ReminderRepository reminderRepository){
         super();
         this.reminderCreateService = reminderCreateService;
         this.employeeFinderService = employeeFinderService;
+        this.reminderRepository = reminderRepository;
     }
 
     @PostMapping(path = "/createReminder")
@@ -32,6 +37,7 @@ public class ReminderCreateActionController {
 
         CompanyEntity employee = employeeFinderService.execute(employeeId);
         reminderCreateService.execute(employee, title, description, location);
+
 
         return "redirect:" + "/reminderList?employeeId="+ employeeId;
     }

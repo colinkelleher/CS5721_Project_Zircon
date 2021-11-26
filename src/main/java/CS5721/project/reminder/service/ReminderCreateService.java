@@ -3,6 +3,9 @@ package CS5721.project.reminder.service;
 import java.util.Objects;
 
 import CS5721.project.employee.entity.CompanyEntity;
+import CS5721.project.reminder.entity.ReminderList;
+import CS5721.project.reminder.repository.ReminderListRepository;
+import CS5721.project.reminder.repository.ReminderRepository;
 import org.springframework.stereotype.Service;
 
 import CS5721.project.decorator.DescriptionConcreteDecorator;
@@ -14,6 +17,15 @@ import CS5721.project.reminder.entity.Reminder;
 
 @Service
 public class ReminderCreateService {
+
+    public final ReminderRepository reminderRepository;
+    public final ReminderListRepository reminderListRepository;
+
+    public ReminderCreateService(ReminderRepository reminderRepository,
+                                 ReminderListRepository reminderListRepository) {
+        this.reminderRepository = reminderRepository;
+        this.reminderListRepository = reminderListRepository;
+    }
 
     public void execute(CompanyEntity employee, String title, String description, String location) {
 
@@ -33,7 +45,11 @@ public class ReminderCreateService {
         }
 
         Reminder reminder = dReminder.newReminder(dReminder.addDetails(""));
-        employee.getReminderList().addReminder(reminder);
+        ReminderList list = employee.getReminderList();
+        reminder.setReminderList(list);
+        reminderRepository.save(reminder);
+        reminderListRepository.save(list);
+        list.addReminder(reminder);
 
     }
 }

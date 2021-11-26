@@ -33,4 +33,7 @@ public class Reminder extends ReminderAbstract {
 		return details;
 	}
 
+	public void setReminderList(ReminderList reminderList) {
+		this.reminderList = reminderList;
+	}
 }
