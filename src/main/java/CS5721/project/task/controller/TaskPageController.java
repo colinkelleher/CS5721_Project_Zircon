@@ -28,7 +28,8 @@ public class TaskPageController {
     public String welcomePage(Model model, @RequestParam Long employeeId) {
         CompanyEntity employee = employeeFinderService.execute(employeeId);
         String employeeName = employee.getName();
-        ArrayList<Task> tasks = taskService.getAllTasks();
+        //ArrayList<Task> tasks = taskService.getAllTasks();
+        ArrayList<Task> tasks = taskService.getEmployeeTasks(employeeId);
         model.addAttribute("employeeName", employeeName);
         model.addAttribute("employeeId", employeeId);
         model.addAttribute("tasks",tasks);

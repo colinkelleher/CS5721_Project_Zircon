@@ -16,11 +16,28 @@ public class TaskDAOimpl implements TaskDAO<Task> {
         taskList.add(task2);
         Task task3 = new Task(3, "Research", "Research Assignment", "Colin", 2L,LocalDateTime.of(2021,11,20,9,0),LocalDateTime.of(2021,11,25,18,0),true);
         taskList.add(task3);
+        Task task4 = new Task(4, "Research", "Research Assignment", "Kate", 18L,LocalDateTime.of(2021,11,25,14,0),LocalDateTime.of(2021,11,25,18,0),false);
+        taskList.add(task4);
     }
 
 
     public ArrayList<Task> findAllTasks() {
         return (ArrayList<Task>) taskList;
+    }
+
+    @Override
+    public ArrayList<Task> findEmployeeTasks(Long employeeId) {
+
+        ArrayList<Task> _taskList = new ArrayList<Task>();
+
+        for (Task task : taskList){
+            Long id = task.getEmployeeId();
+            if (id.equals(employeeId)){
+                _taskList.add(task);
+            }
+        }
+
+        return _taskList;
     }
 
     @Override

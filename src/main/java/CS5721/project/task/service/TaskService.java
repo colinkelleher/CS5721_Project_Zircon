@@ -19,5 +19,9 @@ public class TaskService {
         return  taskDAO.findAllTasks();
     }
 
+    public ArrayList<Task> getEmployeeTasks(Long id){
+        return taskDAO.findEmployeeTasks(id);
     }
+
+}
 
