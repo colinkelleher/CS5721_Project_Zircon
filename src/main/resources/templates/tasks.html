@@ -66,7 +66,15 @@
 <body>
 <h1 id="title1">Zircon Human Resources Management System</h1>
 
-<h1>Welcome the current list of tasks <span  th:text="${employeeName}"></span></h1>
+<h1>Welcome <span  th:text="${employeeName}"></span>, here is your personal list of tasks </h1>
+<br>
+<br>
+<button><a th:href="@{${'/tasks?employeeId=' + employeeId + '&all=true'}}">Display the full list of Tasks</a></button>
+<br>
+<br>
+<button><a th:href="@{${'/tasks?employeeId=' + employeeId + '&all=false'}}">Display only your Tasks</a></button>
+<br>
+<br>
 <table>
     <tr>
         <th>Task ID</th>

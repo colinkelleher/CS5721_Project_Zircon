@@ -67,6 +67,14 @@
 <h1 id="title1">Zircon Human Resources Management System</h1>
 
 <h1>Welcome <span  th:text="${employeeName}"></span>, Here you can view all the Training Records</h1>
+<br>
+<br>
+<button><a th:href="@{${'/records?employeeId=' + employeeId + '&all=true'}}">Display the full list of Records</a></button>
+<br>
+<br>
+<button><a th:href="@{${'/records?employeeId=' + employeeId + '&all=false'}}">Display only your Records</a></button>
+<br>
+<br>
 <table>
     <tr>
         <th>Record ID</th>

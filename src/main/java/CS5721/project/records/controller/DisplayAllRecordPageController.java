@@ -25,11 +25,15 @@ public class DisplayAllRecordPageController {
     }
 
     @GetMapping(path = "/records")
-    public String recordsPage(Model model , @RequestParam Long employeeId) {
+    public String recordsPage(Model model , @RequestParam Long employeeId, @RequestParam(required = false) boolean all) {
         CompanyEntity employee = employeeFinderService.execute(employeeId);
         String employeeName = employee.getName();
-        //ArrayList<Records> records = recordsService.findAllRecords();
-        ArrayList<Records> records = recordsService.findEmployeeRecords(employeeId);
+        ArrayList<Records> records;
+        if(all){
+            records = recordsService.findAllRecords();
+        }else {
+            records = recordsService.findEmployeeRecords(employeeId);
+        }
         model.addAttribute("employeeName",employeeName);
         model.addAttribute("employeeId", employeeId);
         model.addAttribute("records",records);

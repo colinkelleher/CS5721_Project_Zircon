@@ -25,11 +25,16 @@ public class TaskPageController {
     }
 
     @GetMapping(path = "/tasks")
-    public String welcomePage(Model model, @RequestParam Long employeeId) {
+    public String welcomePage(Model model, @RequestParam Long employeeId, @RequestParam(required = false) boolean all) {
         CompanyEntity employee = employeeFinderService.execute(employeeId);
         String employeeName = employee.getName();
-        //ArrayList<Task> tasks = taskService.getAllTasks();
-        ArrayList<Task> tasks = taskService.getEmployeeTasks(employeeId);
+        ArrayList<Task> tasks;
+        if(all){
+            tasks = taskService.getAllTasks();
+        }else{
+            tasks = taskService.getEmployeeTasks(employeeId);
+        }
+
         model.addAttribute("employeeName", employeeName);
         model.addAttribute("employeeId", employeeId);
         model.addAttribute("tasks",tasks);
