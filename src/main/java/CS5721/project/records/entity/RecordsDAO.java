@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public interface RecordsDAO<T> {
     ArrayList<T> findAllRecords();
+    ArrayList<T> findEmployeeRecords(Long employeeId);
     void deleteRecords(T t);
     Records getRecords(int recordId);
     Records setCompleted(int recordId);

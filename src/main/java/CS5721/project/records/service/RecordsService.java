@@ -16,4 +16,8 @@ public class RecordsService {
     public ArrayList<Records> findAllRecords(){
         return recordsDAO.findAllRecords();
     }
+
+    public ArrayList<Records> findEmployeeRecords(Long employeeId){
+        return recordsDAO.findEmployeeRecords(employeeId);
+    }
 }

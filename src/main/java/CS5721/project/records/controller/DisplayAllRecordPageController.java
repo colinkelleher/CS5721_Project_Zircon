@@ -28,7 +28,8 @@ public class DisplayAllRecordPageController {
     public String recordsPage(Model model , @RequestParam Long employeeId) {
         CompanyEntity employee = employeeFinderService.execute(employeeId);
         String employeeName = employee.getName();
-        ArrayList<Records> records = recordsService.findAllRecords();
+        //ArrayList<Records> records = recordsService.findAllRecords();
+        ArrayList<Records> records = recordsService.findEmployeeRecords(employeeId);
         model.addAttribute("employeeName",employeeName);
         model.addAttribute("employeeId", employeeId);
         model.addAttribute("records",records);
