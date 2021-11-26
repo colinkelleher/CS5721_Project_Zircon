@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import CS5721.project.employee.entity.CompanyEntity;
 import CS5721.project.employee.entity.Employee;
 import CS5721.project.employee.service.EmployeeFinderService;
+import CS5721.project.reminder.entity.ReminderAbstract;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

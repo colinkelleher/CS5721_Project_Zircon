@@ -1,6 +1,11 @@
 package CS5721.project.reminder.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
 public abstract class ReminderAbstract {
+
+	@Column(name = "details")
 	String details = "";
 
 	public String addDetails(String detail) {

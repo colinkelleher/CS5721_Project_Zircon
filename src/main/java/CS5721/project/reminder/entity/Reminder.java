@@ -1,10 +1,6 @@
 package CS5721.project.reminder.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Reminder extends ReminderAbstract {
@@ -12,6 +8,9 @@ public class Reminder extends ReminderAbstract {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+
+	@Column(name = "details")
+	private String details;
 
 	@ManyToOne()
 	protected ReminderList reminderList;
@@ -36,4 +35,6 @@ public class Reminder extends ReminderAbstract {
 	public void setReminderList(ReminderList reminderList) {
 		this.reminderList = reminderList;
 	}
+
+
 }
