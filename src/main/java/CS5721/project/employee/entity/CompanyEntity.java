@@ -40,9 +40,6 @@ public abstract class CompanyEntity {
 	@Enumerated(EnumType.STRING)
 	private DEPARTMENT department;
 
-	@Column(name = "is_employee")
-	private Boolean isEmployee;
-
 	public CompanyEntity(String name, DEPARTMENT department) {
 		this.name = name;
 		this.department = department;
@@ -92,14 +89,6 @@ public abstract class CompanyEntity {
 
 	public void setDepartment(DEPARTMENT department) {
 		this.department = department;
-	}
-
-	public Boolean getIsEmployee() {
-		return isEmployee;
-	}
-
-	public void setIsEmployee(Boolean isEmployee) {
-		this.isEmployee = isEmployee;
 	}
 
 }
