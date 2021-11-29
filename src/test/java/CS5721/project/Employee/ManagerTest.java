@@ -1,6 +1,12 @@
 package CS5721.project.Employee;
 
+import CS5721.project.builder.Director;
+import CS5721.project.builder.EmployeeBuilder;
+import CS5721.project.builder.ManagerBuilder;
+import CS5721.project.calendar.entity.OvertimeEvent;
+import CS5721.project.employee.entity.Manager;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import CS5721.project.EmployeeData;
@@ -10,8 +16,15 @@ import CS5721.project.employee.entity.Employee;
 import CS5721.project.observer.OPERATIONS;
 
 public class ManagerTest {
-	Employee new_manager = new Employee(1223544L, "Test Manager", DEPARTMENT.RESEARCH_DEPARTMENT, new Shift(), null,
-			null, null, EmployeeData.getEventSystem(), OPERATIONS.values());
+	private static Manager new_manager;
+	@BeforeAll
+	static void setUp() {
+		Director director = new Director();
+		ManagerBuilder managerBuilder = new ManagerBuilder();
+
+		director.constructNameOnly(managerBuilder,"Test Employee");
+		new_manager = managerBuilder.getResult();
+	}
 
 	@Test
 	public void testManagerID() {

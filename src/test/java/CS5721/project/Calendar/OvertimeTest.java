@@ -2,7 +2,10 @@ package CS5721.project.Calendar;
 
 import java.time.LocalDateTime;
 
+import CS5721.project.builder.Director;
+import CS5721.project.builder.EmployeeBuilder;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import CS5721.project.calendar.entity.CalendarEvent;
@@ -17,17 +20,23 @@ public class OvertimeTest {
 	public static final long ID = 122354L;
 	public static final LocalDateTime EVENT_START_DATE = LocalDateTime.of(2021, 11, 5, 9, 0);
 	public static final LocalDateTime EVENT_END_DATE = LocalDateTime.of(2021, 11, 5, 18, 30);
+	private static OvertimeEvent overtimeEvent;
+	private static Employee new_employee;
 
 	// First we create the eventSystem and we assign to it the different operations
 	// possible
 	EventSystem eventSystem = new EventSystem(OPERATIONS.values());
 
-	// Then we create our employee and pass as parameter the eventSystem, as well as
-	// an array of Operations we want
-	// the employee to subscribe to : here it is only the CREATE_EVENT
-	Employee new_employee = new Employee(ID, "Test Employee", DEPARTMENT.RESEARCH_DEPARTMENT, new Shift(), eventSystem,
-			new OPERATIONS[] { OPERATIONS.CREATE_EVENT });
-	CalendarEvent overtimeEvent = new OvertimeEvent(EVENT_START_DATE, EVENT_END_DATE, 1L);
+
+	@BeforeAll
+	static void setUp() {
+		Director director = new Director();
+		EmployeeBuilder employeeBuilder = new EmployeeBuilder();
+
+		director.constructNameAndID(employeeBuilder,"Test Employee", ID);
+		new_employee = employeeBuilder.getResult();
+		overtimeEvent = new OvertimeEvent(EVENT_START_DATE, EVENT_END_DATE);
+	}
 
 	@Test
 	public void overtimeTest() {
