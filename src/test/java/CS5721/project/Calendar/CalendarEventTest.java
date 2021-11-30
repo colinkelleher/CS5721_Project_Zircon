@@ -2,26 +2,22 @@ package CS5721.project.Calendar;
 
 import java.time.LocalDateTime;
 
-import CS5721.project.builder.Director;
-import CS5721.project.builder.EmployeeBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import CS5721.project.EmployeeData;
+import CS5721.project.builder.Director;
+import CS5721.project.builder.EmployeeBuilder;
 import CS5721.project.calendar.entity.Calendar;
 import CS5721.project.calendar.entity.CalendarEvent;
 import CS5721.project.calendar.entity.OvertimeEvent;
-import CS5721.project.clocking.entity.Shift;
-import CS5721.project.employee.entity.DEPARTMENT;
 import CS5721.project.employee.entity.Employee;
-import CS5721.project.observer.OPERATIONS;
 
 public class CalendarEventTest {
 	static Employee new_employee;
 	public static final LocalDateTime EVENT_START_DATE = LocalDateTime.of(2021, 11, 5, 9, 0);
 	public static final LocalDateTime EVENT_END_DATE = LocalDateTime.of(2021, 11, 5, 18, 30);
-	static Calendar calendar1 ;
+	static Calendar calendar1;
 	static CalendarEvent overtimeEvent;
 
 	@BeforeAll
@@ -29,7 +25,7 @@ public class CalendarEventTest {
 		Director director = new Director();
 		EmployeeBuilder employeeBuilder = new EmployeeBuilder();
 
-		director.constructNameOnly(employeeBuilder,"Test Employee");
+		director.constructNameOnly(employeeBuilder, "Test Employee");
 		new_employee = employeeBuilder.getResult();
 		calendar1 = new_employee.getCalendar();
 		overtimeEvent = new OvertimeEvent(EVENT_START_DATE, EVENT_END_DATE);

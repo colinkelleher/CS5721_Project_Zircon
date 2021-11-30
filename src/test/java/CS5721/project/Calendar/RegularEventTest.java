@@ -2,28 +2,17 @@ package CS5721.project.Calendar;
 
 import java.time.LocalDateTime;
 
-import CS5721.project.builder.Director;
-import CS5721.project.builder.EmployeeBuilder;
-import CS5721.project.calendar.entity.OvertimeEvent;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import CS5721.project.EmployeeData;
-import CS5721.project.calendar.entity.CalendarEvent;
 import CS5721.project.calendar.entity.RegularEvent;
-import CS5721.project.clocking.entity.Shift;
-import CS5721.project.employee.entity.DEPARTMENT;
-import CS5721.project.employee.entity.Employee;
-import CS5721.project.observer.OPERATIONS;
-import CS5721.project.observer.publisher.EventSystem;
 
 public class RegularEventTest {
 	public static final long ID = 1223L;
 	public static final LocalDateTime EVENT_START_DATE = LocalDateTime.of(2021, 11, 5, 18, 0);
 	public static final LocalDateTime EVENT_END_DATE = LocalDateTime.of(2021, 11, 5, 22, 0);
 	private static RegularEvent regularEvent;
-
 
 	@BeforeAll
 	static void setUp() {
