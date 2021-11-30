@@ -17,8 +17,8 @@ import CS5721.project.employee.entity.Team;
 
 public class CompanyEntityWeeklyWorkedHoursTest {
 
-	static LocalDateTime EVENT_START_DATE = LocalDateTime.of(2021, 11, 23, 9, 0);
-	static LocalDateTime EVENT_END_DATE = LocalDateTime.of(2021, 11, 23, 18, 45);
+	static LocalDateTime EVENT_START_DATE = LocalDateTime.now().minusHours(9);
+	static LocalDateTime EVENT_END_DATE = LocalDateTime.now();
 
 	static Team superTeam;
 	static Team redTeam;
